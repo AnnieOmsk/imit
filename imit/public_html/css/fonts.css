@@ -29,6 +29,16 @@
   font-variant:normal;
 }
 @font-face {
+  font-family: 'PTSerifBold';
+  src: url("../fonts/PT-Serif/Bold/ptf75f.eot");
+  src: url("../fonts/PT-Serif/Bold/ptf75f.eot?#iefix") format('embedded-opentype'),
+  url("../fonts/PT-Serif/Bold/ptf75f.woff") format('woff'),
+  url("../fonts/PT-Serif/Bold/ptf75f.ttf") format('truetype'),
+  url("../fonts/PT-Serif/Bold/ptf75f.swg#PTSerifBold") format('svg');
+  font-style:normal;
+  font-variant:normal;
+}
+@font-face {
   font-family: 'PTSerifItalic';
   src: url("../fonts/PT-Serif/Italic/ptf56f.eot");
   src: url("../fonts/PT-Serif/Italic/ptf56f.eot?#iefix") format('embedded-opentype'),
@@ -38,3 +48,4 @@
   font-style:normal;
   font-variant:normal;
 }
+
