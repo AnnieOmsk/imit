@@ -1,0 +1,40 @@
+@font-face {
+  font-family: 'RobotoRegular';
+  src: url("../fonts/Roboto/Regular/roboto-regular.eot");
+  src: url("../fonts/Roboto/Regular/roboto-regular.eot?#iefix") format('embedded-opentype'),
+  url("../fonts/Roboto/Regular/roboto-regular.woff") format('woff'),
+  url("../fonts/Roboto/Regular/roboto-regular.ttf") format('truetype'),
+  url("../fonts/Roboto/Regular/roboto-regular.swg#RobotoRegular") format('svg');
+  font-style:normal;
+  font-variant:normal;
+}
+@font-face {
+  font-family: 'RobotoLight';
+  src: url("../fonts/Roboto/Ligth/roboto-light.eot");
+  src: url("../fonts/Roboto/Ligth/roboto-light.eot?#iefix") format('embedded-opentype'),
+  url("../fonts/Roboto/Ligth/roboto-light.woff") format('woff'),
+  url("../fonts/Roboto/Ligth/roboto-light.ttf") format('truetype'),
+  url("../fonts/Roboto/Ligth/roboto-light.swg#RobotoLight") format('svg');
+  font-style:normal;
+  font-variant:normal;
+}
+@font-face {
+  font-family: 'PTSerifRegular';
+  src: url("../fonts/PT-Serif/Regular/ptf55f.eot");
+  src: url("../fonts/PT-Serif/Regular/ptf55f.eot?#iefix") format('embedded-opentype'),
+  url("../fonts/PT-Serif/Regular/ptf55f.woff") format('woff'),
+  url("../fonts/PT-Serif/Regular/ptf55f.ttf") format('truetype'),
+  url("../fonts/PT-Serif/Regular/ptf55f.swg#PTSerifRegular") format('svg');
+  font-style:normal;
+  font-variant:normal;
+}
+@font-face {
+  font-family: 'PTSerifItalic';
+  src: url("../fonts/PT-Serif/Italic/ptf56f.eot");
+  src: url("../fonts/PT-Serif/Italic/ptf56f.eot?#iefix") format('embedded-opentype'),
+  url("../fonts/PT-Serif/Italic/ptf56f.woff") format('woff'),
+  url("../fonts/PT-Serif/Italic/ptf56f.ttf") format('truetype'),
+  url("../fonts/PT-Serif/Italic/ptf56f.swg#PTSerifItalic") format('svg');
+  font-style:normal;
+  font-variant:normal;
+}

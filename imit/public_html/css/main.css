@@ -6,23 +6,47 @@ body {
 }
 /*
     header style
+    пороботать с тенями и светом
 */
 header {
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 380px;
+    height: 368px;
     background-image: url(../img/header_bg.png);
 }
+.header__light {
+    position: absolute;
+    margin: -25px 489px;
+    width: 2px;  
+    height: 2px;
+    background-color: #FFF;
+    border-radius: 100px;
+    box-shadow: 0 0 285px 284px rgba(203, 187, 224, 0.34);
+    /* opacity: 0.30; */ /* Mozilla Firefox, Google Chrome, Opera и Safari */
+    filter: alpha(opacity=70); /*Internet Explorer 5,6,7 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; /*Explorer 8 */
+}
+.header-bottom {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 19px;
+    background-image: url(../img/header_bottom.png);
+}
 .header__content {
+   position: relative;
    margin: 0 auto;
    padding: 0;
    width: 980px;
    height: 380px;
 }
 .header__social {
-    margin: 0;
+    position: relative;
+    margin: 51px 0px 0px 0px;
     padding: 0;
+    float: right;
+    clear: left;
 }
 .social__button {
     margin: 0 6px;
@@ -38,69 +62,177 @@ header {
     margin: 8px auto;
 }
 #logo {
-    margin: 0;
-    padding: 0; 
+    position: relative;
+    margin: 0px 92px;
+    margin-bottom: 95px;
+    padding: 0;
+    top: 20px;
 }
 .header__title1 {
+    position: relative;
     margin: 0;
     padding: 0;
+    clear: right;
+    font: 15px RobotoRegular;
+    color: #ffe2cc;
+    top: -27px;
 }
 
-.header__title1  {
+.header__title2  {
+    position: relative;
     margin: 0;
     padding: 0;
+    font: 23px PTSerifRegular;
+    color: #ffe2cc;
+    top: -18px;
 }
 .menu {
+    position: relative;
     margin: 0;
     padding: 0;
+    list-style: none;
+    display: inline-block;
 }
 .menu-item {
     margin: 0;
     padding: 0;
+    display: inline-block;
 }
 
 .menu-item__button {
+    color: #ffe2cc;
+    font: 16px RobotoLight;
     margin: 0;
-    padding: 0;
+    margin-right: 14px;
+    padding: 0px 32px;
+    display: block;
+    text-decoration: none;
+    overflow: hidden;
+    background-color: #403b52;
+    /* width: auto; */
+    height: 50px;
+    border-radius: 25px;
+    box-shadow: inset #222 0 0 6px 1px, #AAA 0 0 8px 0px;
+    text-align: center;
+    line-height: 51px;
+    cursor: pointer;
+}
+.menu-item__button:hover {
+    color: #ffce80;
+}
+.contacts {
+    text-align: left;
+    position: relative;
+    float: right;
+}
+.text-contacts {
+    color: #ffe2cc;
+    font: 14px Roboto;
+    margin: 0;
+}
+.number-contacts {
+    color: #ffe2cc;
+    font: 21px Roboto;
+    margin: 0;
 }
 /*
     content style
 */
 #content {    
+    position: relative;
     margin: 0 auto;
     padding: 0;
     width: 980px;
     height: auto;
-    background-color: #0F0;    
+    background-color: #E3E9D0;    
 }
 
+.left-slide {
+    width: 80px; 
+    height: 513px;
+    float: left;
+}
+.right-slide {
+    background-position: center;
+    width: 80px;
+    height: 513px;
+    float: right;
+}
+
+.left-slide:hover, .right-slide:hover {
+    background-color: #AAA;
+}
+.left-arrow {
+    position: relative;  
+    top: 194px;
+}
+.right-arrow {
+    position: relative; 
+    top: 196px;
+}
 .stories-slider {
     margin: 0;
     padding: 0;
+    height: 513px;
+    list-style: none; 
+    display: block;
+    /* background-color: #EEE; */
 }
 .story-slide {
     margin: 0;
     padding: 0;
+    text-align: left;
 }
 .story-slider__photo {
     margin: 0;
+    margin-top: 53px;
+    margin-left: 32px;
+    margin-right: 50px;
     padding: 0;
+    width: 398px;
+    height: 398px;
+    border-radius: 210px;
+    background-color: #AAA;
+    float: left;
+}
+.story-slider__info {
+    width: 340px;
+    position: relative;
+    margin: 0; 
+    /* margin-top: 0px; */ 
+    /* margin-left: 0px; */ padding: 0; 
+    text-align: left;
+    top: 90px;
+    display: inline-block;
 }
 .story-slider__citation {
     margin: 0;
+    margin-bottom: 30px;
     padding: 0;
+    font: 32px PTSerifItalic;
+    color: #5A4866;
+    
+    display: inline;
 }
 .story-slider__name {
     margin: 0;
     padding: 0;
+    font: 18px RobotoRegular;
+    display: inline;
 }
 .story-slider__about {
     margin: 0;
     padding: 0;
+    font: 14px RobotoLight;
+    color: #3b3544;
+    display: inline;
 }
 .story-slide_all-stories {
     margin: 0;
     padding: 0;
+    font: 16px RobotoRegular;
+    color: #a07d61;
+    display: inline;
 }
 /*
     footer style
