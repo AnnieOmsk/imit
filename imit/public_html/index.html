@@ -6,9 +6,12 @@
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/fonts.css">
+        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+        <script type="text/javascript" src="js/slider.js"></script>
+        <script src="js/jflow.plus.js"></script>
     </head>
     <body>
-        <header>
+        <div id="header">
             <div class="header__content">
                 <div class="header__light"></div>
                 <div class="header__social">
@@ -18,35 +21,35 @@
                 <h1 class="header__title1">Омский государственный университет им. Ф.М. Достоевского</h1>
                 <h2 class="header__title2">Институт Математики и Информационных Технологий</h2>
                 <img id="logo" src="img/logo.png" alt="ИМИТ">
-                <div class="contacts">
-                    <p class="text-contacts">деканат: <nobr class="number-contacts">64-42-38</nobr></p>
-                    <p class="text-contacts">приемная коммиссия: <nobr class="number-contacts">22-97-72</nobr></p>
-                </div>
                 <ul class="menu">
                     <li class="menu-item">
                         <a href="#" class="menu-item__button">Хочу поступить!</a>
                     </li>
                     <li class="menu-item">
-                        <a href="#" class="menu-item__button">Об инстетуте</a>
+                        <a href="index.html" class="menu-item__button menu-item__button__active-page">Об инстетуте</a>
                     </li>
                     <li class="menu-item">
-                        <a href="#" class="menu-item__button">Выпускники</a>
+                        <a href="graduates.html" class="menu-item__button">Выпускники</a>
                     </li>
                     <li class="menu-item">
                         <a href="#" class="menu-item__button">Контакты</a>
                     </li>
                 </ul>
+                 <div class="header__contacts">
+                    <p class="text-contacts">деканат: <nobr class="number-contacts">64-42-38</nobr></p>
+                    <p class="text-contacts">приемная коммиссия: <nobr class="number-contacts">22-97-72</nobr></p>
+                </div>
             </div>
-        </header>
+        </div>
         <div class="header-bottom"></div>
         <div id="content">
             <div class="left-slide">
                 <img class="left-arrow" src="img/left_arrow.png" alt="<">
             </div>
-            <div class="right-slide">
+            <div class="right-slide" >
                 <img class="right-arrow" src="img/right_arrow.png" alt=">">
             </div>
-            <ul class="stories-slider">
+            <ul class="stories-slider" id="slider">
                 <li class="story-slide">
                     <div class="story-slider__photo"></div>
                     <div class="story-slider__info">
@@ -62,15 +65,55 @@
                         <a href="#" class="story-slide__all-stories">читать все истории</a>
                     </div>
                 </li>
+                <li class="story-slide">
+                    <div class="story-slider__photo"></div>
+                    <div class="story-slider__info">
+                        <p class="story-slider__citation">"2222222"</p>
+                        </br>
+                        </br>
+                        <h4 class="story-slider__name">Иван Иванов</h4>
+                        </br>
+                        <p class="story-slider__about">Краткая информация</p>
+                        </br>
+                        </br>
+                        </br>
+                        <a href="#" class="story-slide__all-stories">читать все истории</a>
+                    </div>
+                </li>
+                <li class="story-slide">
+                    <div class="story-slider__photo"></div>
+                    <div class="story-slider__info">
+                        <p class="story-slider__citation">"3333333"</p>
+                        </br>
+                        </br>
+                        <h4 class="story-slider__name">Иван Иванов</h4>
+                        </br>
+                        <p class="story-slider__about">Краткая информация</p>
+                        </br>
+                        </br>
+                        </br>
+                        <a href="#" class="story-slide__all-stories">читать все истории</a>
+                    </div>
+                </li>
             </ul>
+            <div id="myController">
+   <span class="jFlowControl"></span>
+   <span class="jFlowControl"></span>
+   <span class="jFlowControl"></span>
+</div>
             <hr class="content__line">
             <div class="main-text">
                 <h3 class="main-text__title">Что такое ИМИТ?</h3>
-                <p class="main-text__info">Институт Математики и информационных технологий (ранее — математический факультет) — для тех, кто отличает аксиому от теоремы, для тех, кто любит решать трудные задачи и не боится их. У нас 99 мест планового приема. Чтобы попасть на них, нужно быть в первых двух-трех сотнях омских школьников по результатам ЕГЭ (математика). 
-</p>
+                <p class="main-text__info">
+                    Институт Математики и информационных технологий (ранее — математический факультет) — для тех, 
+                    кто отличает аксиому от теоремы, для тех, кто любит решать трудные задачи и не боится их. 
+                    У нас 99 мест планового приема. Чтобы попасть на них, нужно быть в первых двух-трех сотнях 
+                    омских школьников по результатам ЕГЭ (математика). 
+                </p>
             </div>
             <h3 class="branches-tiitle">Три специальности и множество специализаций</h3>
             <div class="branches">
+                 <div class="header__light"></div>
                 <ul class="branches-list">
                     <li class="branches-list__item">
                         <div class="branches-list__img">
@@ -97,29 +140,57 @@
             </div>
             
             <div class="info">
-                <h3 class="info__header"></h3>
-                <p class="info__text"><p>
+                <h3 class="info__header">Высококвалифицированные преподаватели</h3>
+                <p class="info__text">
+                    На девяти кафедрах факультета работают полтора десятка докторов наук, 
+                    большинство остальных   преподавателей – доценты, кандидаты наук.
+                <p>
             </div>
             <div class="info">
-                <h3 class="info__header"></h3>
-                <p class="info__text"><p>
+                <h3 class="info__header">Перспективы трудоустройства</h3>
+                <p class="info__text">
+                    Судя по обращениям на факультет работодателей, потребность в выпускниках матфака испытывают банки, 
+                    страховые и инвестиционные компаниии, коммерческие фирмы, различные фонды, Администрация города, 
+                    Правительство Омской области, учебные и научные учреждения, конструкторские бюро и промышленные предприятия. 
+                    Выпускники факультета легко найдут себе работу по специальности не только в нашем регионе, но и за его пределами, в том числе в США, 
+                    Великобритании, Канаде или Германии. 
+                <p>
             </div>
             
             <ul class="stories-list">
-                <li class="story-list__item">
-                    <h3 class="story-list__citation">citation</h3>
-                    <img class="story-list__photo" src="">
-                    <h4 class="story-list__name"></h4>
-                    <p class="story-list__about"></p>
-                    first story
+                <li class="stories-list__item">
+                    <h3 class="stories-list__citation">"Матфак подарил мне лучшие годы моей жизни"</h3>
+                    <div class="stories-list__photo"></div>
+                    <h4 class="stories-list__name">Иван Иванов,</h4>
+                    <p class="stories-list__about">Директор компании Google</p>
                 </li>
+                <li class="stories-list__item">
+                    <h3 class="stories-list__citation">"Не представляю свою судьбу без математики"</h3>
+                    <div class="stories-list__photo"></div>
+                    <h4 class="stories-list__name">Иван Иванов,</h4>
+                    <p class="stories-list__about">Директор компании Google</p>
+                </li>
+                <li class="stories-list__item stories-list__item-last">
+                    <h3 class="stories-list__citation">"Выпускники ИМИТа - желанные сотрудники"</h3>
+                    <div class="stories-list__photo"></div>
+                    <h4 class="stories-list__name">Иван Иванов,</h4>
+                    <p class="stories-list__about">Директор компании Google</p>
+                </li>                
             </ul>
-            <a href="#" class="all-stories"></a>  
+            <a href="#" class="all-stories">Читать все истории</a>  
         </div>      
-        <footer>
-            <p>2013 ИМИТ ОмГУ им. Ф.М.Достоевского</p>
-            <div class="contacts"></div>
-            <div class="header__social"></div>    
-        </footer>
+        <div id="footer">
+             <div class="footer__content">
+                <p class="footer__anotation">2013 ИМИТ ОмГУ им. Ф.М.Достоевского</p>
+                <div class="footer__contacts">
+                    <p class="text-contacts">деканат: <nobr class="number-contacts">64-42-38, 22-56-96</nobr></p>
+                    <p class="text-contacts">приемная коммиссия: <nobr class="number-contacts">22-97-72</nobr></p>
+                </div>
+                <div class="footer__social">
+                    <div class="social__button"><img class="social__button__logo" src="img/twitter.png" alt="tw"></div>
+                    <div class="social__button"><img class="social__button__logo" src="img/vk.png" alt="vk"></div>
+                </div>  
+             </div>
+        </div>
     </body>
 </html>

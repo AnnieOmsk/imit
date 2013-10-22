@@ -1,0 +1,51 @@
+
+.stories-list__all-story {
+    position: relative;
+    padding: 60px;
+    margin: 0;
+    width: 860px;
+    
+    height: 800px;
+    background-color: #FBF2E8;
+}
+.all-story__item {
+    margin: 30px auto;
+    padding: 0;
+    width: 290px;
+    display: inline-block;
+    border-right: 2px solid #d1ccd0;
+}
+
+.all-story__citation {
+    margin: 0;
+    padding: 0;
+    font: 24px PTSerifItalic;
+    color: #5A4866;
+}
+.all-story__avatar {
+    margin: 0;
+    position: relative;
+    
+    float: left;
+}
+.all-story__photo {
+    margin: 0 auto;
+    width: 308px;
+    height: 308px;
+    border-radius: 200px;
+    background-color: #AAA;  
+}
+
+.all-story__name {
+    margin: 0;
+    padding: 0;
+    font: 15px PTSerifBold;
+    color: #3A3443;
+}
+
+.all-story__about {
+    margin: 0;
+    padding: 0;
+    font: 15px RobotoLigth;
+    color: #544F5B;
+}
