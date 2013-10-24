@@ -1,12 +1,13 @@
 
 .stories-list__all-story {
     position: relative;
-    padding: 60px;
+    padding: 60px 60px 60px 0px;
     margin: 0;
-    width: 860px;
-    
-    height: 800px;
+    width: 920px;
+    overflow: hidden;
+    height: auto;
     background-color: #FBF2E8;
+    display: inline-block;
 }
 .all-story__item {
     margin: 30px auto;
@@ -14,6 +15,9 @@
     width: 290px;
     display: inline-block;
     border-right: 2px solid #d1ccd0;
+}
+.stories-list__item:hover {
+    background-color: #FBF2E8;
 }
 
 .all-story__citation {
@@ -23,17 +27,18 @@
     color: #5A4866;
 }
 .all-story__avatar {
-    margin: 0;
+    margin: 0px 60px;
     position: relative;
     
     float: left;
 }
 .all-story__photo {
     margin: 0 auto;
-    width: 308px;
-    height: 308px;
+    width: 296px;
+    height: 296px;
     border-radius: 200px;
     background-color: #AAA;  
+    display: block;
 }
 
 .all-story__name {
@@ -48,4 +53,62 @@
     padding: 0;
     font: 15px RobotoLigth;
     color: #544F5B;
+}
+
+.all-story__triangle-left {
+    width: 0;
+    height: 0;
+    margin-left: 144px;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 40px solid #FBF2E8;
+    clear: both;
+}
+.all-story__triangle-center {
+    width: 0;
+    height: 0;
+    margin: 0 auto;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 40px solid #FBF2E8;
+    clear: both;
+}
+.all-story__triangle-right {
+    width: 0;
+    height: 0;
+    margin-left: 800px;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 40px solid #FBF2E8;
+    clear: both;
+}
+.all-story__story {
+    width: 504px;
+    
+    float: right;
+    text-align: left;
+}
+.all-story__text {
+    font: 17px RotbotoLight;
+    color: #3A3443;
+}
+.all-story__citation-any{
+    padding: 0px 73px;
+    font: 22px RotbotoMedium;
+    color: #3A3443;
+}
+.quotation-mark-left{
+    margin: 0;
+    height: 16px;
+    font: 95px PTSerifRegular;
+    color: #D8B37D;
+}
+.quotation-mark-right{
+   position: relative;
+   top: -67px;
+   margin: 0;
+   height: 0px;
+   font: 95px PTSerifRegular;
+   color: #D8B37D; 
+   float: right;
 }

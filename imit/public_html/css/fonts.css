@@ -19,6 +19,16 @@
   font-variant:normal;
 }
 @font-face {
+  font-family: 'RobotoMedium';
+  src: url("../fonts/Roboto/Medium/roboto-medium.eot");
+  src: url("../fonts/Roboto/Medium/roboto-medium.eot?#iefix") format('embedded-opentype'),
+  url("../fonts/Roboto/Medium/roboto-medium.woff") format('woff'),
+  url("../fonts/Roboto/Medium/roboto-medium.ttf") format('truetype'),
+  url("../fonts/Roboto/Medium/roboto-medium.swg#RobotoMedium") format('svg');
+  font-style:normal;
+  font-variant:normal;
+}
+@font-face {
   font-family: 'PTSerifRegular';
   src: url("../fonts/PT-Serif/Regular/ptf55f.eot");
   src: url("../fonts/PT-Serif/Regular/ptf55f.eot?#iefix") format('embedded-opentype'),

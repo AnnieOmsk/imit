@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/fonts.css">
-        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+        <script src="js/jquery-1.10.2.js"></script>
         <script type="text/javascript" src="js/slider.js"></script>
         <script src="js/jflow.plus.js"></script>
     </head>
@@ -15,15 +15,16 @@
             <div class="header__content">
                 <div class="header__light"></div>
                 <div class="header__social">
-                    <div class="social__button"><img class="social__button__logo" src="img/twitter.png" alt="tw"></div>
-                    <div class="social__button"><img class="social__button__logo" src="img/vk.png" alt="vk"></div>
+                    <!--<a class="social__button" href="http://vk.com/imit_omsu"><img class="social__button__logo" src="img/twitter.png" alt="tw"></a>-->
+                    <a class="social__button" href="http://vk.com/imit_omsu"><img class="social__button__logo" src="img/vk.png" alt="vk"></a>
+                    <a class="social__button" href="http://imit_omsu.livejournal.com"> <img class="social__button__logo" src="img/livejournal.png" alt="lj"></a>
                 </div>
                 <h1 class="header__title1">Омский государственный университет им. Ф.М. Достоевского</h1>
                 <h2 class="header__title2">Институт Математики и Информационных Технологий</h2>
                 <img id="logo" src="img/logo.png" alt="ИМИТ">
                 <ul class="menu">
                     <li class="menu-item">
-                        <a href="#" class="menu-item__button">Хочу поступить!</a>
+                        <a href="#" class="menu-item__button" id="hope__study">Хочу поступить!</a>
                     </li>
                     <li class="menu-item">
                         <a href="index.html" class="menu-item__button menu-item__button__active-page">Об инстетуте</a>
@@ -62,7 +63,7 @@
                         </br>
                         </br>
                         </br>
-                        <a href="#" class="story-slide__all-stories">читать все истории</a>
+                        <a href="graduates.html" class="story-slide__all-stories">читать все истории</a>
                     </div>
                 </li>
                 <li class="story-slide">
@@ -77,7 +78,7 @@
                         </br>
                         </br>
                         </br>
-                        <a href="#" class="story-slide__all-stories">читать все истории</a>
+                        <a href="graduates.html" class="story-slide__all-stories">читать все истории</a>
                     </div>
                 </li>
                 <li class="story-slide">
@@ -92,7 +93,7 @@
                         </br>
                         </br>
                         </br>
-                        <a href="#" class="story-slide__all-stories">читать все истории</a>
+                        <a href="graduates.html" class="story-slide__all-stories">читать все истории</a>
                     </div>
                 </li>
             </ul>
@@ -120,21 +121,42 @@
                             <img src="img/math.png">
                         </div>
                         <h4 class="branches-list__title">Фундаментальная математика и механика</h4>
-                        <p class="branches-list__text">aaaaaaa aaaaaaaaaaaaaa aaaaaaaa aaaaaaaaa</p>
+                        <p class="branches-list__text">
+                            системное программирование
+                            </br>
+                            </br>
+                            математические методы защиты
+                            </br>
+                            информации
+                        </p>
                     </li>
                     <li class="branches-list__item">
                         <div class="branches-list__img">
                             <img src="img/math_and_inform.png">
                         </div>
                         <h4 class="branches-list__title">Прикладная математика и информатика</h4>
-                        <p class="branches-list__text">aaaaaa aaaaaaaaa aaaaaaaaaaaaa aaaaaaaaaa</p>
+                        <p class="branches-list__text">
+                            системное программирование
+                            </br>
+                            </br>
+                            математические методы защиты
+                            </br>
+                            информации
+                        </p>
                     </li>
                     <li class="branches-list__item">
                         <div class="branches-list__img">
                             <img src="img/math_and_inform_teach.png">
                         </div>
                         <h4 class="branches-list__title">Математика и информатика (педагогическое образование)</h4>
-                        <p class="branches-list__text">aaaaaaa aaaaaaaaaaa aaaaaaaaaaaa aaaaaaaa</p>
+                        <p class="branches-list__text">
+                            системное программирование
+                            </br>
+                            </br>
+                            математические методы защиты
+                            </br>
+                            информации
+                        </p>
                     </li>
                 </ul>
             </div>
@@ -177,7 +199,7 @@
                     <p class="stories-list__about">Директор компании Google</p>
                 </li>                
             </ul>
-            <a href="#" class="all-stories">Читать все истории</a>  
+            <a href="graduates.html" class="all-stories">Читать все истории</a>  
         </div>      
         <div id="footer">
              <div class="footer__content">

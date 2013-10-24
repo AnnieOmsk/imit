@@ -22,9 +22,6 @@ body {
     background-color: #FFF;
     border-radius: 100px;
     box-shadow: 0 0 285px 284px rgba(203, 187, 224, 0.34);
-    /* opacity: 0.30; */ /* Mozilla Firefox, Google Chrome, Opera и Safari */
-    filter: alpha(opacity=70); /*Internet Explorer 5,6,7 */
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; /*Explorer 8 */
 }
 .header-bottom {
     margin: 0;
@@ -56,10 +53,11 @@ body {
     width: 29px;
     background-color: #403B52;
     border-radius: 29px;
-    box-shadow: inset 0 0 6px 1px rgba(0, 0, 0, 0.75), 0 0 5px 0px rgba(255, 255, 255, 0.2);   
+    box-shadow: inset 0 0 6px 1px rgba(0, 0, 0, 0.75), 0 0 5px 0px rgba(255, 255, 255, 0.2);  
+    display: block;
 }
 .social__button:hover {
-   background-color: #8D95AC; 
+   background-color: #8D95AC;
 }
 .social__button__logo {
     margin: 8px auto;
@@ -129,6 +127,10 @@ body {
     box-shadow: inset #222 0 0 6px 1px, rgba(255, 255, 255, 0.4) 0 0 21px 0px;
 }
 .menu-item__button:hover {
+    background-color: #343045;
+    /*box-shadow: inset rgba(255, 255, 255, 0.26) 0 0 6px 1px, rgba(255, 255, 255, 0.26) 0 0 8px 0px;*/
+}
+#hope__study {
     color: #ffce80;
 }
 .header__contacts {
@@ -151,6 +153,7 @@ body {
     content style
 */
 #content {    
+    overflow: hidden;
     position: relative;
     margin: 0 auto;
     padding: 0;
@@ -254,8 +257,10 @@ body {
 */
 .content__line {
     position: relative;
+    height: 1px;
     margin: 0px 80px;
     background-color: #d0bdae;
+    border: 0;
 }
 .main-text__title {
     font: 42px PTSerifRegular;
@@ -339,29 +344,32 @@ body {
 
 .stories-list {
     position: relative;
-    margin: 74px 0px;
-    padding: 0;
+    margin: 50px 0px;
+    padding: 0px;
     list-style: none;
     display: block;
 }
 
 .stories-list__item {
+    position: relative;
     margin: 30px auto;
     padding: 0;
-    width: 290px;
-    display: inline-block;
-    border-right: 2px solid #d1ccd0;
+    width: 321px;
+    height: 280px;
+    overflow: hidden;
+    display: block;
+    float:  left;
+    border-right: 1px solid #d1ccd0;
     cursor: pointer;
 }
 .stories-list__item-last {
-    margin: 0;
-    padding: 0;
     border: 0;
 }
 
 .stories-list__citation {
     margin: 0;
     padding: 0;
+    /* height: 42px; */
     font: 24px PTSerifItalic;
     color: #5A4866;
 }
@@ -372,6 +380,7 @@ body {
     height: 109px;
     border-radius: 100px;
     background-color: #AAA;  
+    display: block;
 }
 
 .stories-list__name {
@@ -389,6 +398,7 @@ body {
 }
 
 .all-stories {
+    clear: both;
     position: relative;
     color: #ffe2cc; 
     font: 20px RobotoLight; 
@@ -408,7 +418,7 @@ body {
 }
 
 .all-stories:hover {
-    color: #ffce80;
+     background-color: #343045;
 }
 /*
     footer style
