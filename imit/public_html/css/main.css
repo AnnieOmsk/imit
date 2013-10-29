@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #FFFCF9;
-    text-align: center;
+    /* text-align: center; */
 }
 /*
     header style
@@ -27,8 +27,9 @@ body {
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 19px;
-    background-image: url(../img/header_bottom.png);
+    height: 20px;
+    background-image: url(../img/header_bottom.png) ;
+    background-repeat: repeat-x; 
 }
 .header__content {
    position: relative;
@@ -59,8 +60,13 @@ body {
 .social__button:hover {
    background-color: #8D95AC;
 }
-.social__button__logo {
-    margin: 8px auto;
+.social__button__logo-livejournal {
+    margin: 8px 10px;
+    
+}
+.social__button__logo-vk {
+    margin: 4px 5px;
+    
 }
 #logo {
     position: relative;
@@ -263,6 +269,7 @@ body {
     border: 0;
 }
 .main-text__title {
+    text-align: center;
     font: 42px PTSerifRegular;
     color: #444444;
 }
@@ -274,6 +281,7 @@ body {
 }
 
 .branches-tiitle {
+   text-align: center;
    font: 38px PTSerifRegular;
    color: #444444; 
 }
@@ -419,6 +427,27 @@ body {
 
 .all-stories:hover {
      background-color: #343045;
+}
+
+.text__logo-livejournal{
+    width: 9px;
+    height: 22px;
+    margin: 0px;
+    
+    margin-right: 5px;
+    padding: 3px 10px;
+    border: 34px;
+    border-radius: 40px;
+    background-color: #403b52;
+    box-shadow: inset 0 0 6px 1px rgba(0, 0, 0, 0.75);
+    display: inline-block;
+}
+.text__logo-vk{
+    width: 18px; height: 22px; 
+    margin: 0px; 
+    margin-right: 5px;
+    padding: 3px 5px; border: 34px; border-radius: 40px; background-color: #403b52; box-shadow: inset 0 0 6px 1px rgba(0, 0, 0, 0.75); display: inline-block;
+    
 }
 /*
     footer style
