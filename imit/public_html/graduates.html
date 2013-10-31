@@ -5,9 +5,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" href="css/main.css">
-         <link rel="stylesheet" href="css/graduates.css">
+        <link rel="stylesheet" href="css/graduates.css">
         <link rel="stylesheet" href="css/fonts.css">
-        
+        <link rel="stylesheet" href="css/text.css">
+        <script src="js/jquery-1.10.2.js"></script>
+        <script src="js/all_story_slider.js"></script>
     </head>
     <body>
         <div id="header">
@@ -46,25 +48,28 @@
         <div id="content">
             <ul class="stories-list">
                 <li class="stories-list__item" id="story_1">
-                    <h3 class="stories-list__citation">«Математика идеальна для обучения критическому мышлению и анализу»</h3>
+                    <h3>«Математика идеальна для обучения критическому мышлению и анализу»</h3>
                     <img class="stories-list__photo" src="img/story_1.png">
-                    <h4 class="stories-list__name">Николай Косарев,</h4>
-                    <p class="stories-list__about">
+                    <h4>Николай Косарев,</h4>
+                    <p>
                             компания Quintiq (Голландия)
                     </p>
                 </li>
                 <li class="stories-list__item" id="story_2">
-                    <h3 class="stories-list__citation">"2"</h3>
-                    <div class="stories-list__photo"></div>
-                    <h4 class="stories-list__name">Иван Иванов,</h4>
-                    <p class="stories-list__about">
-                        Директор компании Google</p>
+                    <h3>"2"</h3>
+                    <img class="stories-list__photo" src="img/story_1.png">
+                    <h4>Иван Иванов,</h4>
+                    <p>
+                        Директор компании Google
+                    </p>
                 </li>
                 <li class="stories-list__item stories-list__item-last" id="story_3">
-                    <h3 class="stories-list__citation">"3"</h3>
-                    <div class="stories-list__photo"></div>
-                    <h4 class="stories-list__name">Иван Иванов,</h4>
-                    <p class="stories-list__about">Директор компании Google</p>
+                    <h3>"3"</h3>
+                    <img class="stories-list__photo" src="img/story_1.png">
+                    <h4>Иван Иванов,</h4>
+                    <p>
+                        Директор компании Google
+                    </p>
                 </li>
                 
                 <div class="all-story__triangle-left" id="triangle_1"></div>
@@ -74,9 +79,9 @@
                 <li class="stories-list__all-story" id="all-story_1">
                     <div class="all-story__avatar">
                         <img class="all-story__photo" src="img/story_1.png">
-                        <h4 class="all-story__name">Николай Косарев,</h4>
+                        <h4>Николай Косарев,</h4>
                         </br>
-                        <p class="all-story__about">
+                        <p>
                             компания Quintiq (Голландия)
                             </br>
                             выпуск 2002 года,
@@ -85,8 +90,8 @@
                         </p>
                     </div>
                     <div class="all-story__story">
-                        <h3 class="all-story__citation">«Математика идеальна для обучения критическому мышлению и анализу»</h3>
-                        <p class="all-story__text">
+                        <h4>«Математика идеальна для обучения критическому мышлению и анализу»</h4>
+                        <p>
                             Я работаю в отделе разработки оптимизационных алгоритмов голландской компании Quintiq, 
                             разрабатывающей решения в сфере управления поставками, 
                             планировании производства и персонала, логистики для таких крупных клиентов,
@@ -100,14 +105,14 @@
                             в студенческие годы хочется погулять и весело провести время, но все же мой призыв: 
                             учиться, учиться и еще раз учиться! Вдумчиво и осознанно.
                         </p>
-                        <p class="quotation-mark-left">“</p>
+                        <div class="quotation-mark-left">“</div>
                         <p class="all-story__citation-any">
-                            Cамое главное качество я все-таки, кажется, приобрел: 
+                            <b>Cамое главное качество я все-таки, кажется, приобрел: 
                             способность обучаться самостоятельно, разбираться практически с любой предметной областью, 
-                            понимать ее закономерности и природу функционирования. 
+                            понимать ее закономерности и природу функционирования.</b> 
                         </p>
-                        <p class="quotation-mark-right">”</p>
-                        <p class="all-story__text">
+                        <div class="quotation-mark-right">”</div>
+                        <p>
                             Считаю, что в этом смысле математика как наука, 
                             наш факультет и методы обучения наших преподавателей 
                             просто идеально позволяли научиться критическому мышлению и анализу. 
@@ -125,48 +130,58 @@
                 </li>
                 <li class="stories-list__all-story" id="all-story_2">
                     <div class="all-story__avatar">
-                        <div class="all-story__photo"></div>
-                        <h4 class="all-story__name">Иван Иванов,</h4>
-                        <p class="all-story__about">Директор компании Google</p>
+                        <img class="all-story__photo" src="img/story_1.png">
+                        <h4>Иван Иванов,</h4>
+                        <p>Директор компании Google</p>
                     </div>
                     <div>
-                        <h3 class="all-story__citation">"2"</h3>
-                        <p class="all-story__first-text"></p>
-                        <p class="all-story__citation-any"></p>
-                        <p class="all-story__second-text"></p>
+                        <h4>"2"</h4>
+                        <p></p>
+                        <div class="quotation-mark-left">“</div>
+                        <p><b></b></p>
+                        <div class="quotation-mark-right">”</div>
+                        <p></p>
                     </div>
                 </li>
                 <li class="stories-list__all-story" id="all-story_3">
                     <div class="all-story__avatar">
-                        <div class="all-story__photo"></div>
-                        <h4 class="all-story__name">Иван Иванов,</h4>
-                        <p class="all-story__about">Директор компании Google</p>
+                        <img class="all-story__photo" src="img/story_1.png">
+                        <h4>Иван Иванов,</h4>
+                        <p>Директор компании Google</p>
                     </div>
                     <div>
-                        <h3 class="all-story__citation">"3"</h3>
-                        <p class="all-story__first-text"></p>
-                        <p class="all-story__citation-any"></p>
-                        <p class="all-story__second-text"></p>
+                        <h4>"3"</h4>
+                        <p></p>
+                        <div class="quotation-mark-left">“</div>
+                        <p><b></b></p>
+                        <div class="quotation-mark-right">”</div>
+                        <p></p>
                     </div>
                 </li>
                 
                 <li class="stories-list__item stories-list__item" id="story_4">
-                    <h3 class="stories-list__citation">"4"</h3>
-                    <div class="stories-list__photo"></div>
-                    <h4 class="stories-list__name">Иван Иванов,</h4>
-                    <p class="stories-list__about">Директор компании Google</p>
+                    <h3>"4"</h3>
+                    <img class="stories-list__photo" src="img/story_1.png">
+                    <h4>Иван Иванов,</h4>
+                    <p>
+                        Директор компании Google
+                    </p>
                 </li>     
                 <li class="stories-list__item stories-list__item" id="story_5">
-                    <h3 class="stories-list__citation">"5"</h3>
-                    <div class="stories-list__photo"></div>
-                    <h4 class="stories-list__name">Иван Иванов,</h4>
-                    <p class="stories-list__about">Директор компании Google</p>
+                    <h3>"5"</h3>
+                    <img class="stories-list__photo" src="img/story_1.png">
+                    <h4>Иван Иванов,</h4>
+                    <p>
+                        Директор компании Google
+                    </p>
                 </li>     
                 <li class="stories-list__item stories-list__item-last" id="story_6">
-                    <h3 class="stories-list__citation">"6"</h3>
-                    <div class="stories-list__photo"></div>
-                    <h4 class="stories-list__name">Иван Иванов,</h4>
-                    <p class="stories-list__about">Директор компании Google</p>
+                    <h3>"6"</h3>
+                    <img class="stories-list__photo" src="img/story_1.png">
+                    <h4>Иван Иванов,</h4>
+                    <p>
+                        Директор компании Google
+                    </p>
                 </li>   
                 
                 <div class="all-story__triangle-left" id="triangle_4"></div>
@@ -175,61 +190,73 @@
                 
                 <li class="stories-list__all-story" id="all-story_4">
                     <div class="all-story__avatar">
-                        <div class="all-story__photo"></div>
-                        <h4 class="all-story__name">Иван Иванов,</h4>
-                        <p class="all-story__about">Директор компании Google</p>
+                        <img class="all-story__photo" src="img/story_1.png">
+                        <h4>Иван Иванов,</h4>
+                        <p>Директор компании Google</p>
                     </div>
                     <div>
-                        <h3 class="all-story__citation">"4"</h3>  
-                        <p class="all-story__first-text"></p>
-                        <p class="all-story__citation-any"></p>
-                        <p class="all-story__second-text"></p>
+                        <h4>"4"</h4>
+                        <p></p>
+                        <div class="quotation-mark-left">“</div>
+                        <p><b></b></p>
+                        <div class="quotation-mark-right">”</div>
+                        <p></p>
                     </div>
                 </li>
                 <li class="stories-list__all-story" id="all-story_5">
                     <div class="all-story__avatar">
-                        <div class="all-story__photo"></div>
-                        <h4 class="all-story__name">Иван Иванов,</h4>
-                        <p class="all-story__about">Директор компании Google</p>
+                        <img class="all-story__photo" src="img/story_1.png">
+                        <h4>Иван Иванов,</h4>
+                        <p>Директор компании Google</p>
                     </div>
                     <div>
-                        <h3 class="all-story__citation">"5"</h3>   
-                        <p class="all-story__first-text"></p>
-                        <p class="all-story__citation-any"></p>
-                        <p class="all-story__second-text"></p>
+                        <h4>"5"</h4>
+                        <p></p>
+                        <div class="quotation-mark-left">“</div>
+                        <p><b></b></p>
+                        <div class="quotation-mark-right">”</div>
+                        <p></p>
                     </div>
                 </li>
                 <li class="stories-list__all-story" id="all-story_6">
                     <div class="all-story__avatar">
-                        <div class="all-story__photo"></div>
-                        <h4 class="all-story__name">Иван Иванов,</h4>
-                        <p class="all-story__about">Директор компании Google</p>
+                        <img class="all-story__photo" src="img/story_1.png">
+                        <h4>Иван Иванов,</h4>
+                        <p>Директор компании Google</p>
                     </div>
                     <div>
-                        <h3 class="all-story__citation">"6"</h3> 
-                        <p class="all-story__first-text"></p>
-                        <p class="all-story__citation-any"></p>
-                        <p class="all-story__second-text"></p>
+                        <h4>"6"</h4>
+                        <p></p>
+                        <div class="quotation-mark-left">“</div>
+                        <p><b></b></p>
+                        <div class="quotation-mark-right">”</div>
+                        <p></p>
                     </div>
                 </li>
                 
                 <li class="stories-list__item stories-list__item" id="story_7">
-                    <h3 class="stories-list__citation">"7"</h3>
-                    <div class="stories-list__photo"></div>
-                    <h4 class="stories-list__name">Иван Иванов,</h4>
-                    <p class="stories-list__about">Директор компании Google</p>
+                    <h3>"7"</h3>
+                    <img class="stories-list__photo" src="img/story_1.png">
+                    <h4>Иван Иванов,</h4>
+                    <p>
+                        Директор компании Google
+                    </p>
                 </li>     
                 <li class="stories-list__item stories-list__item" id="story_8">
-                    <h3 class="stories-list__citation">"8"</h3>
-                    <div class="stories-list__photo"></div>
-                    <h4 class="stories-list__name">Иван Иванов,</h4>
-                    <p class="stories-list__about">Директор компании Google</p>
+                    <h3>"8"</h3>
+                    <img class="stories-list__photo" src="img/story_1.png">
+                    <h4>Иван Иванов,</h4>
+                    <p>
+                        Директор компании Google
+                    </p>
                 </li>     
                 <li class="stories-list__item stories-list__item-last" id="story_9">
-                    <h3 class="stories-list__citation">"9"</h3>
-                    <div class="stories-list__photo"></div>
-                    <h4 class="stories-list__name">Иван Иванов,</h4>
-                    <p class="stories-list__about">Директор компании Google</p>
+                    <h3>"9"</h3>
+                    <img class="stories-list__photo" src="img/story_1.png">
+                    <h4>Иван Иванов,</h4>
+                    <p>
+                        Директор компании Google
+                    </p>
                 </li> 
             
                 <div class="all-story__triangle-left" id="triangle_7"></div>
@@ -277,22 +304,28 @@
                 </li>
                 
                 <li class="stories-list__item stories-list__item" id="story_10">
-                    <h3 class="stories-list__citation">"10"</h3>
-                    <div class="stories-list__photo"></div>
-                    <h4 class="stories-list__name">Иван Иванов,</h4>
-                    <p class="stories-list__about">Директор компании Google</p>
+                    <h3>"10"</h3>
+                    <img class="stories-list__photo" src="img/story_1.png">
+                    <h4>Иван Иванов,</h4>
+                    <p>
+                        Директор компании Google
+                    </p>
                 </li>     
                 <li class="stories-list__item stories-list__item" id="story_11">
-                    <h3 class="stories-list__citation">"11"</h3>
-                    <div class="stories-list__photo"></div>
-                    <h4 class="stories-list__name">Иван Иванов,</h4>
-                    <p class="stories-list__about">Директор компании Google</p>
+                    <h3>"11"</h3>
+                    <img class="stories-list__photo" src="img/story_1.png">
+                    <h4>Иван Иванов,</h4>
+                    <p>
+                        Директор компании Google
+                    </p>
                 </li>     
                 <li class="stories-list__item stories-list__item-last" id="story_12">
-                    <h3 class="stories-list__citation">"12"</h3>
-                    <div class="stories-list__photo"></div>
-                    <h4 class="stories-list__name">Иван Иванов,</h4>
-                    <p class="stories-list__about">Директор компании Google</p>
+                    <h3>"12"</h3>
+                    <img class="stories-list__photo" src="img/story_1.png">
+                    <h4>Иван Иванов,</h4>
+                    <p>
+                        Директор компании Google
+                    </p>
                 </li> 
                 
                 <div class="all-story__triangle-left" id="triangle_10"></div>

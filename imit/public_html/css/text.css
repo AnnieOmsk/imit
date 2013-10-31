@@ -3,7 +3,7 @@
 */
 h3 {
     text-align: center;
-    font: 48px PTSerifRegular;
+    font: 38px PTSerifRegular;
     color: #444444;
 }
 
@@ -15,6 +15,12 @@ h4{
 /*
     Text style
 */
+li {
+    font-size: 28px;
+    color: #d8b37e;
+    margin: -13px -12px;
+}
+
 p{
     text-align: left;
     font: 20px RobotoLight;
@@ -29,7 +35,112 @@ p a{
     начертания
 */
 p b {
-    ext-align: left;
+    text-align: left;
     font: 20px RobotoMedium;
     color: #444444;
+}
+/*
+    список историй
+*/
+.stories-list__item h3 {
+   margin: 0px 10px;
+   padding: 0;
+   font: 24px PTSerifItalic;
+   color: #5A4866; 
+}
+.stories-list__item h4 {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    font: 15px PTSerifBold;
+    color: #3A3443;
+}
+.stories-list__item p {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    font: 15px RobotoLigth;
+    color: #544F5B;
+}
+/*
+    slider
+*/
+.story-slider__info h3 {
+   text-align: left;
+   margin: 0;
+   padding: 0;
+   font: 32px PTSerifItalic;
+   color: #5A4866; 
+}
+.story-slider__info h4 {
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    font: 18px RobotoRegular;
+    color: #3A3443; 
+}
+.story-slider__info p {
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    font: 14px RobotoLigth;
+    color: #544F5B;
+}
+.story-slider__info a {
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    font: 16px RobotoRegular;
+    color: #a07d61;
+    display: inline;
+}
+
+.branches-list__item h3 {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    font: 21px PTSerifBold;
+    color: #FFF; 
+    overflow: hidden;
+}
+
+.branches-list__item p {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    font: 14px RobotoLigth;
+    color: #FFF; 
+    overflow: hidden;
+}
+
+.all-story__avatar h4 {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    font: 15px PTSerifBold;
+    color: #3A3443;
+}
+
+.all-story__avatar p {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    font: 15px RobotoLigth;
+    color: #544F5B;
+}
+
+.all-story__story h4 {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    font: 24px PTSerifItalic;
+    color: #5A4866;
+}
+.all-story__story p {
+    font: 17px RotbotoLight;
+    color: #3A3443;
+}
+.all-story__story p b {
+    font: 22px RotbotoMedium;
+    color: #3A3443;
 }
