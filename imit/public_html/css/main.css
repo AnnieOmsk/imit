@@ -80,20 +80,21 @@ body {
 .header__title1 {
     text-align: center;
     position: relative;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     clear: right;
     font: 15px RobotoRegular;
     color: #ffe2cc;
     top: -26px;
+    width: 700px;
 }
 
 .header__title2  {
     text-align: center;
     position: relative;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
-    /* width: 646px; */
+    width: 650px;
     font-size: 23px;
     font: 23px PTSerifRegular;
     color: #ffe2cc;
@@ -250,8 +251,8 @@ body {
     padding: 0;
     width: 980px;
     height: 400px;
-    background-image: url(../img/header_bg.png);
     overflow: hidden;
+    background-image: url(../img/header_bg.png);
 }
 
 .branches-list {
@@ -279,9 +280,9 @@ body {
     padding: 53px 0px;
     width: 156px;
     height: 49px;
-    background-color: #FFF;
     border-radius: 100px;
     display: block;
+    background-color: #FFF;
 }
 .stories-list {
     position: relative;
@@ -324,20 +325,19 @@ body {
     margin: 74px auto;  
     padding: 0; 
     display: block; 
-    text-decoration: none; 
-    /* overflow: hidden; */ 
-    background-color: #403b52; 
+    text-decoration: none;  
+    background-image: url(../img/header_bg.png);
     width: 245px; 
     height: 50px; 
     border-radius: 25px; 
-    box-shadow: inset #222 0 0 6px 1px, #AAA 0 0 8px 0px; 
+    box-shadow: inset #222 0 0 6px 1px; 
     text-align: center; 
     line-height: 51px; 
     cursor: pointer; 
 }
 
 .all-stories:hover {
-     background-color: #343045;
+    box-shadow: inset rgba(214, 215, 231, 0.29) 0 0 50px 1px;
 }
 
 .text__logo-livejournal{
@@ -411,4 +411,96 @@ body {
     .header-bottom {
         width: 980px;
     }
+}
+
+.article {
+    position: relative;
+    margin: 0px;
+    margin-bottom: 30px;
+    padding: 40px;
+    width: 900px;
+    background-color: #fbf2e9;
+    overflow: hidden;
+}
+
+
+.article-list {
+    position: relative;
+    top: 0;
+    margin: 0px auto;
+    padding: 0;
+    list-style: none; 
+    display: inline-block;
+}
+
+.article-list__item {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 293px;
+    display: block;
+    float: left;
+    text-align: center;
+}
+
+.article-list__img {
+    position: relative;
+    margin: 0px auto;
+    padding: 53px 0px;
+    width: 156px;
+    height: 49px;
+    border-radius: 100px;
+    display: block;
+    background-image: url(../img/header_bg.png);
+}
+.article__img {
+    position: relative;
+    margin: 0;
+    margin-bottom: 24px;
+    margin-right: 24px;
+    padding: 0;
+    width: 255px;
+    height: 255px;
+    border-radius: 200px;
+    display: block;
+    float: left;
+}
+.article-content {
+    margin: 0;
+    width: 603px;
+    float: right;
+}
+.mini__triangle {
+    margin: 3px 7px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 10px solid #d8b37e;
+    clear: both;
+    display: inline-block;
+    cursor: pointer;
+}
+.mini__triangle:hover {
+    margin: 3px 7px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 10px solid #d8b37e;
+    border-bottom: 0px;
+    clear: both;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.article-col {
+    position: relative;
+    margin: 0;
+    padding: 0; 
+    width: 448px;   
+    float: left;
+}
+.article-col-left {
+    border-right: 1px solid #d1ccd0;
 }

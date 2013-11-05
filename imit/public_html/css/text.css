@@ -12,6 +12,18 @@ h4{
     text-align: left;
     color: #444444;
 }
+.list-chair {
+    text-align: left;
+    font: 30px PTSerifRegular;
+    color: #444444;
+    cursor: pointer;
+}
+.list-chair:hover {
+    text-align: left;
+    font: 30px PTSerifRegular;
+    color: #444444;
+    text-decoration: underline;
+}
 /*
     Text style
 */
@@ -143,4 +155,60 @@ p b {
 .all-story__story p b {
     font: 22px RotbotoMedium;
     color: #3A3443;
+}
+
+.article h3 {
+    font: 21px PTSerifBold;
+    
+} 
+.article h4 {
+    font: 26px RobotoMedium;
+    color: #3A3443;
+    text-align: center;
+} 
+.article h5 {
+    font: 22px RobotoLight;
+    color: #3A3443;
+} 
+.article p {
+    margin: 0;
+    font: 18px RobotoLight;
+    color: #3A3443;
+    
+    line-height: 28px;
+} 
+.article p b {
+    /* margin: 0; */
+    font: 18px RobotoMedium;
+    color: #3A3443;
+    
+} 
+.article ul {
+    position: relative;
+    margin: 0; 
+    margin-left: 20px;
+    list-style-type: disc;
+    
+} 
+.article-col ul {
+    line-height: 45px;
+}
+.article li {
+    position: relative;
+    font-size: 28px;
+    color: #d8b37e;
+} 
+.article li p {
+    font: 16px RobotoLight;
+    color: #3A3443;
+} 
+.article li p b {
+    font: 16px RobotoMedium;
+    color: #3A3443;
+} 
+.article-col {
+    position: relative; margin: 0; padding: 0; 
+    width: 448px;   
+    
+    float: left;
 }
