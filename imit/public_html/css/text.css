@@ -188,10 +188,11 @@ p b {
     margin: 0; 
     margin-left: 20px;
     list-style-type: disc;
+    line-height: 45px;
     
 } 
-.article-col ul {
-    line-height: 45px;
+.article-list__item ul {
+    line-height: 38px;
 }
 .article li {
     position: relative;
@@ -209,6 +210,5 @@ p b {
 .article-col {
     position: relative; margin: 0; padding: 0; 
     width: 448px;   
-    
     float: left;
 }

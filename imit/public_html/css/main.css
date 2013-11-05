@@ -365,6 +365,7 @@ body {
 */
 #footer {
     margin: 0;   
+    margin-top: 20px;
     width: 100%;
     height: 249px;
     background-image: url(../img/header_bg.png);
@@ -416,7 +417,7 @@ body {
 .article {
     position: relative;
     margin: 0px;
-    margin-bottom: 30px;
+    margin-bottom: 80px;
     padding: 40px;
     width: 900px;
     background-color: #fbf2e9;
@@ -479,21 +480,7 @@ body {
     border-bottom: 10px solid #d8b37e;
     clear: both;
     display: inline-block;
-    cursor: pointer;
 }
-.mini__triangle:hover {
-    margin: 3px 7px;
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-top: 10px solid #d8b37e;
-    border-bottom: 0px;
-    clear: both;
-    display: inline-block;
-    cursor: pointer;
-}
-
 .article-col {
     position: relative;
     margin: 0;
