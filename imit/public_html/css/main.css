@@ -472,7 +472,7 @@ body {
     float: right;
 }
 .mini__triangle {
-    margin: 3px 7px;
+    margin: 3px 5px;
     width: 0;
     height: 0;
     border-left: 8px solid transparent;
