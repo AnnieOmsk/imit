@@ -16,7 +16,8 @@ body {
 }
 .header__light {
     position: relative;
-    margin: -25px 489px;
+    top: -87px;
+    margin: 0px 483px;
     width: 2px;  
     height: 2px;
     background-color: #FFF;
@@ -247,21 +248,21 @@ body {
     border: 0;
 }
 .branches {
+    position: relative;
     margin: 0;
     padding: 0;
     width: 980px;
-    height: 400px;
+    /* height: 400px; */
     overflow: hidden;
     background-image: url(../img/header_bg.png);
 }
 
 .branches-list {
     position: relative;
-    top: 89px;
-    margin: 0px auto;
+    margin: 30px auto;
     padding: 0;
     list-style: none; 
-    display: inline-block;
+    display: block;
 }
 
 .branches-list__item {
@@ -289,6 +290,7 @@ body {
     margin: 50px 0px;
     padding: 0px;
     list-style: none;
+    list-style-type: disc;
     display: block;
 }
 
@@ -296,13 +298,12 @@ body {
     position: relative;
     margin: 30px auto;
     padding: 0;
-    width: 321px;
-    height: 280px;
+    width: 326px;
+    height: 355px;
     overflow: hidden;
     display: block;
     float:  left;
     border-right: 1px solid #d1ccd0;
-    cursor: pointer;
 }
 .stories-list__item-last {
     border: 0;

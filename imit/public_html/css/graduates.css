@@ -24,6 +24,8 @@
     position: relative;
     
     float: left;
+    width: 300px;
+    overflow: hidden;
 }
 .all-story__photo {
     margin: 0 auto;
@@ -61,12 +63,13 @@
     clear: both;
 }
 .all-story__story {
-    width: 504px;
+    width: 500px;
     float: right;
     text-align: left;
 }
 
 .all-story__citation-any{
+    margin-bottom: 37px;
     padding: 0px 50px;
     color: #3A3443;
 }
@@ -78,8 +81,9 @@
 }
 .quotation-mark-right{
    position: relative;
-   top: -65px;
+   top: -78px;
    margin: 0;
+   /* margin-bottom: 35px; */
    height: 0px;
    font: 95px PTSerifRegular;
    color: #D8B37D; 

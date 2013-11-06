@@ -1,4 +1,16 @@
 $(document).ready(function(){
+    $("#story_1").css('cursor', 'pointer');
+    $("#story_2").css('cursor', 'pointer');
+    $("#story_3").css('cursor', 'pointer');
+    $("#story_4").css('cursor', 'pointer');
+    $("#story_5").css('cursor', 'pointer');
+    $("#story_6").css('cursor', 'pointer');
+    $("#story_7").css('cursor', 'pointer');
+    $("#story_8").css('cursor', 'pointer');
+    $("#story_9").css('cursor', 'pointer');
+    $("#story_10").css('cursor', 'pointer');
+    $("#story_11").css('cursor', 'pointer');
+    $("#story_12").css('cursor', 'pointer');
     hideAllStories();
     $('#story_1').click(function (e) {
         if($("#all-story_1").css('display') =="none") {
