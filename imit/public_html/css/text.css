@@ -185,7 +185,6 @@ p b {
     margin: 0;
     font: 18px RobotoLight;
     color: #3A3443;
-    
     line-height: 28px;
 } 
 .article p b {
@@ -199,8 +198,6 @@ p b {
     margin: 0; 
     margin-left: 20px;
     list-style-type: disc;
-    line-height: 45px;
-    
 } 
 .article-list__item ul {
 }
