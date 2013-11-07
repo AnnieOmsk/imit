@@ -38,6 +38,10 @@ li {
     color: #d8b37e;
     margin: -13px -12px;
 }
+ol li {
+    font-size: 18px;
+    color: #d8b37e;
+}
 
 p{
     text-align: left;
@@ -199,7 +203,6 @@ p b {
     
 } 
 .article-list__item ul {
-    line-height: 38px;
 }
 .article li {
     position: relative;
