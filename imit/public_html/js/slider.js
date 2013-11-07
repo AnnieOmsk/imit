@@ -9,7 +9,7 @@ $(document).ready(function(){
 	duration: 400,  // time in miliseconds to transition one slide
 	prev: ".left-slide", // must be class, use . sign
 	next: ".right-slide", // must be class, use . sign
-	auto: true	
+	auto: false	
     });
 });
 
