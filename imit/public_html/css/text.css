@@ -23,6 +23,7 @@ h4{
     font: 30px PTSerifRegular;
     color: #444444;
     cursor: pointer;
+    display: inline;
 }
 .list-chair:hover {
     text-align: left;
