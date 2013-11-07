@@ -278,9 +278,9 @@ body {
 .branches-list__img {
     position: relative;
     margin: 0px auto;
-    padding: 53px 0px;
+    padding: 49px 0px;
     width: 156px;
-    height: 49px;
+    height: 57px;
     border-radius: 100px;
     display: block;
     background-color: #FFF;
@@ -448,9 +448,9 @@ body {
 .article-list__img {
     position: relative;
     margin: 0px auto;
-    padding: 53px 0px;
+    padding: 46px 0px;
     width: 156px;
-    height: 49px;
+    height: 63px;
     border-radius: 100px;
     display: block;
     background-image: url(../img/header_bg.png);
