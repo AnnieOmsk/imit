@@ -1,4 +1,8 @@
+
+
 $(document).ready(function(){
+    var currentElementTop = 200;
+    var offset = 100;
     $("#story_1").css('cursor', 'pointer');
     $("#story_2").css('cursor', 'pointer');
     $("#story_3").css('cursor', 'pointer');
@@ -14,6 +18,7 @@ $(document).ready(function(){
     $(".story-container-shadow").click(function(e) {
         hideAllStories();        
         $(".story-container").css('display', 'none');
+        $('html, body').animate({scrollTop: currentElementTop - offset}, 400);
     })
     hideAllStories();
     $('#story_1').click(function (e) {
@@ -21,6 +26,8 @@ $(document).ready(function(){
             hideAllStories();
             $("#all-story_1").css('display', 'block');
             $(".story-container").css('display', 'block');
+            $('html, body').animate({scrollTop: 200}, 400);
+            currentElementTop = $(this).offset().top;
         } else {
             $("#all-story_1").hide();
         }
@@ -30,6 +37,8 @@ $(document).ready(function(){
             hideAllStories();
             $("#all-story_2").css('display', 'inline-block');
             $(".story-container").css('display', 'block');
+            $('html, body').animate({scrollTop: 200}, 400);
+            currentElementTop = $(this).offset().top;
         } else {
             $("#all-story_2").hide();
         }
@@ -39,6 +48,8 @@ $(document).ready(function(){
             hideAllStories();
             $("#all-story_3").css('display', 'inline-block');
             $(".story-container").css('display', 'block');
+            $('html, body').animate({scrollTop: 200}, 400);
+            currentElementTop = $(this).offset().top;
         } else {
             $("#all-story_3").hide();
         }
@@ -48,6 +59,8 @@ $(document).ready(function(){
             hideAllStories();
             $("#all-story_4").css('display', 'inline-block');
             $(".story-container").css('display', 'block');
+            $('html, body').animate({scrollTop: 200}, 400);
+            currentElementTop = $(this).offset().top;
         } else {
             $("#all-story_4").hide();
         }
@@ -57,6 +70,8 @@ $(document).ready(function(){
             hideAllStories();
             $("#all-story_5").css('display', 'inline-block');
             $(".story-container").css('display', 'block');
+            $('html, body').animate({scrollTop: 200}, 400);
+            currentElementTop = $(this).offset().top;
         } else {
             $("#all-story_5").hide();
         }
@@ -66,6 +81,8 @@ $(document).ready(function(){
             hideAllStories();
             $("#all-story_6").css('display', 'inline-block');
             $(".story-container").css('display', 'block');
+            $('html, body').animate({scrollTop: 200}, 400);
+            currentElementTop = $(this).offset().top;
         } else {
             $("#all-story_6").hide();
         }
@@ -75,6 +92,8 @@ $(document).ready(function(){
             hideAllStories();
             $("#all-story_7").css('display', 'inline-block');
             $(".story-container").css('display', 'block');
+            $('html, body').animate({scrollTop: 200}, 400);
+            currentElementTop = $(this).offset().top;
         } else {
             $("#all-story_7").hide();
         }
@@ -84,6 +103,8 @@ $(document).ready(function(){
             hideAllStories();
             $("#all-story_8").css('display', 'inline-block');
             $(".story-container").css('display', 'block');
+            $('html, body').animate({scrollTop: 200}, 400);
+            currentElementTop = $(this).offset().top;
         } else {
             $("#all-story_8").hide();
         }
@@ -93,6 +114,8 @@ $(document).ready(function(){
             hideAllStories();
             $("#all-story_9").css('display', 'inline-block');
             $(".story-container").css('display', 'block');
+            $('html, body').animate({scrollTop: 200}, 400);
+            currentElementTop = $(this).offset().top;
         } else {
             $("#all-story_9").hide();
         }
@@ -102,6 +125,8 @@ $(document).ready(function(){
             hideAllStories();
             $("#all-story_10").css('display', 'inline-block');
             $(".story-container").css('display', 'block');
+            $('html, body').animate({scrollTop: 200}, 400);
+            currentElementTop = $(this).offset().top;
         } else {
             $("#all-story_10").hide();
         }
@@ -111,6 +136,8 @@ $(document).ready(function(){
             hideAllStories();
             $("#all-story_11").css('display', 'inline-block');
             $(".story-container").css('display', 'block');
+            $('html, body').animate({scrollTop: 200}, 400);
+            currentElementTop = $(this).offset().top;
         } else {
             $("#all-story_11").hide();
         }
@@ -120,6 +147,8 @@ $(document).ready(function(){
             hideAllStories();
             $("#all-story_12").css('display', 'inline-block');
             $(".story-container").css('display', 'block');
+            $('html, body').animate({scrollTop: 200}, 400);
+            currentElementTop = $(this).offset().top;
         } else {
             $("#all-story_12").hide();
         }
