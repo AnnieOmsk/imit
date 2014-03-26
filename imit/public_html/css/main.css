@@ -461,12 +461,26 @@ body {
     margin-bottom: 24px;
     margin-right: 24px;
     padding: 0;
+    width: 255px;
+    height: 255px;
+    border-radius: 200px;
+    display: block;
+    float: left;
+}
+
+.intresting__img {
+    position: relative;
+    margin: 0;
+    margin-bottom: 24px;
+    margin-right: 24px;
+    padding: 0;
     width: 492px;
     height: 324px;
     border-radius: 0px;
     display: block;
-    float: left;
+    float: left;   
 }
+
 .article-content {
     margin: 0;
     width: 381px;
