@@ -141,7 +141,7 @@ body {
     /*box-shadow: inset rgba(255, 255, 255, 0.26) 0 0 6px 1px, rgba(255, 255, 255, 0.26) 0 0 8px 0px;*/
 }
 #hope__study {
-    color: #ffce80;
+    color: #ffe2cc;
 }
 .header__contacts {
     text-align: left;
@@ -461,15 +461,15 @@ body {
     margin-bottom: 24px;
     margin-right: 24px;
     padding: 0;
-    width: 255px;
-    height: 255px;
-    border-radius: 200px;
+    width: 492px;
+    height: 324px;
+    border-radius: 0px;
     display: block;
     float: left;
 }
 .article-content {
     margin: 0;
-    width: 603px;
+    width: 381px;
     float: right;
 }
 .mini__triangle {
