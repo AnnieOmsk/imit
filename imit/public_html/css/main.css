@@ -474,29 +474,10 @@ body {
     float: left;
 }
 
-.intresting__img {
-    position: relative;
-    margin: 0;
-    margin-bottom: 24px;
-    margin-right: 24px;
-    padding: 0;
-    width: 492px;
-    height: 324px;
-    border-radius: 0px;
-    display: block;
-    float: left;   
-}
-
 .article-content {
     margin: 0;
     width: 600px;
     float: right;
-}
-
-.article-intresting-content {
-    margin: 0;
-    width: 380px;
-    float: right;   
 }
 
 .mini__triangle {
