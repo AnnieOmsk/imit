@@ -22,7 +22,7 @@
 .all-story__avatar {
     margin: 0px 60px;
     position: relative;
-    
+    margin-top: 5px;
     float: left;
     width: 300px;
     overflow: hidden;

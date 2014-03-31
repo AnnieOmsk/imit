@@ -69,6 +69,12 @@ body {
     margin: 4px 5px;
     
 }
+
+.social__button__logo-youtube {
+    margin: 8px 7px;
+    
+}
+
 #logo {
     position: relative;
     margin: 0px auto;
@@ -483,9 +489,16 @@ body {
 
 .article-content {
     margin: 0;
-    width: 381px;
+    width: 600px;
     float: right;
 }
+
+.article-intresting-content {
+    margin: 0;
+    width: 380px;
+    float: right;   
+}
+
 .mini__triangle {
     margin: 3px 5px;
     width: 0;
