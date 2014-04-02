@@ -275,7 +275,7 @@ body {
     position: relative;
     margin: 0;
     padding: 0;
-    width: 321px;
+    width: 485px;
     display: block;
     float: left;
     text-align: center;
@@ -514,4 +514,8 @@ body {
 }
 .article-col-left {
     border-right: 1px solid #d1ccd0;
+}
+
+.margin-left-80 {
+    margin-left: 80px;
 }
