@@ -90,7 +90,9 @@ body {
     margin: 0 auto;
     padding: 0;
     clear: right;
-    font: 15px RobotoRegular;
+    font-family: 'Roboto';
+    font-weight: 400; /*regular*/ 
+    font-size: 15px;
     color: #ffe2cc;
     top: -26px;
     width: 700px;
@@ -123,7 +125,9 @@ body {
 
 .menu-item__button {
     color: #ffe2cc;
-    font: 16px RobotoLight;
+    font-family: 'Roboto';
+    font-weight: 300; /*light*/ 
+    font-size: 16px;
     margin: 0;
     margin-right: 14px;
     padding: 0px 32px;
@@ -157,12 +161,16 @@ body {
 }
 .text-contacts {
     color: #ffe2cc;
-    font: 14px RobotoRegular;
+    font-family: 'Roboto';
+    font-weight: 400; /*regular*/ 
+    font-size: 14px;
     margin: 0;
 }
 .number-contacts {
     color: #ffe2cc;
-    font: 21px RobotoRegular;
+    font-family: 'Roboto';
+    font-weight: 400; /*regular*/ 
+    font-size: 21px;
     margin: 0;
 }
 /*
@@ -305,7 +313,7 @@ body {
     margin: 30px auto;
     padding: 0;
     width: 320px;
-    height: 358px;
+    height: 367px;
     overflow: hidden;
     display: block;
     float:  left;
@@ -328,7 +336,9 @@ body {
     clear: both;
     position: relative;
     color: #ffe2cc; 
-    font: 20px RobotoLight; 
+    font-family: 'Roboto';
+    font-weight: 300; /*light*/ 
+    font-size: 20px;
     margin: 74px auto;  
     padding: 0; 
     display: block; 
@@ -420,7 +430,9 @@ body {
     margin: 41px 0px;
     position: relative;
     float: right;
-    font: 14px RobotoRegular;
+    font-family: 'Roboto';
+    font-weight: 400; /*regular*/ 
+    font-size: 14px;
     color: #D3BBAB;
 }
 
@@ -518,4 +530,12 @@ body {
 
 .margin-left-80 {
     margin-left: 80px;
+}
+
+.margin-bottom-7 {
+    margin-bottom: 7px;
+} 
+
+.line-height-7 {
+    line-height: 1.7;
 }

@@ -13,7 +13,9 @@ h3 {
 }
 
 h4{
-    font: 30px RobotoRegular;
+    font-family: 'Roboto';
+    font-weight: 400; /*regular*/ 
+    font-size: 30px;
     text-align: left;
     color: #444444;
 }
@@ -45,9 +47,12 @@ ol li {
 
 p{
     text-align: left;
-    font: 20px RobotoLight;
+    font-family: 'Roboto';
+    font-weight: 300; /*light*/ 
+    font-size: 20px;
     color: #444444;
 }
+
 p a{
     color: #A07D63; //определяет цвет ссылок на веб-странице (цвет по умолчанию синий, #0000FF).
     // A:active — цвет активной ссылки. Цвет ссылки меняется при нажатии на ней кнопки мыши. Цвет по умолчанию красный, #FF0000.
@@ -58,7 +63,9 @@ p a{
 */
 p b {
     text-align: left;
-    font: 20px RobotoMedium;
+    font-family: 'Roboto';
+    font-weight: 500; /*medium*/
+    font-size: 20px;
     color: #444444;
 }
 /*
@@ -81,7 +88,9 @@ p b {
     text-align: center;
     margin: 0;
     padding: 0;
-    font: 15px RobotoLigth;
+    font-family: 'Roboto';
+    font-weight: 300; /*light*/ 
+    font-size: 15px;
     color: #544F5B;
 }
 /*
@@ -98,21 +107,27 @@ p b {
     text-align: left;
     margin: 0;
     padding: 0;
-    font: 18px RobotoRegular;
+    font-family: 'Roboto';
+    font-weight: 400; /*regular*/ 
+    font-size: 18px;
     color: #3A3443; 
 }
 .story-slider__info p {
     text-align: left;
     margin: 0;
     padding: 0;
-    font: 14px RobotoLigth;
+    font-family: 'Roboto';
+    font-weight: 300; /*light*/ 
+    font-size: 14px;
     color: #544F5B;
 }
 .story-slider__info a {
     text-align: left;
     margin: 0;
     padding: 0;
-    font: 16px RobotoRegular;
+    font-family: 'Roboto';
+    font-weight: 400; /*regular*/ 
+    font-size: 16px;
     color: #a07d61;
     display: inline;
 }
@@ -130,7 +145,9 @@ p b {
     text-align: center;
     margin: 0;
     padding: 0;
-    font: 14px RobotoLigth;
+    font-family: 'Roboto';
+    font-weight: 300; /*light*/ 
+    font-size: 14px;
     color: #FFF; 
     overflow: hidden;
 }
@@ -148,7 +165,9 @@ p b {
     text-align: center;
     margin: 0;
     padding: 0;
-    font: 15px RobotoLigth;
+    font-family: 'Roboto';
+    font-weight: 300; /*light*/ 
+    font-size: 15px;
     color: #544F5B;
 }
 
@@ -160,11 +179,15 @@ p b {
     color: #5A4866;
 }
 .all-story__story p {
-    font: 17px RobotoLight;
+    font-family: 'Roboto';
+    font-weight: 300; /*light*/ 
+    font-size: 17px;
     color: #3A3443;
 }
 .all-story__story p b {
-    font: 22px RobotoMedium;
+    font-family: 'Roboto';
+    font-weight: 500; /*medium*/
+    font-size: 22px;
     color: #3A3443;
 }
 
@@ -173,23 +196,30 @@ p b {
     
 } 
 .article h4 {
-    font: 26px RobotoMedium;
+    font-family: 'Roboto';
+    font-weight: 500; /*medium*/
+    font-size: 26px;
     color: #3A3443;
     text-align: center;
 } 
 .article h5 {
-    font: 22px RobotoLight;
+    font-family: 'Roboto';
+    font-weight: 300; /*light*/ 
+    font-size: 22px;
     color: #3A3443;
 } 
 .article p {
     margin: 0;
-    font: 18px RobotoLight;
+    font-family: 'Roboto';
+    font-weight: 300; /*light*/ 
+    font-size: 18px;
     color: #3A3443;
     line-height: 28px;
 } 
 .article p b {
-    /* margin: 0; */
-    font: 18px RobotoMedium;
+    font-family: 'Roboto';
+    font-weight: 500; /*medium*/
+    font-size: 18px;
     color: #3A3443;
     
 } 
@@ -207,11 +237,15 @@ p b {
     color: #d8b37e;
 } 
 .article li p {
-    font: 16px RobotoLight;
+    font-family: 'Roboto';
+    font-weight: 300; /*light*/ 
+    font-size: 16px;
     color: #3A3443;
 } 
 .article li p b {
-    font: 16px RobotoMedium;
+    font-family: 'Roboto';
+    font-weight: 500; /*medium*/
+    font-size: 16px;
     color: #3A3443;
 } 
 .article-col {
