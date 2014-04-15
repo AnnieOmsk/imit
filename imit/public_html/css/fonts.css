@@ -1,34 +1,4 @@
 @font-face {
-  font-family: 'RobotoRegular';
-  src: url("../fonts/Roboto/Regular/roboto-regular.eot");
-  src: url("../fonts/Roboto/Regular/roboto-regular.eot?#iefix") format('embedded-opentype'),
-  url("../fonts/Roboto/Regular/roboto-regular.woff") format('woff'),
-  url("../fonts/Roboto/Regular/roboto-regular.ttf") format('truetype'),
-  url("../fonts/Roboto/Regular/roboto-regular.swg#RobotoRegular") format('svg');
-  font-style:normal;
-  font-variant:normal;
-}
-@font-face {
-  font-family: 'RobotoLight';
-  src: url("../fonts/Roboto/Ligth/roboto-light.eot");
-  src: url("../fonts/Roboto/Ligth/roboto-light.eot?#iefix") format('embedded-opentype'),
-  url("../fonts/Roboto/Ligth/roboto-light.woff") format('woff'),
-  url("../fonts/Roboto/Ligth/roboto-light.ttf") format('truetype'),
-  url("../fonts/Roboto/Ligth/roboto-light.swg#RobotoLight") format('svg');
-  font-style:normal;
-  font-variant:normal;
-}
-@font-face {
-  font-family: 'RobotoMedium';
-  src: url("../fonts/Roboto/Medium/roboto-medium.eot");
-  src: url("../fonts/Roboto/Medium/roboto-medium.eot?#iefix") format('embedded-opentype'),
-  url("../fonts/Roboto/Medium/roboto-medium.woff") format('woff'),
-  url("../fonts/Roboto/Medium/roboto-medium.ttf") format('truetype'),
-  url("../fonts/Roboto/Medium/roboto-medium.swg#RobotoMedium") format('svg');
-  font-style:normal;
-  font-variant:normal;
-}
-@font-face {
   font-family: 'PTSerifRegular';
   src: url("../fonts/PT-Serif/Regular/ptf55f.eot");
   src: url("../fonts/PT-Serif/Regular/ptf55f.eot?#iefix") format('embedded-opentype'),
