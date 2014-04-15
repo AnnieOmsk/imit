@@ -15,7 +15,7 @@ $(document).ready(function(){
     $("#story_10").css('cursor', 'pointer');
     $("#story_11").css('cursor', 'pointer');
     $("#story_12").css('cursor', 'pointer');
-    $(".story-container-shadow").click(function(e) {
+    $(".story-close").click(function(e) {
         hideAllStories();        
         $(".story-container").css('display', 'none');
         $('html, body').animate({scrollTop: currentElementTop - offset}, 400);
@@ -24,7 +24,7 @@ $(document).ready(function(){
     $('#story_1').click(function (e) {
         if($("#all-story_1").css('display') =="none") {
             hideAllStories();
-            $("#all-story_1").css('display', 'block');
+            $("#all-story_1").css('display', 'inline-block');
             $(".story-container").css('display', 'block');
             $('html, body').animate({scrollTop: 200}, 400);
             currentElementTop = $(this).offset().top;
