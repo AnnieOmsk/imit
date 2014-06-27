@@ -4,7 +4,7 @@ ul {
 
 
 /*
-    Title styles 
+    Title styles
 */
 h3 {
     text-align: center;
@@ -14,7 +14,7 @@ h3 {
 
 h4{
     font-family: 'Roboto';
-    font-weight: 400; /*regular*/ 
+    font-weight: 400; /*regular*/
     font-size: 30px;
     text-align: left;
     color: #444444;
@@ -48,7 +48,7 @@ ol li {
 p{
     text-align: left;
     font-family: 'Roboto';
-    font-weight: 300; /*light*/ 
+    font-weight: 300; /*light*/
     font-size: 20px;
     color: #444444;
 }
@@ -75,7 +75,8 @@ p b {
    margin: 0px 10px;
    padding: 0;
    font: 24px PTSerifItalic;
-   color: #5A4866; 
+   color: #5A4866;
+   height: 170px;
 }
 .stories-list__item h4 {
     text-align: center;
@@ -89,7 +90,7 @@ p b {
     margin: 0;
     padding: 0;
     font-family: 'Roboto';
-    font-weight: 300; /*light*/ 
+    font-weight: 300; /*light*/
     font-size: 15px;
     color: #544F5B;
 }
@@ -101,23 +102,23 @@ p b {
    margin: 0;
    padding: 0;
    font: 32px PTSerifItalic;
-   color: #5A4866; 
+   color: #5A4866;
 }
 .story-slider__info h4 {
     text-align: left;
     margin: 0;
     padding: 0;
     font-family: 'Roboto';
-    font-weight: 400; /*regular*/ 
+    font-weight: 400; /*regular*/
     font-size: 18px;
-    color: #3A3443; 
+    color: #3A3443;
 }
 .story-slider__info p {
     text-align: left;
     margin: 0;
     padding: 0;
     font-family: 'Roboto';
-    font-weight: 300; /*light*/ 
+    font-weight: 300; /*light*/
     font-size: 14px;
     color: #544F5B;
 }
@@ -126,7 +127,7 @@ p b {
     margin: 0;
     padding: 0;
     font-family: 'Roboto';
-    font-weight: 400; /*regular*/ 
+    font-weight: 400; /*regular*/
     font-size: 16px;
     color: #a07d61;
     display: inline;
@@ -137,7 +138,7 @@ p b {
     margin: 0;
     padding: 0;
     font: 21px PTSerifBold;
-    color: #FFF; 
+    color: #FFF;
     overflow: hidden;
 }
 
@@ -146,9 +147,9 @@ p b {
     margin: 0;
     padding: 0;
     font-family: 'Roboto';
-    font-weight: 300; /*light*/ 
+    font-weight: 300; /*light*/
     font-size: 14px;
-    color: #FFF; 
+    color: #FFF;
     overflow: hidden;
 }
 
@@ -166,7 +167,7 @@ p b {
     margin: 0;
     padding: 0;
     font-family: 'Roboto';
-    font-weight: 300; /*light*/ 
+    font-weight: 300; /*light*/
     font-size: 15px;
     color: #544F5B;
 }
@@ -180,7 +181,7 @@ p b {
 }
 .all-story__story p {
     font-family: 'Roboto';
-    font-weight: 300; /*light*/ 
+    font-weight: 300; /*light*/
     font-size: 17px;
     color: #3A3443;
 }
@@ -193,65 +194,65 @@ p b {
 
 .article h3 {
     font: 21px PTSerifBold;
-    
-} 
+
+}
 .article h4 {
     font-family: 'Roboto';
     font-weight: 500; /*medium*/
     font-size: 26px;
     color: #3A3443;
     text-align: center;
-} 
+}
 .article h5 {
     font-family: 'Roboto';
-    font-weight: 300; /*light*/ 
+    font-weight: 300; /*light*/
     font-size: 22px;
     color: #3A3443;
-} 
+}
 .article p {
     margin: 0;
     font-family: 'Roboto';
-    font-weight: 300; /*light*/ 
+    font-weight: 300; /*light*/
     font-size: 18px;
     color: #3A3443;
     line-height: 28px;
-} 
+}
 .article p b {
     font-family: 'Roboto';
     font-weight: 500; /*medium*/
     font-size: 18px;
     color: #3A3443;
-    
-} 
+
+}
 .article ul {
     position: relative;
-    margin: 0; 
+    margin: 0;
     margin-left: 20px;
     list-style-type: disc;
-} 
+}
 .article-list__item ul {
 }
 .article li {
     position: relative;
     font-size: 28px;
     color: #d8b37e;
-} 
+}
 .article li p {
     font-family: 'Roboto';
-    font-weight: 300; /*light*/ 
+    font-weight: 300; /*light*/
     font-size: 16px;
     color: #3A3443;
-} 
+}
 .article li p b {
     font-family: 'Roboto';
     font-weight: 500; /*medium*/
     font-size: 16px;
     color: #3A3443;
-} 
+}
 .article-col {
-    position: relative; margin: 0; 
+    position: relative; margin: 0;
     margin-top: 30px;
-    padding: 0; 
-    width: 448px;   
+    padding: 0;
+    width: 448px;
     float: left;
 }
