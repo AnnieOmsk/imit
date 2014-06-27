@@ -15,6 +15,9 @@ $(document).ready(function(){
     $("#story_10").css('cursor', 'pointer');
     $("#story_11").css('cursor', 'pointer');
     $("#story_12").css('cursor', 'pointer');
+    $("#story_13").css('cursor', 'pointer');
+    $("#story_14").css('cursor', 'pointer');
+    $("#story_15").css('cursor', 'pointer');
     $(".story-close").click(function(e) {
         hideAllStories();
         $(".story-container").css('display', 'none');
