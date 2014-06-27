@@ -16,7 +16,7 @@ $(document).ready(function(){
     $("#story_11").css('cursor', 'pointer');
     $("#story_12").css('cursor', 'pointer');
     $(".story-close").click(function(e) {
-        hideAllStories();        
+        hideAllStories();
         $(".story-container").css('display', 'none');
         $('html, body').animate({scrollTop: currentElementTop - offset}, 400);
     })
@@ -153,6 +153,39 @@ $(document).ready(function(){
             $("#all-story_12").hide();
         }
     });
+    $('#story_13').click(function (e) {
+      if($("#all-story_13").css('display') =="none") {
+            hideAllStories();
+            $("#all-story_13").css('display', 'inline-block');
+            $(".story-container").css('display', 'block');
+            $('html, body').animate({scrollTop: 200}, 400);
+            currentElementTop = $(this).offset().top;
+        } else {
+            $("#all-story_13").hide();
+        }
+    });
+    $('#story_14').click(function (e) {
+      if($("#all-story_14").css('display') =="none") {
+            hideAllStories();
+            $("#all-story_14").css('display', 'inline-block');
+            $(".story-container").css('display', 'block');
+            $('html, body').animate({scrollTop: 200}, 400);
+            currentElementTop = $(this).offset().top;
+        } else {
+            $("#all-story_14").hide();
+        }
+    });
+    $('#story_15').click(function (e) {
+      if($("#all-story_15").css('display') =="none") {
+            hideAllStories();
+            $("#all-story_15").css('display', 'inline-block');
+            $(".story-container").css('display', 'block');
+            $('html, body').animate({scrollTop: 200}, 400);
+            currentElementTop = $(this).offset().top;
+        } else {
+            $("#all-story_15").hide();
+        }
+    });
 });
 
 function hideAllStories() {
@@ -168,7 +201,10 @@ function hideAllStories() {
     $("#all-story_10").css('display', 'none');
     $("#all-story_11").css('display', 'none');
     $("#all-story_12").css('display', 'none');
-    
+    $("#all-story_13").css('display', 'none');
+    $("#all-story_14").css('display', 'none');
+    $("#all-story_15").css('display', 'none');
+
     $("#triangle_1").css('display', 'none');
     $("#triangle_2").css('display', 'none');
     $("#triangle_3").css('display', 'none');
@@ -181,7 +217,10 @@ function hideAllStories() {
     $("#triangle_10").css('display', 'none');
     $("#triangle_11").css('display', 'none');
     $("#triangle_12").css('display', 'none');
-    
+    $("#triangle_13").css('display', 'none');
+    $("#triangle_14").css('display', 'none');
+    $("#triangle_15").css('display', 'none');
+
 }
 
 
