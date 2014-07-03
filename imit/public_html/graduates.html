@@ -11,7 +11,10 @@
         <link rel="stylesheet" href="css/text.css">
         <link href='http://fonts.googleapis.com/css?family=Roboto:300,500,400&subset=latin,cyrillic-ext,cyrillic' rel='stylesheet' type='text/css'>
         <script src="js/jquery-1.10.2.js"></script>
-        <script src="js/all_story_slider.js"></script>
+        <script src="js/lib/twitter_flight.js"></script>
+        <script src="js/component/preview_story_component.js"></script>
+        <script src="js/component/show_full_story_component.js"></script>
+        <script src="js/init_graduates.js"></script>
     </head>
     <body>
         <div id="header">
@@ -52,97 +55,97 @@
 
         <div id="content">
             <ul class="stories-list">
-                <li class="stories-list__item" id="story_1">
+                <li class="stories-list__item js-show-story" id="story_1" data-id="#all-story_1">
                     <h3>«Математика идеальна для обучения критическому мышлению и анализу»</h3>
 
                     <img class="stories-list__photo" src="img/graduates/story_1/story_1.jpg">
                     <h4>Николай Косарев,</h4>
                     <p>Quintiq, Голландия, специалист отдела разработки оптимизационных алгоритмов</p>
                 </li>
-                <li class="stories-list__item" id="story_2">
+                <li class="stories-list__item js-show-story" id="story_2" data-id="#all-story_2">
                     <h3>«Нас учили разбираться в том, что ты делаешь, а не просто зубрить и заучивать»</h3>
                     <img class="stories-list__photo" src="img/graduates/story_2/story_2_1.jpg ">
                     <h4>Ольга Кукина,</h4>
                     <p>селлинговое агентство при ВГТРК, Москва, бизнес-аналитик</p>
                 </li>
-                <li class="stories-list__item stories-list__item-last" id="story_3">
+                <li class="stories-list__item js-show-story stories-list__item-last" id="story_3" data-id="#all-story_3">
                     <h3>«Матфак научил меня быть "антишестерёнкой" и уметь браться за любые задачи и проекты»</h3>
                     <img class="stories-list__photo" src="img/graduates/story_3/story_3_1.jpg">
                     <h4>Сергей Корсаков,</h4>
                     <p>"Яндекс", Москва, менеджер проектов в отделе контент-системы</p>
                 </li>
-                <li class="stories-list__item stories-list__item" id="story_4">
+                <li class="stories-list__item js-show-story" id="story_4" data-id="#all-story_4">
                     <h3>«Благодаря обучению здесь люди становятся успешнее»</h3>
 
                     <img class="stories-list__photo" src="img/graduates/melnikov.jpg">
                     <h4>Евгений Мельников,</h4>
                     <p>ООО "РосИнтер Ресторантс Сибирь", Новосибирск, региональный управляющий</p>
                 </li>
-                <li class="stories-list__item stories-list__item" id="story_5">
+                <li class="stories-list__item js-show-story" id="story_5" data-id="#all-story_5">
                     <h3>«Традиции факультета — очень важная часть нашей жизни»</h3>
 
                     <img class="stories-list__photo" src="img/graduates/story_5/story_5.jpg">
                     <h4>Никита Кардаков</h4>
                     <p>NASP/Plingm, Стокгольм, ведущий разработчик</p>
                 </li>
-                <li class="stories-list__item stories-list__item-last" id="story_6">
+                <li class="stories-list__item js-show-story stories-list__item-last" id="story_6" data-id="#all-story_6">
                     <h3>«Для достижения высоких целей нужно много трудиться»</h3>
 
                     <img class="stories-list__photo" src="img/graduates/story_6/story_6.jpg">
                     <h4>Павел Сумароков,</h4>
                     <p>Al Digit, Омск, директор</p>
                 </li>
-                <li class="stories-list__item stories-list__item" id="story_7">
+                <li class="stories-list__item js-show-story" id="story_7" data-id="#all-story_7">
                     <h3>«Это лучшее в Омске место, в котором преподают Computer Science»</h3>
                     <img class="stories-list__photo" src="img/graduates/shestakov.jpg">
                     <h4>Александр Шестаков,</h4>
                     <p>Wooga, Берлин, разработчик</p>
                 </li>
-                <li class="stories-list__item stories-list__item" id="story_8">
+                <li class="stories-list__item js-show-story" id="story_8" data-id="#all-story_8">
                     <h3>«Всем, что у меня сейчас есть, я обязан матфаку!»</h3>
                     <img class="stories-list__photo" src="img/graduates/dvorzhetskij.jpg">
                     <h4>Юрий Дворжецкий,</h4>
                     <p>Luxoft, Омск, разработчик</p>
                 </li>
-                <li class="stories-list__item stories-list__item-last" id="story_9">
+                <li class="stories-list__item js-show-story stories-list__item-last" id="story_9" data-id="#all-story_9">
                     <h3>«Если бы я закончил не матфак, то вряд ли бы я связал свою жизнь с программированием»</h3>
                     <img class="stories-list__photo" src="img/graduates/story_9/story_9.jpg">
                     <h4>Юрий Легачев,</h4>
                     <p>The Boeing Company, Сиэтл, software engineer</p>
                 </li>
-                <li class="stories-list__item stories-list__item" id="story_10">
+                <li class="stories-list__item js-show-story" id="story_10" data-id="#all-story_10">
                     <h3>«Математический склад ума дает предпринимателю большое преимущество перед остальными»</h3>
                     <img class="stories-list__photo" src="img/graduates/lahtin.jpg">
                     <h4>Максим Лахтин,</h4>
                     <p>vseplatezhi.ru, Омск, один из основателей и генеральный директор
                     </p>
                 </li>
-                <li class="stories-list__item stories-list__item" id="story_11">
+                <li class="stories-list__item js-show-story" id="story_11" data-id="#all-story_11">
                     <h3>«Самое ценное, что я приобрела за эти пять лет, — это, пожалуй, научилась учиться»</h3>
 
                     <img class="stories-list__photo" src="img/graduates/shmidt.jpg">
                     <h4>Мария Шмидт,</h4>
                     <p>Компания DPD, Новосибирск, директор по операциям региона Сибирь и Дальний Восток</p>
                 </li>
-                <li class="stories-list__item stories-list__item-last" id="story_12">
+                <li class="stories-list__item js-show-story stories-list__item-last" id="story_12" data-id="#all-story_12">
                     <h3>«Знания и навыки, приобретенные на матфаке, — это мощный инструмент для построения нового»</h3>
                     <img class="stories-list__photo" src="img/graduates/shevlyakov.jpg">
                     <h4>Тимур Шевляков,</h4>
                     <p>Borland Microfocus, Австрия, разработчик</p>
                 </li>
-                <li class="stories-list__item" id="story_13">
+                <li class="stories-list__item js-show-story" id="story_13" data-id="#all-story_13">
                     <h3>«На вопрос "Чему научил матфак?" единственный верный ответ, который не я придумал, — матфак научил учиться!»</h3>
                     <img class="stories-list__photo" src="img/graduates/zolotarev.jpg">
                     <h4>Сергей Золотарев,</h4>
                     <p>ЗАО "Октан-брокер", Омск, директор</p>
                 </li>
-                <li class="stories-list__item" id="story_14">
+                <li class="stories-list__item js-show-story" id="story_14" data-id="#all-story_14">
                     <h3>«На матфаке я сильно вырос как программист, узнал множество фундаментальных и важных вещей»</h3>
                     <img class="stories-list__photo" src="img/graduates/korovyanskij.jpg">
                     <h4>Алексей Коровянский,</h4>
                     <p>ОмГУ, Омск, аспирант</p>
                 </li>
-                <li class="stories-list__item stories-list__item-last" id="story_15">
+                <li class="stories-list__item js-show-story stories-list__item-last" id="story_15" data-id="#all-story_15">
                     <h3>«Математический факультет научил меня думать — это, пожалуй, главное»</h3>
                     <img class="stories-list__photo" src="img/graduates/nikolaenko.jpg">
                     <h4>Жанна Николаенко,</h4>
@@ -151,7 +154,7 @@
             </ul>
         </div>
 
-        <div class = "story-container">
+        <div class = "story-container js-story-container">
             <div class = "story-container-shadow"></div>
             <div class = "story-content">
                 <ul>

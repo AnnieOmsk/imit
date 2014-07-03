@@ -7,7 +7,7 @@
     overflow: hidden;
     height: auto;
     background-color: #FBF2E8;
-    display: inline-block;
+    display: none;
 }
 .all-story__item {
     margin: 30px auto;
@@ -18,6 +18,7 @@
 }
 .stories-list__item:hover {
     background-color: #FBF2E8;
+    cursor: pointer;
 }
 .all-story__avatar {
     margin: 0px 60px;
@@ -32,7 +33,7 @@
     width: 296px;
     height: 296px;
     border-radius: 200px;
-    background-color: #AAA;  
+    background-color: #AAA;
     display: block;
 }
 .all-story__triangle-left {
@@ -86,7 +87,7 @@
    /* margin-bottom: 35px; */
    height: 0px;
    font: 95px PTSerifRegular;
-   color: #D8B37D; 
+   color: #D8B37D;
    float: right;
 }
 
@@ -129,6 +130,7 @@
     width: 24px;
     height: 24px;
     background-image: url(../img/close.png);
+    cursor: pointer;
 }
 
 .story-close:hover {
