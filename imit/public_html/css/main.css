@@ -157,6 +157,7 @@ body {
     text-align: left;
     position: relative;
     float: right;
+    bottom: 6px;
     /* clear: right; */
 }
 .text-contacts {
