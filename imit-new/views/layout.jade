@@ -1,7 +1,17 @@
 doctype html
 html
+
   head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width')
+    link(href='img/mainicon.png', rel='icon')
+    link(rel='stylesheet', href='css/main.css')
+    link(rel='stylesheet', href='css/fonts.css')
+    link(rel='stylesheet', href='css/text.css')
+    script(src='js/jquery-1.10.2.js')
+    link(href='http://fonts.googleapis.com/css?family=Roboto:300,500,400&subset=latin,cyrillic-ext,cyrillic', rel='stylesheet', type='text/css')
+    block head
+
   body
     block content
+
