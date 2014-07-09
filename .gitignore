@@ -39,3 +39,8 @@ Thumbs.db
 imit/config/
 imit/nbproject/
 imit/test/
+
+# Node.js files     #
+#####################
+imit-new/node_modules
+imit-new/.*
