@@ -5,37 +5,7 @@ block append head
   script(src='http://maps.api.2gis.ru/1.0')
 
 block content
-  #header
-    .header__content
-      .header__light
-      .header__social
-        a.social__button(href='http://vk.com/imit_omsu', target='_blank')
-          img.social__button__logo-livejournal(src='img/vk.png', alt='vk')
-        a.social__button(href='http://imit_omsu.livejournal.com', target='_blank')
-          img.social__button__logo-vk(src='img/livejournal.png', alt='lj')
-        a.social__button(href='https://www.youtube.com/user/IMITOmsk', target='_blank')
-          img.social__button__logo-youtube(src='img/youtube.png', alt='lj')
-      h1.header__title1 Омский государственный университет им. Ф. М. Достоевского
-      h2.header__title2 Институт Математики и Информационных Технологий
-      a(href='index.html', title='На главную')
-        img#logo(src='img/logo.png', alt='ИМИТ')
-      ul.menu
-        li.menu-item
-          a#hope__study.menu-item__button(href='go_to_university.html') Хочу поступить!
-        li.menu-item
-          a.menu-item__button(href='graduates.html') Выпускники
-        li.menu-item
-          a.menu-item__button(href='interesting.html') Это интересно
-        li.menu-item
-          a.menu-item__button(href='contacts.html') Контакты
-      .header__contacts
-        p.text-contacts
-          | деканат:
-          span.number-contacts  64-42-38
-        p.text-contacts
-          | приемная комиссия:
-          span.number-contacts  22-97-72
-  .header-bottom
+  include ../includes/header
   #content
     h3 Деканат
     h4 Адрес:
@@ -119,21 +89,4 @@ block content
     h4 Часы работы:
     p с 9.00 до 17.00(кроме субботы и воскресенья);
     p обед 12:30 - 13:00
-  #footer
-    .footer__content
-      p.footer__anotation
-        a.menu-item__button(href='http://imit.omsu.ru', target='_blank') 2014 ИМИТ ОмГУ им. Ф. М. Достоевского
-      .footer__contacts
-        p.text-contacts.margin-bottom-7
-          | деканат:
-          span.number-contacts  64-42-38,  22-56-96
-        p.text-contacts
-          | приемная комиссия:
-          span.number-contacts  22-97-72
-      .footer__social
-        a.social__button(href='http://vk.com/imit_omsu', target='_blank')
-          img.social__button__logo-livejournal(src='img/vk.png', alt='vk')
-        a.social__button(href='http://imit_omsu.livejournal.com', target='_blank')
-          img.social__button__logo-vk(src='img/livejournal.png', alt='lj')
-        a.social__button(href='https://www.youtube.com/user/IMITOmsk', target='_blank')
-          img.social__button__logo-youtube(src='img/youtube.png', alt='lj')
+  include ../includes/footer
