@@ -4,6 +4,8 @@ var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
+var csrf = require('csurf');
 
 var routes = require('./routes/index');
 var admin = require('./routes/admin');
@@ -20,9 +22,21 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({secret: 'keyboard cat', saveUninitialized: true, resave: true}));
+app.use(csrf());
 
+// Add csrf token to view
+app.use(function(req, res, next) {
+  res.locals['_csrf'] = req.csrfToken();
+  next();
+});
+
+// Routing
 app.use('/', routes);
 app.use('/admin', admin);
+
+// Add empty often used objects to avoid undefined errors
+app.locals.errors = {};
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {

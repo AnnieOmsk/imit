@@ -4,7 +4,7 @@ block append head
   title="Вход для администратора системы"
 
 block content
-  form.form-horizontal
+  form.form-horizontal(method="post")
     fieldset
       legend Вход
 
@@ -12,20 +12,16 @@ block content
         label.control-label(for='textinput') Login
         .controls
           input#textinput.input-xlarge(name='textinput', placeholder='Username', type='text')
-          if errors && errors.username
+          if errors.username
             span.red=errors.username
       .control-group
         label.control-label(for='passwordinput') Password
         .controls
           input#passwordinput.input-xlarge(name='passwordinput', placeholder='Password', type='password')
-          if errors && errors.password
+          if errors.password
             span.red=errors.password
       .control-group
-        label.control-label(for='checkboxes')
-        .controls
-          label.checkbox(for='checkboxes-0')
-            input#checkboxes-0(name='checkboxes', value='Remember me', type='checkbox')
-            | Remember me
+        input(type="hidden", name="_csrf", value="#{_csrf}")
       .control-group
         label.control-label(for='singlebutton')
         .controls
