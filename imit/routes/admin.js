@@ -10,8 +10,8 @@ var adminRegister = require('../controllers/AdminRegister');
 
 // Routing
 router.get('/', adminLogin.home);
-router.get('/login', adminLogin.get);
-router.post('/login', adminLogin.post);
+router.get('/login', adminLogin.login);
+router.post('/login.json', adminLogin.postJson);
 router.get('/register', adminRegister.register);
 router.post('/register.json', adminRegister.postJson);
 

@@ -29,5 +29,21 @@ module.exports = {
       return errors;
     }
     return null;
+  },
+
+  adminLogin: function(form) {
+    var errors = {};
+    if(validator.isNull(form.email)) {
+      errors.email = "Заполните, пожалуйста, email адрес";
+    } else if (!validator.isEmail(form.email)) {
+      errors.email = "Некорректный email-адрес";
+    }
+    if(validator.isNull(form.password)) {
+      errors.password = "Заполните, пожалуйста, пароль";
+    }
+    if (Object.keys(errors).length > 0) {
+      return errors;
+    }
+    return null;
   }
 };
