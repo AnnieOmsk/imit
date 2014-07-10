@@ -4,20 +4,16 @@
 var express = require('express');
 var router = express.Router();
 
-router.get('/', function(req, res) {
-  res.redirect('/admin/login');
-});
+// Controllers
+var adminLogin = require('../controllers/AdminLogin');
+var adminRegister = require('../controllers/AdminRegister');
 
-router.get('/login', function(req, res) {
-  res.render('admin/login', {});
-});
+// Routing
+router.get('/', adminLogin.home);
+router.get('/login', adminLogin.get);
+router.post('/login', adminLogin.post);
+router.get('/register', adminRegister.get);
+router.post('/register', adminRegister.post);
 
-router.post('/login', function(req, res) {
-  var errors = {};
-  errors.password = "Incorrect password";
-  res.render('admin/login', {
-    errors: errors
-  });
-});
-
+// Release
 module.exports = router;

@@ -4,25 +4,24 @@ block append head
   title="Вход для администратора системы"
 
 block content
-  form.form-horizontal(method="post")
-    fieldset
-      legend Вход
-
-      .control-group
-        label.control-label(for='textinput') Login
-        .controls
-          input#textinput.input-xlarge(name='textinput', placeholder='Username', type='text')
-          if errors.username
-            span.red=errors.username
-      .control-group
-        label.control-label(for='passwordinput') Password
-        .controls
-          input#passwordinput.input-xlarge(name='passwordinput', placeholder='Password', type='password')
-          if errors.password
-            span.red=errors.password
-      .control-group
+  .col-sm-4
+  .col-sm-2
+    div(style="height:150px")
+    form.form-horizontal(method="post")
+      .form-group
+        legend Вход
+      .form-group
+        label(for='email') Email
+        input#email.form-control(name='email', placeholder='Email адрес', type='text')
+        if errors.username
+          span.red=errors.username
+      .form-group
+        label(for='password') Пароль
+        input#password.form-control(name='password', placeholder='Пароль', type='password')
+        if errors.password
+          span.red=errors.password
+      .form-group
+        a(href='register') Запросить доступ
         input(type="hidden", name="_csrf", value="#{_csrf}")
-      .control-group
-        label.control-label(for='singlebutton')
-        .controls
-          button#singlebutton.btn.btn-primary(name='singlebutton') Login
+      .form-group
+        button.btn.btn-default.col-sm-4(name='submit') Войти
