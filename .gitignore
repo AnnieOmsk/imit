@@ -42,5 +42,5 @@ imit/test/
 
 # Node.js files     #
 #####################
-imit-new/node_modules
-imit-new/.*
+imit/node_modules
+imit/.*
