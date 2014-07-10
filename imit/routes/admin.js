@@ -12,8 +12,8 @@ var adminRegister = require('../controllers/AdminRegister');
 router.get('/', adminLogin.home);
 router.get('/login', adminLogin.get);
 router.post('/login', adminLogin.post);
-router.get('/register', adminRegister.get);
-router.post('/register', adminRegister.post);
+router.get('/register', adminRegister.register);
+router.post('/register.json', adminRegister.postJson);
 
 // Release
 module.exports = router;

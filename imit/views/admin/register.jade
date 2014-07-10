@@ -5,36 +5,33 @@ block append head
 
 block content
   .col-sm-4
-  .col-sm-2
+  .col-sm-2.js-admin-register
     div(style="height:100px")
-    form.form-horizontal(method="post")
+    form.form-horizontal(method="post", data-ajax-url="register.json")
+      .alert.alert-success.js-success-msg.ajax-form-msg
+      .alert.alert-danger.js-error-msg.ajax-form-msg
       .form-group
         legend Подать заявку
       .form-group
         label(for='email') Email адрес
         input#email.form-control(name='email', placeholder='Email адрес', type='text')
-        if errors.username
-          span.red=errors.username
+        .js-field-error.js-email-error-wrap.red
       .form-group
         label(for='password') Пароль
         input#password.form-control(name='password', placeholder='Пароль', type='password')
-        if errors.password
-          span.red=errors.password
+        .js-field-error.js-password-error-wrap.red
       .form-group
         label(for='password-repeat') Повторите пароль
         input#password-repeat.form-control(name='passwordRepeated', placeholder='Пароль', type='password')
-        if errors.passwordRepeated
-          span.red=errors.passwordRepeated
+        .js-field-error.js-passwordRepeated-error-wrap.red
       .form-group
         label(for='first-name') Имя
         input#first-name.form-control(name='firstName', placeholder='Имя', type='text')
-        if errors.firstName
-          span.red=errors.firstName
+        .js-field-error.js-firstName-error-wrap.red
       .form-group
         label(for='last-name') Фамилия
         input#last-name.form-control(name='lastName', placeholder='Фамилия', type='text')
-        if errors.lastName
-          span.red=errors.lastName
+        .js-field-error.js-lastName-error-wrap.red
       .form-group
         input(type="hidden", name="_csrf", value="#{_csrf}")
       .form-group
