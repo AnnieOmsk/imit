@@ -1,7 +1,7 @@
 /**
  * Admin registration controllers
  */
-var validator = require('../services/Validator');
+var validator = require('../../services/validator');
 
 module.exports = {
 

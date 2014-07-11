@@ -5,8 +5,8 @@ var express = require('express');
 var router = express.Router();
 
 // Controllers
-var adminLogin = require('../controllers/AdminLogin');
-var adminRegister = require('../controllers/AdminRegister');
+var adminLogin = require('../controllers/admin/login');
+var adminRegister = require('../controllers/admin/register');
 
 // Routing
 router.get('/', adminLogin.home);
