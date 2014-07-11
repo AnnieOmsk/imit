@@ -9,6 +9,7 @@ var begin = require('./utils/transactions');
 var mailer = require('./utils/mailer');
 var settings = require('../configuration/settings');
 var emailSubjects = require('../messages/email/subjects.json');
+var Request = require('../models/request');
 
 var SQL_SAVE_ADMIN_REQUEST = "INSERT INTO request (email, password, first_name, last_name, secret_code) " +
   "VALUES (?, ?, ?, ?, ?)";
@@ -16,6 +17,27 @@ var SQL_APPLY_REQUEST = "UPDATE request SET accepted = TRUE WHERE secret_code = 
 var SQL_DECLINE_REQUEST = "UPDATE request SET accepted = FALSE WHERE secret_code = ? AND accepted IS NULL";
 var SQL_CREATE_ADMIN = "INSERT INTO admin (email, password, first_name, last_name, secret_code) " +
   "SELECT email, password, first_name, last_name, secret_code FROM request WHERE secret_code = ? AND accepted = TRUE";
+var SQL_SELECT_REQUEST = "SELECT * FROM request WHERE secret_code = ?";
+
+var findRequest = function(code) {
+  var deferred = q.defer();
+  db.query(SQL_SELECT_REQUEST, [code], function(err, res) {
+    if (err) {
+      console.log("Saving request error:" + err);
+      deferred.reject(err);
+    } else {
+      var adminRequest = new Request();
+      adminRequest.id = res.rows[0].id;
+      adminRequest.email = res.rows[0].email;
+      adminRequest.firstName = res.rows[0].first_name;
+      adminRequest.lastName = res.rows[0].last_name;
+      adminRequest.createdAt = res.rows[0].created_at;
+      adminRequest.accepted = res.rows[0].accepted;
+      deferred.resolve(adminRequest);
+    }
+  });
+  return deferred.promise;
+};
 
 module.exports = {
 
@@ -37,7 +59,7 @@ module.exports = {
         };
         var htmlEmail = mailer.buildEmail('review-request', params);
         htmlEmail.then(function(data) {
-          mailer.send(settings.EMAIL_GMAIL_LOGIN, emailSubjects.review.request, "", data);
+          mailer.send(settings.EMAIL_GMAIL_LOGIN, emailSubjects.request.review, "", data);
         }, function(err) {
           console.log("Building html email failed:" + err);
         });
@@ -73,6 +95,19 @@ module.exports = {
                 console.log("Error occurs during creating admin:" + err);
                 deferred.reject(err);
               } else {
+                var promise = findRequest(code);
+                promise.then(function(data) {
+                  var params = data;
+                  params.adminLink = settings.SITE_ADDRESS + "/admin/";
+                  var htmlEmail = mailer.buildEmail('request-applied', params);
+                  htmlEmail.then(function(html) {
+                    mailer.send(params.email, emailSubjects.request.declined, "", html);
+                  }, function(err) {
+                    console.log("Cannot build apply email notification:" + err);
+                  });
+                }, function(err) {
+                  console.log("Cannot retrieve request data from db");
+                });
                 deferred.resolve(data);
               }
             });
@@ -90,6 +125,18 @@ module.exports = {
         console.log("Declining request error:" + err);
         deferred.reject(err);
       } else {
+        var promise = findRequest(code);
+        promise.then(function(data) {
+          var params = data;
+          var htmlEmail = mailer.buildEmail('request-declined', params);
+          htmlEmail.then(function(html) {
+            mailer.send(params.email, emailSubjects.request.declined, "", html);
+          }, function(err) {
+            console.log("Cannot build decline email notification:" + err);
+          });
+        }, function(err) {
+          console.log("Cannot retrieve request data from db");
+        });
         deferred.resolve(res);
       }
     });
