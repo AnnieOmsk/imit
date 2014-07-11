@@ -1,6 +1,5 @@
 var express = require('express');
 var path = require('path');
-
 var middleware = require('./configuration/middleware');
 var routes = require('./configuration/routes');
 var custom = require('./configuration/custom');
