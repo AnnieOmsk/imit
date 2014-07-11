@@ -8,6 +8,7 @@ var db = require('./utils/db');
 var begin = require('./utils/transactions');
 var mailer = require('./utils/mailer');
 var settings = require('../configuration/settings');
+var emailSubjects = require('../messages/email/subjects.json');
 
 var SQL_SAVE_ADMIN_REQUEST = "INSERT INTO request (email, password, first_name, last_name, secret_code) " +
   "VALUES (?, ?, ?, ?, ?)";
@@ -27,14 +28,19 @@ module.exports = {
         console.log("Saving request error:" + err);
         deferred.reject(err);
       } else {
-        mailer.send(
-          settings.EMAIL_GMAIL_LOGIN,
-          "Новый запрос на администрирование сайта imit-omsu.ru",
-            "Вам пришёл новый запрос на админинстрирование сайта от "
-            + request.email + " " + request.lastName + " " + request.firstName + "\n" +
-              "Принять заявку: http://localhost:3000/admin/register-apply?code=" + request.secretCode + "\n" +
-              "Отклонить заявку: http://localhost:3000/admin/register-decline?code=" + request.secretCode + "\n"
-        );
+        var params = {
+          email: request.email,
+          firstName: request.firstName,
+          lastName: request.lastName,
+          applyLink: settings.SITE_ADDRESS + "/admin/register-apply?code=" + request.secretCode,
+          declineLink: settings.SITE_ADDRESS + "/admin/register-decline?code=" + request.secretCode
+        };
+        var htmlEmail = mailer.buildEmail('review-request', params);
+        htmlEmail.then(function(data) {
+          mailer.send(settings.EMAIL_GMAIL_LOGIN, emailSubjects.review.request, "", data);
+        }, function(err) {
+          console.log("Building html email failed:" + err);
+        });
         deferred.resolve(res);
       }
     });

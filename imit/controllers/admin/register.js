@@ -3,6 +3,7 @@
  */
 var validator = require('../../services/validator');
 var service = require('../../services/admin');
+var messages = require('../../messages/validation.json');
 var Request = require('../../models/request');
 
 module.exports = {
@@ -13,11 +14,12 @@ module.exports = {
 
   postJson: function(req, res) {
     var form = req.body;
-    var successMessage;
-    var errorMessage;
     var errors = validator.adminRegister(form);
     if (errors != null) {
-      errorMessage = "Пожалуйста, исправьте ошибки";
+      res.json({
+        errorMessage: messages.admin.register.errorErrors,
+        errors: errors
+      });
     } else {
       var adminRequest = new Request();
       adminRequest.email = form.email;
@@ -26,20 +28,18 @@ module.exports = {
       adminRequest.lastName = form.lastName;
       var promise = service.saveRequest(adminRequest);
       promise.then(function(){
-        successMessage = "Ваши данные сохранены, ждите ответа";
         res.json({
-          successMessage: successMessage,
-          errorMessage: errorMessage,
+          successMessage: messages.admin.register.success,
           errors: errors
         });
       }, function(err) {
+        var errorMessage;
         if (err.code == 'ER_DUP_ENTRY') {
-          errorMessage = "Заявка с таким email-адресом уже была подана ранее";
+          errorMessage = messages.admin.registter.errorDuplicate;
         } else {
-          errorMessage = "Ошибка сохранения данных, пожалуйста, повторите позже";
+          errorMessage = messages.admin.registter.errorDatabase;
         }
         res.json({
-          successMessage: successMessage,
           errorMessage: errorMessage,
           errors: errors
         });

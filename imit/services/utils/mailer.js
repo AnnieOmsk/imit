@@ -3,6 +3,8 @@
  */
 var nodemailer = require("nodemailer");
 var q = require('q');
+var path = require('path');
+var emailTemplates = require('email-templates');
 var settings = require("../../configuration/settings");
 
 var smtpTransport = nodemailer.createTransport("SMTP", {
@@ -17,6 +19,9 @@ var smtpTransport = nodemailer.createTransport("SMTP", {
 var mailOptions = {
   from: settings.EMAIL_FROM
 };
+
+// Directory with email templates
+var templatesDir = path.resolve(__dirname, '../../messages/email');
 
 module.exports = {
 
@@ -36,6 +41,21 @@ module.exports = {
       }
       // if you don't want to use this transport object anymore, uncomment following line
       //smtpTransport.close(); // shut down the connection pool, no more messages
+    });
+    return deferred.promise;
+  },
+
+  buildEmail: function(name, params) {
+    var deferred = q.defer();
+    emailTemplates(templatesDir, function(err, template) {
+      template(name, params, function(err, html, text) {
+        if(err) {
+          console.log("Cannot build email from template:" + err);
+          deferred.reject(err);
+        } else {
+          deferred.resolve(html);
+        }
+      });
     });
     return deferred.promise;
   }

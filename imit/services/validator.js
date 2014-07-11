@@ -2,27 +2,28 @@
  * Forms validation
  */
 var validator = require('validator');
+var messages =  require('../messages/validation.json');
 
 module.exports = {
 
   adminRegister: function(form) {
     var errors = {};
     if(validator.isNull(form.email)) {
-      errors.email = "Заполните, пожалуйста, email адрес";
+      errors.email = messages.admin.register.emailNull;
     } else if (!validator.isEmail(form.email)) {
-      errors.email = "Некорректный email-адрес";
+      errors.email = messages.admin.register.emailIncorrect;
     }
     if(!validator.isLength(form.password, 6, 50)) {
-      errors.password = "Пароль должен быть не менее 6 и не более 50 символов";
+      errors.password = messages.admin.register.passwordLength;
     }
     if(form.password != form.passwordRepeated) {
-      errors.passwordRepeated = "Пароли должны совпадать";
+      errors.passwordRepeated = messages.admin.register.passwordsNotEqual;
     }
     if(validator.isNull(form.firstName)) {
-      errors.firstName = "Заполните, пожалуйста, имя";
+      errors.firstName = messages.admin.register.firstNameNull;
     }
     if(validator.isNull(form.lastName)) {
-      errors.lastName = "Заполните, пожалуйста, фамилию";
+      errors.lastName = messages.admin.register.lastNameNull;
     }
 
     if (Object.keys(errors).length > 0) {
@@ -34,12 +35,12 @@ module.exports = {
   adminLogin: function(form) {
     var errors = {};
     if(validator.isNull(form.email)) {
-      errors.email = "Заполните, пожалуйста, email адрес";
+      errors.email = messages.admin.login.emailNull;
     } else if (!validator.isEmail(form.email)) {
-      errors.email = "Некорректный email-адрес";
+      errors.email = messages.admin.login.emailIncorrect;
     }
     if(validator.isNull(form.password)) {
-      errors.password = "Заполните, пожалуйста, пароль";
+      errors.password = messages.admin.login.passwordNull;
     }
     if (Object.keys(errors).length > 0) {
       return errors;
