@@ -1,0 +1,19 @@
+/**
+ * Application settings and constants
+ * Remove .template extension and modify settings for your application
+ */
+
+module.exports = {
+
+  DB_TYPE: 'mysql',
+  DB_USER: 'imit',
+  DB_PASSWORD: 'imitpass',
+  DB_DATABASE: 'imit',
+  DB_HOST: 'localhost',
+  DB_POOL_MIN: 10,
+  DB_POOL_MAX: 50,
+  ENV: 'dev',
+  EMAIL_FROM: 'email@email.com',
+  EMAIL_GMAIL_LOGIN: 'email',
+  EMAIL_GMAIL_PASS: 'pass'
+};

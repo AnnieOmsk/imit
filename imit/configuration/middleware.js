@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var csrf = require('csurf');
 var RedisStore = require('connect-redis')(session);
+var settings = require('./settings');
 
 module.exports = {
 
@@ -17,7 +18,7 @@ module.exports = {
    */
   init: function(app) {
     app.use(favicon());
-    app.use(logger('dev'));
+    app.use(logger(settings.ENV));
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded());
     app.use(cookieParser());

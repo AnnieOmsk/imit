@@ -14,6 +14,8 @@ router.get('/login', adminLogin.login);
 router.post('/login.json', adminLogin.postJson);
 router.get('/register', adminRegister.register);
 router.post('/register.json', adminRegister.postJson);
+router.get('/register-apply', adminRegister.apply);
+router.get('/register-decline', adminRegister.decline);
 
 // Release
 module.exports = router;

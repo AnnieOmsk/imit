@@ -44,3 +44,4 @@ imit/test/
 #####################
 imit/node_modules
 imit/.*
+imit/configuration/settings.js
