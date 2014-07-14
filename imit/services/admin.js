@@ -115,7 +115,7 @@ module.exports = {
                   params.adminLink = settings.SITE_ADDRESS + "/admin/";
                   var htmlEmail = mailer.buildEmail('request-applied', params);
                   htmlEmail.then(function(html) {
-                    mailer.send(params.email, emailSubjects.request.declined, "", html);
+                    mailer.send(params.email, emailSubjects.request.applied, "", html);
                   }, function(err) {
                     console.log("Cannot build apply email notification:" + err);
                   });
