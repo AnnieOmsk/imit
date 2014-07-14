@@ -22,7 +22,7 @@ module.exports = {
       if(userIsAllowed (req)){
           next();
         } else {
-          res.send(403);
+          res.redirect("/admin/login");
         }
       });
   }

@@ -5,5 +5,28 @@ block append head
 
 block content
   .col-sm-4
-    span Секретная зона
-    a(href="logout") Выйти
+    div(style="height:50px")
+    .js-tabs-panel.row
+      .col-xs-12.col-sm-4.no-padding-left
+        .panel.panel-info
+          .panel-heading Администраторская часть
+
+          div.list-group
+            a.list-group-item.active(href="#graduates-list", data-toggle="tab") Список выпускников
+            a.list-group-item(href="#add-graduate", data-toggle="tab") Добавить выпускника
+            a.list-group-item(href="logout") Выйти
+      .col-xs-12.col-sm-7.pull-right.tab-content.no-padding-left.no-padding-right
+        #graduates-list.panel.panel-default.tab-pane.active
+          .panel-heading Список выпускников
+          .panel-body.js-ajax-form
+            .ajax-wrapper
+              .loader.transparent.without-height
+              form(name="graduatesList", method="post")
+
+        #add-graduate.panel.panel-default.tab-pane
+          .panel-heading Добавить выпускника
+          .panel-body.js-ajax-form
+            .ajax-wrapper
+              .loader.transparent.without-height
+              form(name="addGraduate", method="post")
+
