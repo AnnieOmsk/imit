@@ -53,7 +53,7 @@ module.exports = {
       res.redirect('login');
     }
     var promise = service.applyRequest(code);
-    promise.then(function(date) {
+    promise.then(function(data) {
       res.redirect('login');
     }, function(err) {
       res.redirect('login');
@@ -66,7 +66,7 @@ module.exports = {
       res.redirect('login');
     }
     var promise = service.declineRequest(code);
-    promise.then(function(date) {
+    promise.then(function(data) {
       res.redirect('login');
     }, function(err) {
       res.redirect('login');

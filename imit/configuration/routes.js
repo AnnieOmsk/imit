@@ -3,6 +3,7 @@
  */
 var routes = require('../routes/index');
 var admin = require('../routes/admin');
+var restricted = require('../routes/restricted');
 
 module.exports = {
 
@@ -13,6 +14,7 @@ module.exports = {
   init: function (app) {
 
     app.use('/', routes);
+    app.use('/admin/restricted', restricted);
     app.use('/admin', admin);
   }
 };

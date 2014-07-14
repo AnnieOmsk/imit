@@ -4,6 +4,7 @@ var middleware = require('./configuration/middleware');
 var routes = require('./configuration/routes');
 var custom = require('./configuration/custom');
 var errors = require('./configuration/errors');
+var security = require('./configuration/security');
 
 var app = express();
 
@@ -19,6 +20,9 @@ app.set('view engine', 'jade');
 
 // Customize chain
 custom.init(app);
+
+// Initialize security
+security.init(app);
 
 // Routes configuration
 routes.init(app);

@@ -18,6 +18,24 @@ var SQL_DECLINE_REQUEST = "UPDATE request SET accepted = FALSE WHERE secret_code
 var SQL_CREATE_ADMIN = "INSERT INTO admin (email, password, first_name, last_name, secret_code) " +
   "SELECT email, password, first_name, last_name, secret_code FROM request WHERE secret_code = ? AND accepted = TRUE";
 var SQL_SELECT_REQUEST = "SELECT * FROM request WHERE secret_code = ?";
+var SQL_LOGIN_CHECK = "SELECT * FROM admin where email = ? AND password = ?";
+
+var rowConvert = function(row) {
+  if (row == null) {
+    return null;
+  }
+  var keys = Object.keys(row);
+  if (keys.length > 0) {
+    var result = {};
+    for (var i=0; i<keys.length; i++) {
+      var currentKey = keys[i];
+      var objProperty = currentKey.replace(/_[0-9a-zA-Z]/g, function(x) {return x[1].toUpperCase();});
+      result[objProperty] = row[currentKey];
+    }
+    return result;
+  }
+  return null;
+};
 
 var findRequest = function(code) {
   var deferred = q.defer();
@@ -27,12 +45,8 @@ var findRequest = function(code) {
       deferred.reject(err);
     } else {
       var adminRequest = new Request();
-      adminRequest.id = res.rows[0].id;
-      adminRequest.email = res.rows[0].email;
-      adminRequest.firstName = res.rows[0].first_name;
-      adminRequest.lastName = res.rows[0].last_name;
-      adminRequest.createdAt = res.rows[0].created_at;
-      adminRequest.accepted = res.rows[0].accepted;
+      adminRequest.load(rowConvert(res.rows[0]));
+      adminRequest.password = "";
       deferred.resolve(adminRequest);
     }
   });
@@ -138,6 +152,25 @@ module.exports = {
           console.log("Cannot retrieve request data from db");
         });
         deferred.resolve(res);
+      }
+    });
+    return deferred.promise;
+  },
+
+  loginCheck : function(email, password) {
+    var deferred = q.defer();
+    db.query(SQL_LOGIN_CHECK, [email, password], function(err, res) {
+      if (err) {
+        console.log("Login check request error:" + err);
+        deferred.reject(err);
+      } else {
+        var found = null;
+        if (res.rows[0] != null) {
+          var adminRequest = new Request();
+          found = adminRequest.load(rowConvert(res.rows[0]));
+          found.password = null;
+        }
+        deferred.resolve(found);
       }
     });
     return deferred.promise;
