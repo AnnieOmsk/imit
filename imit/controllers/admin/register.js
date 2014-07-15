@@ -3,7 +3,7 @@
  */
 var validator = require('../../services/validator');
 var service = require('../../services/admin');
-var messages = require('../../messages/validation.json');
+var messages = require('../../messages/validation');
 var Request = require('../../models/request');
 
 module.exports = {

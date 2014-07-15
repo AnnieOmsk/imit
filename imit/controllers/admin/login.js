@@ -4,7 +4,7 @@
 var validator = require('../../services/validator');
 var settings = require('../../configuration/settings');
 var service = require('../../services/admin');
-var messages = require('../../messages/validation.json');
+var messages = require('../../messages/validation');
 
 module.exports = {
 

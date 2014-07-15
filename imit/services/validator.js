@@ -2,7 +2,7 @@
  * Forms validation
  */
 var validator = require('validator');
-var messages =  require('../messages/validation.json');
+var messages =  require('../messages/validation');
 
 module.exports = {
 

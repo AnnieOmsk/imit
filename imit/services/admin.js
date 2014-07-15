@@ -8,7 +8,7 @@ var db = require('./utils/db');
 var begin = require('./utils/transactions');
 var mailer = require('./utils/mailer');
 var settings = require('../configuration/settings');
-var emailSubjects = require('../messages/email/subjects.json');
+var emailSubjects = require('../messages/email/subjects');
 var Request = require('../models/request');
 
 var SQL_SAVE_ADMIN_REQUEST = "INSERT INTO request (email, password, first_name, last_name, secret_code) " +
