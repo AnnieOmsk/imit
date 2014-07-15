@@ -1,19 +1,11 @@
 /**
  * Utility for sending emails
  */
-var nodemailer = require("nodemailer");
 var q = require('q');
 var path = require('path');
 var emailTemplates = require('email-templates');
 var settings = require("../../configuration/settings");
-
-var smtpTransport = nodemailer.createTransport("SMTP", {
-  service: "Gmail",
-  auth: {
-    user: settings.EMAIL_GMAIL_LOGIN,
-    pass: settings.EMAIL_GMAIL_PASS
-  }
-});
+var emailer = require("../../configuration/emailer");
 
 // setup e-mail data with unicode symbols
 var mailOptions = {
@@ -31,7 +23,7 @@ module.exports = {
     mailOptions.subject = subject;
     mailOptions.text = text;
     mailOptions.html = html;
-    smtpTransport.sendMail(mailOptions, function(error, response){
+    emailer.sendMail(mailOptions, function(error, response){
       if(error) {
         console.log("Email sending error:" + error);
         deferred.reject(error);
