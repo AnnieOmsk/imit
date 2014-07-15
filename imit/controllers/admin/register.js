@@ -35,9 +35,9 @@ module.exports = {
       }, function(err) {
         var errorMessage;
         if (err.code == 'ER_DUP_ENTRY') {
-          errorMessage = messages.admin.registter.errorDuplicate;
+          errorMessage = messages.admin.register.errorDuplicate;
         } else {
-          errorMessage = messages.admin.registter.errorDatabase;
+          errorMessage = messages.admin.register.errorDatabase;
         }
         res.json({
           errorMessage: errorMessage,

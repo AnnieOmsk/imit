@@ -5,6 +5,7 @@
 
 module.exports = {
 
+  APP_PORT: '3000',
   DB_TYPE: 'mysql',
   DB_USER: 'imit',
   DB_PASSWORD: 'imitpass',
