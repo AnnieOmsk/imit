@@ -6,10 +6,8 @@ var q = require('q');
 var crypto = require('crypto');
 var db = require('../configuration/database').pool;
 var begin = require('../configuration/database').begin;
-var mailer = require('./utils/mailer');
-var settings = require('../configuration/settings');
-var emailSubjects = require('../messages/email/subjects');
 var mapper = require('./utils/mapper');
+var notify = require('./utils/notify');
 var Request = require('../models/request');
 
 var SQL_SAVE_ADMIN_REQUEST = "INSERT INTO request (email, password, first_name, last_name, secret_code) " +
@@ -48,19 +46,7 @@ module.exports = {
         console.log("Saving request error:" + err);
         deferred.reject(err);
       } else {
-        var params = {
-          email: request.email,
-          firstName: request.firstName,
-          lastName: request.lastName,
-          applyLink: settings.SITE_ADDRESS + "/admin/register-apply?code=" + request.secretCode,
-          declineLink: settings.SITE_ADDRESS + "/admin/register-decline?code=" + request.secretCode
-        };
-        var htmlEmail = mailer.buildEmail('review-request', params);
-        htmlEmail.then(function(data) {
-          mailer.send(settings.EMAIL_GMAIL_LOGIN, emailSubjects.request.review, "", data);
-        }, function(err) {
-          console.log("Building html email failed:" + err);
-        });
+        notify.process(request, 'review-request');
         deferred.resolve(res);
       }
     });
@@ -98,14 +84,7 @@ module.exports = {
               } else {
                 var promise = findRequest(code);
                 promise.then(function(data) {
-                  var params = data;
-                  params.adminLink = settings.SITE_ADDRESS + "/admin/";
-                  var htmlEmail = mailer.buildEmail('request-applied', params);
-                  htmlEmail.then(function(html) {
-                    mailer.send(params.email, emailSubjects.request.applied, "", html);
-                  }, function(err) {
-                    console.log("Cannot build apply email notification:" + err);
-                  });
+                  notify.process(data, 'request-applied');
                 }, function(err) {
                   console.log("Cannot retrieve request data from db");
                 });
@@ -128,13 +107,7 @@ module.exports = {
       } else {
         var promise = findRequest(code);
         promise.then(function(data) {
-          var params = data;
-          var htmlEmail = mailer.buildEmail('request-declined', params);
-          htmlEmail.then(function(html) {
-            mailer.send(params.email, emailSubjects.request.declined, "", html);
-          }, function(err) {
-            console.log("Cannot build decline email notification:" + err);
-          });
+          notify.process(data, 'request-declined');
         }, function(err) {
           console.log("Cannot retrieve request data from db");
         });
