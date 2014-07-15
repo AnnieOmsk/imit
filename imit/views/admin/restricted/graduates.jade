@@ -5,8 +5,10 @@ table.table.table-striped#table-sort
       th Имя
       th Изображение
       th Должность
+      th Выпуск
       th Факультет
       th Заглавная цитата
+      th Полная цитата
       th Текст
       th Создан
   tbody
@@ -17,7 +19,9 @@ table.table.table-striped#table-sort
           td #{graduate.name}
           td #{graduate.img}
           td #{graduate.occupancy}
+          th #{graduate.graduatedIn}
           td #{graduate.department}
           td #{graduate.lead}
+          td #{graduate.fullLead}
           td #{strip(graduate.text, 100)}
           td #{graduate.createdAt}

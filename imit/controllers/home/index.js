@@ -1,6 +1,7 @@
 /**
  * Home controllers
  */
+var service = require('../../services/main');
 
 module.exports = {
 
@@ -21,7 +22,12 @@ module.exports = {
   },
 
   graduates: function (req, res) {
-    res.render('home/graduates', { title: 'IMIT Graduates' });
+    var promise = service.findGraduates();
+    promise.then(function(graduates) {
+      res.render('home/graduates', {graduates: graduates});
+    }, function(err) {
+      res.render('home/graduates', {errors: {error: messages.restricted.graduates.errorDatabase}});
+    });
   },
 
   interesting: function (req, res) {

@@ -8,7 +8,9 @@ function Graduate() {
   this.img = "";
   this.occupancy = "";
   this.department = "";
+  this.graduatedIn = "";
   this.lead = "";
+  this.fullLead = "";
   this.text = "";
   this.createdAt = null;
 }
@@ -20,7 +22,9 @@ Graduate.prototype.load = function(obj) {
     this.img = obj.img;
     this.occupancy = obj.occupancy;
     this.department = obj.department;
+    this.graduatedIn = obj.graduatedIn;
     this.lead = obj.lead;
+    this.fullLead = obj.fullLead;
     this.text = obj.text;
     this.createdAt = obj.createdAt;
   }

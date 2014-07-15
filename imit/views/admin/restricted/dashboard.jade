@@ -6,8 +6,8 @@ block append head
 block content
   .col-sm-12
     div(style="height:50px")
-    if error
-      .alert.alert-danger #{error}
+    if errors.error
+      .alert.alert-danger #{errors.error}
     .js-tabs-panel.row
       .col-xs-12.col-sm-2.no-padding-left
         .panel.panel-info

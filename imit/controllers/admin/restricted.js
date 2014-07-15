@@ -11,7 +11,10 @@ module.exports = {
     promise.then(function(graduates) {
       res.render('admin/restricted/dashboard', {graduates: graduates});
     }, function(err) {
-      res.render('admin/restricted/dashboard', {error: messages.restricted.graduates.errorDatabase});
+      res.render('admin/restricted/dashboard', {
+        errors: {error: messages.restricted.graduates.errorDatabase},
+        graduates: null
+      });
     });
   },
 

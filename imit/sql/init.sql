@@ -70,8 +70,10 @@ CREATE TABLE IF NOT EXISTS `graduate` (
   `name` varchar(255) NOT NULL,
   `img` varchar(255) NOT NULL,
   `occupancy` varchar(255) NOT NULL,
+  `graduated_in` varchar(255) NOT NULL,
   `department` varchar(255) NOT NULL,
   `lead` varchar(255) NOT NULL,
+  `full_lead` varchar(255) NOT NULL,
   `text` text NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
