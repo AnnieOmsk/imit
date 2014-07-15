@@ -9,6 +9,7 @@ var begin = require('../configuration/database').begin;
 var mapper = require('./utils/mapper');
 var notify = require('./utils/notify');
 var Request = require('../models/request');
+var Admin = require('../models/admin');
 
 var SQL_SAVE_ADMIN_REQUEST = "INSERT INTO request (email, password, first_name, last_name, secret_code) " +
   "VALUES (?, ?, ?, ?, ?)";
@@ -17,7 +18,7 @@ var SQL_DECLINE_REQUEST = "UPDATE request SET accepted = FALSE WHERE secret_code
 var SQL_CREATE_ADMIN = "INSERT INTO admin (email, password, first_name, last_name, secret_code) " +
   "SELECT email, password, first_name, last_name, secret_code FROM request WHERE secret_code = ? AND accepted = TRUE";
 var SQL_SELECT_REQUEST = "SELECT * FROM request WHERE secret_code = ?";
-var SQL_LOGIN_CHECK = "SELECT * FROM admin where email = ? AND password = ?";
+var SQL_FIND_ADMIN = "SELECT * FROM admin where email = ? AND password = ?";
 
 var findRequest = function(code) {
   var deferred = q.defer();
@@ -117,18 +118,17 @@ module.exports = {
     return deferred.promise;
   },
 
-  loginCheck : function(email, password) {
+  findAdmin : function(email, password) {
     var deferred = q.defer();
-    db.query(SQL_LOGIN_CHECK, [email, password], function(err, res) {
+    db.query(SQL_FIND_ADMIN, [email, password], function(err, res) {
       if (err) {
         console.log("Login check request error:" + err);
         deferred.reject(err);
       } else {
         var found = null;
         if (res.rows[0] != null) {
-          var adminRequest = new Request();
-          found = adminRequest.load(mapper.rowConvert(res.rows[0]));
-          found.password = null;
+          var admin = new Admin();
+          found = admin.load(mapper.rowConvert(res.rows[0]));
         }
         deferred.resolve(found);
       }

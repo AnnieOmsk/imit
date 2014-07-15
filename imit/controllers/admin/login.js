@@ -29,7 +29,7 @@ module.exports = {
         errors: errors
       });
     } else {
-      var promise = service.loginCheck(form.email, form.password);
+      var promise = service.findAdmin(form.email, form.password);
       promise.then(function(user) {
         if (user == null) {
           errorMessage = messages.admin.login.errorIncorrect;
