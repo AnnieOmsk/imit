@@ -1,6 +1,26 @@
 /**
  * Mapping utilities
  */
+
+/**
+ * Converts object to object with camel-cased field names instead
+ * of underscored spaces: first_name -> firstName
+ * @param obj  Object
+ */
+var objectConverter = function(obj) {
+  var keys = Object.keys(obj);
+  if (keys.length > 0) {
+    var result = {};
+    for (var i=0; i<keys.length; i++) {
+      var currentKey = keys[i];
+      var objProperty = currentKey.replace(/_[0-9a-zA-Z]/g, function(x) {return x[1].toUpperCase();});
+      result[objProperty] = obj[currentKey];
+    }
+    return result;
+  }
+  return null;
+};
+
 module.exports = {
 
   /**
@@ -11,16 +31,23 @@ module.exports = {
     if (row == null) {
       return null;
     }
-    var keys = Object.keys(row);
-    if (keys.length > 0) {
-      var result = {};
-      for (var i=0; i<keys.length; i++) {
-        var currentKey = keys[i];
-        var objProperty = currentKey.replace(/_[0-9a-zA-Z]/g, function(x) {return x[1].toUpperCase();});
-        result[objProperty] = row[currentKey];
-      }
-      return result;
+    return objectConverter(row);
+  },
+
+  /**
+   * Synchronously converts array of rows to array of object
+   * with javascript camel-cased field names
+   * @param rows
+   */
+  rowsConvert: function(rows) {
+    if (rows == null) {
+      return null;
     }
-    return null;
+    var result = [];
+    for (var i=0; i<rows.length; i++) {
+      var currentRow = rows[i];
+      result.push(objectConverter(currentRow));
+    }
+    return result;
   }
 };

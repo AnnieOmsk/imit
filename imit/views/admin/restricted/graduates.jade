@@ -1,0 +1,23 @@
+table.table.table-striped#table-sort
+  thead
+    tr
+      th Идентификатор
+      th Имя
+      th Изображение
+      th Должность
+      th Факультет
+      th Заглавная цитата
+      th Текст
+      th Создан
+  tbody
+    if graduates
+      each graduate in graduates
+        tr
+          td #{graduate.id}
+          td #{graduate.name}
+          td #{graduate.img}
+          td #{graduate.occupancy}
+          td #{graduate.department}
+          td #{graduate.lead}
+          td #{strip(graduate.text, 100)}
+          td #{graduate.createdAt}

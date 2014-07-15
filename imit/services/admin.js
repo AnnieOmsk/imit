@@ -10,6 +10,7 @@ var mapper = require('./utils/mapper');
 var notify = require('./utils/notify');
 var Request = require('../models/request');
 var Admin = require('../models/admin');
+var Graduate = require('../models/graduate');
 
 var SQL_SAVE_ADMIN_REQUEST = "INSERT INTO request (email, password, first_name, last_name, secret_code) " +
   "VALUES (?, ?, ?, ?, ?)";
@@ -19,6 +20,7 @@ var SQL_CREATE_ADMIN = "INSERT INTO admin (email, password, first_name, last_nam
   "SELECT email, password, first_name, last_name, secret_code FROM request WHERE secret_code = ? AND accepted = TRUE";
 var SQL_SELECT_REQUEST = "SELECT * FROM request WHERE secret_code = ?";
 var SQL_FIND_ADMIN = "SELECT * FROM admin where email = ? AND password = ?";
+var SQL_FIND_GRADUATES = "SELECT * FROM graduate";
 
 var findRequest = function(code) {
   var deferred = q.defer();
@@ -129,6 +131,25 @@ module.exports = {
         if (res.rows[0] != null) {
           var admin = new Admin();
           found = admin.load(mapper.rowConvert(res.rows[0]));
+        }
+        deferred.resolve(found);
+      }
+    });
+    return deferred.promise;
+  },
+
+  findGraduates: function() {
+    var deferred = q.defer();
+    db.query(SQL_FIND_GRADUATES, [], function(err, res) {
+      if (err) {
+        console.log("Finding graduates error:" + err);
+        deferred.reject(err);
+      } else {
+        var found = [];
+        var objects = mapper.rowsConvert(res.rows);
+        for (var i=0; i<objects.length; i++) {
+          var graduate = new Graduate();
+          found.push(graduate.load(objects[i]));
         }
         deferred.resolve(found);
       }

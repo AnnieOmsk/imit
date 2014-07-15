@@ -1,13 +1,15 @@
-extends ../layouts/admin-layout
+extends ../../layouts/admin-layout
 
 block append head
   title="Контрольная панель администратора системы"
 
 block content
-  .col-sm-4
+  .col-sm-12
     div(style="height:50px")
+    if error
+      .alert.alert-danger #{error}
     .js-tabs-panel.row
-      .col-xs-12.col-sm-4.no-padding-left
+      .col-xs-12.col-sm-2.no-padding-left
         .panel.panel-info
           .panel-heading Администраторская часть
 
@@ -15,18 +17,14 @@ block content
             a.list-group-item.active(href="#graduates-list", data-toggle="tab") Список выпускников
             a.list-group-item(href="#add-graduate", data-toggle="tab") Добавить выпускника
             a.list-group-item(href="logout") Выйти
-      .col-xs-12.col-sm-7.pull-right.tab-content.no-padding-left.no-padding-right
+      .col-xs-12.col-sm-10.pull-right.tab-content.no-padding-left.no-padding-right
         #graduates-list.panel.panel-default.tab-pane.active
           .panel-heading Список выпускников
-          .panel-body.js-ajax-form
-            .ajax-wrapper
-              .loader.transparent.without-height
-              form(name="graduatesList", method="post")
+          .panel-body
+            include graduates
 
         #add-graduate.panel.panel-default.tab-pane
           .panel-heading Добавить выпускника
-          .panel-body.js-ajax-form
-            .ajax-wrapper
-              .loader.transparent.without-height
-              form(name="addGraduate", method="post")
+          .panel-body
+            include add_graduate
 
