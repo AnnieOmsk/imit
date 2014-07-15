@@ -58,6 +58,25 @@ CREATE TABLE IF NOT EXISTS `request` (
   UNIQUE KEY `secret_code` (`secret_code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `graduate`
+--
+
+DROP TABLE IF EXISTS `graduate`;
+CREATE TABLE IF NOT EXISTS `graduate` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `img` varchar(255) NOT NULL,
+  `occupancy` varchar(255) NOT NULL,
+  `department` varchar(255) NOT NULL,
+  `lead` varchar(255) NOT NULL,
+  `text` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
