@@ -1,6 +1,6 @@
 'use strict';
 
 $(function() {
-  window.ajaxForm.attachTo('.js-ajax-form');
+  window.ajaxFormLive.attachTo('.js-save-graduate');
   window.sidebarTabs.attachTo('.js-tabs-panel');
 });

@@ -2,6 +2,7 @@
  * Admin restricted zone controllers
  */
 var service = require('../../services/admin');
+var validator = require('../../services/validator');
 var messages = require('../../messages/validation');
 
 module.exports = {
@@ -22,5 +23,24 @@ module.exports = {
     req.session.authenticated = false;
     req.session.user = null;
     res.redirect('/admin/login');
+  },
+
+  verifyGraduate: function(req, res) {
+    var form = req.body;
+    var errors = validator.graduateLive(form);
+    if (errors != null) {
+      res.json({
+        errorMessage: messages.graduate.save.errorErrors,
+        errors: errors
+      });
+    } else {
+      res.json({
+        successMessage: ""
+      });
+    }
+  },
+
+  saveGraduate: function(req, res) {
+    return null;
   }
 };
