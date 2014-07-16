@@ -1,0 +1,52 @@
+.js-ajax-form
+  .ajax-wrapper
+    .loader.transparent.without-height
+    form(method="post", data-ajax-url="add-graduate.json")
+      .alert.alert-success.js-success-msg.ajax-form-msg
+      .alert.alert-danger.js-error-msg.ajax-form-msg
+      .form-group
+        legend Добавить выпускника
+      .form-group
+        label(for='full-name') Имя
+        input#full-name.form-control(name='fullName', placeholder='Полное имя', type='text')
+        .js-field-error.js-fullName-error-wrap.red
+      .form-group
+        label(for='img') Изображение
+        input#img.form-control(name='img', placeholder='Изображение', type='text')
+        .js-field-error.js-img-error-wrap.red
+      .form-group
+        label(for='occupancy') Место работы
+        input#occupancy.form-control(name='occupancy', placeholder='Должность, компания', type='text')
+        .js-field-error.js-occupancy-error-wrap.red
+      .form-group
+        label(for='department') Факультет
+        input#department.form-control(name='department', placeholder='Факультет', type='text')
+        .js-field-error.js-department-error-wrap.red
+      .form-group
+        label(for='graduated-in') Выпуск
+        input#graduated-in.form-control(name='graduatedIn', placeholder='В каком году выпустился', type='text')
+        .js-field-error.js-graduatedIn-error-wrap.red
+      .form-group
+        label(for='lead') Заглавная цитата
+        input#lead.form-control(name='lead', placeholder='Заглавная цитата', type='text')
+        .js-field-error.js-lead-error-wrap.red
+      .form-group
+        label(for='full-lead') Полная цитата
+        input#full-lead.form-control(name='fullLead', placeholder='Полная цитата', type='text')
+        .js-field-error.js-fullLead-error-wrap.red
+      .form-group
+        label(for='text') Отзыв выпускника
+        textarea#text.form-control(name="text", rows="10")
+        script(type="text/javascript").
+          CKEDITOR.replace( 'text',{
+              toolbar: [
+                        [ 'Bold', 'Italic' ],
+                        [ 'Cut', 'Copy', 'Paste', 'PasteText', '-', 'Undo', 'Redo' ],
+                        [ 'NumberedList', 'BulletedList', 'Blockquote'],
+                        [ 'Source']
+                    ], height: 160
+          });
+        .js-field-error.js-text-error-wrap.red
+      .form-group
+        input(type="hidden", name="_csrf", value="#{_csrf}")
+        button.btn.btn-default(name='submit') Добавить выпускника

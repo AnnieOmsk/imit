@@ -16,7 +16,7 @@ block content
         li.stories-list__item.js-show-story(id="story_#{graduate.id}", data-id='#all-story_#{graduate.id}')
           h3 «#{graduate.lead}»
           img.stories-list__photo(src="#{graduate.img}")
-          h4 #{graduate.name},
+          h4 #{graduate.fullName},
           p #{graduate.occupancy}
   .story-container.js-story-container
     .story-container-shadow
@@ -27,7 +27,7 @@ block content
           li.stories-list__all-story(id="all-story_#{graduate.id}")
             .all-story__avatar
               img.all-story__photo(src="#{graduate.img}")
-              h4 #{graduate.name},
+              h4 #{graduate.fullName},
               p #{graduate.occupancy},
               p #{graduate.graduatedIn},
               p #{graduate.department}.

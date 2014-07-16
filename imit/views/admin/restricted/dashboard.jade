@@ -1,4 +1,4 @@
-extends ../../layouts/admin-layout
+extends ../../layouts/restricted-layout
 
 block append head
   title="Контрольная панель администратора системы"
@@ -21,10 +21,10 @@ block content
         #graduates-list.panel.panel-default.tab-pane.active
           .panel-heading Список выпускников
           .panel-body
-            include graduates
+            include includes/graduates
 
         #add-graduate.panel.panel-default.tab-pane
           .panel-heading Добавить выпускника
           .panel-body
-            include add_graduate
+            include includes/add_graduate
 

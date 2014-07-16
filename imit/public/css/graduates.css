@@ -68,7 +68,36 @@
     float: right;
     text-align: left;
 }
-
+blockquote {
+    margin:0 40px 37px 40px;
+    padding: 0px 50px;
+    color: #3A3443;
+}
+blockquote:before {
+    content: "“";
+    margin: 0;
+    left: -50px;
+    height: 48px;
+    position: relative;
+    width: 0px;
+    font: 95px PTSerifRegular;
+    color: #D8B37D;
+    display: -moz-inline-box;
+    display: -webkit-inline-box;
+}
+blockquote:after {
+    content: "”";
+    position: relative;
+    top: -8px;
+    margin: 0;
+    right: -50px;
+    width: 0px;
+    height: 0px;
+    font: 95px PTSerifRegular;
+    color: #D8B37D;
+    position: relative;
+    float: right;
+}
 .all-story__citation-any{
     margin-bottom: 37px;
     padding: 0px 50px;

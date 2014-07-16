@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `request` (
 DROP TABLE IF EXISTS `graduate`;
 CREATE TABLE IF NOT EXISTS `graduate` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
+  `full_name` varchar(255) NOT NULL,
   `img` varchar(255) NOT NULL,
   `occupancy` varchar(255) NOT NULL,
   `graduated_in` varchar(255) NOT NULL,

@@ -4,7 +4,7 @@
 
 function Graduate() {
   this.id = null;
-  this.name = "";
+  this.fullName = "";
   this.img = "";
   this.occupancy = "";
   this.department = "";
@@ -18,7 +18,7 @@ function Graduate() {
 Graduate.prototype.load = function(obj) {
   if (obj !== undefined) {
     this.id = obj.id;
-    this.name = obj.name;
+    this.fullName = obj.fullName;
     this.img = obj.img;
     this.occupancy = obj.occupancy;
     this.department = obj.department;
