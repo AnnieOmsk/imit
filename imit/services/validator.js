@@ -56,24 +56,26 @@ module.exports = {
 
     if(validator.isNull(form[keys[0]]) && lastFilled >= 0) {
       errors.fullName = messages.graduate.save.fullNameNull;
+      return errors;
     }
     if(validator.isNull(form[keys[1]]) &&  lastFilled >= 1) {
       errors.img = messages.graduate.save.imgNull;
+      return errors;
     }
     if(validator.isNull(form[keys[2]]) &&  lastFilled >= 2) {
       errors.occupancy = messages.graduate.save.occupancyNull;
+      return errors;
     }
     if(validator.isNull(form[keys[5]]) &&  lastFilled >= 5) {
       errors.lead = messages.graduate.save.leadNull;
+      return errors;
     }
     if(validator.isNull(form[keys[6]]) &&  lastFilled >= 6) {
       errors.leadFull = messages.graduate.save.leadFullNull;
+      return errors;
     }
     if(validator.isNull(form[keys[7]]) &&  lastFilled >= 7) {
       errors.text = messages.graduate.save.textNull;
-    }
-
-    if (Object.keys(errors).length > 0) {
       return errors;
     }
     return null;
