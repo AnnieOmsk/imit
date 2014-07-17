@@ -8,7 +8,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var path = require('path');
-var static = require('express').static;
+var formidable = require('formidable')
+var staticExpress = require('express').static;
 var csrf = require('csurf');
 var RedisStore = require('connect-redis')(session);
 var settings = require('./settings');
@@ -23,9 +24,14 @@ module.exports = {
   init: function(app) {
     app.use(favicon());
     app.use(logger(settings.ENV));
-    app.use(bodyParser.json());
-    app.use(bodyParser.urlencoded());
+    app.use(bodyParser());
     app.use(cookieParser());
+    app.use(function(req, res, next) {
+      if (req.method.toLowerCase() == 'post' && req.headers['content-type'].indexOf('multipart/form-data') >= 0) {
+        console.log("post");
+      }
+      next();
+    });
     app.use(session({
       store: new RedisStore(),
       secret: 'keyboard cat',
@@ -35,7 +41,7 @@ module.exports = {
     app.use(csrf());
 
     // Setting up static resources directory
-    app.use(static(path.join(__dirname, '..', 'public')));
+    app.use(staticExpress(path.join(__dirname, '..', 'public')));
 
     // Setting up template engine
     app.set('views', path.join(__dirname, '..', 'views'));

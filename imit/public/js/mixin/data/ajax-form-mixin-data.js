@@ -21,9 +21,9 @@
       this.trigger('show-loader');
       that = this;
       $(document).trigger('clear-all-form-messages');
-      return $.ajax(ajaxUrl, {
+      $form.ajaxSubmit({
+        url: ajaxUrl,
         type: 'POST',
-        data: formData,
         dataType: 'json',
         error: function(jqXHR, textStatus, errorThrown) {
           that.trigger('form-submit-error', textStatus);

@@ -23,6 +23,7 @@
     "any-db-transaction": "2.2.1",
     "q": "1.0.1",
     "nodemailer": "0.7.1",
-    "email-templates": "1.1.0"
+    "email-templates": "1.1.0",
+    "formidable": "1.0.15"
   }
 }
