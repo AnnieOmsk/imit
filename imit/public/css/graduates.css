@@ -133,6 +133,32 @@
     padding-left: 0px;
 }
 
+.all-story__story ol {
+    counter-reset: item;
+}
+
+.all-story__story ol li {
+    display: block;
+    color: #544F5B;
+    font-size: 17px;
+    font-family: 'Roboto';
+    font-weight: 300;
+    position: relative
+}
+
+.all-story__story ol li p {
+    display: inline-block;
+    margin-top: 0px;
+}
+
+.all-story__story ol li:before {
+    content: counter(item) ". ";
+    counter-increment: item;
+    color: #D8B37D;
+    position: absolute;
+    left: -22px;
+}
+
 .all-story__story ul {
     width: 460px;
     list-style: none;
