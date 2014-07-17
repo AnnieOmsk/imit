@@ -21,6 +21,8 @@ var SQL_CREATE_ADMIN = "INSERT INTO admin (email, password, first_name, last_nam
 var SQL_SELECT_REQUEST = "SELECT * FROM request WHERE secret_code = ?";
 var SQL_FIND_ADMIN = "SELECT * FROM admin where email = ? AND password = ?";
 var SQL_FIND_GRADUATES = "SELECT * FROM graduate";
+var SQL_SAVE_GRADUATE = "INSERT INTO graduate (full_name, img, occupancy, department, graduated_in, lead, full_lead, text) " +
+  "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
 var findRequest = function(code) {
   var deferred = q.defer();
@@ -152,6 +154,21 @@ module.exports = {
           found.push(graduate.load(objects[i]));
         }
         deferred.resolve(found);
+      }
+    });
+    return deferred.promise;
+  },
+
+  saveGraduate: function(graduate) {
+    var deferred = q.defer();
+    var data = [graduate.fullName, graduate.img, graduate.occupancy, graduate.department, graduate.graduatedIn,
+      graduate.lead, graduate.fullLead, graduate.text];
+    db.query(SQL_SAVE_GRADUATE, data, function(err, res) {
+      if (err) {
+        console.log("Saving graduate error:" + err);
+        deferred.reject(err);
+      } else {
+        deferred.resolve(res);
       }
     });
     return deferred.promise;

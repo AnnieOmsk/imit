@@ -69,8 +69,21 @@
     text-align: left;
 }
 .all-story__story blockquote {
-    margin:30px 50px;
+    overflow: hidden;
+    margin:0;
+    padding: 30px 50px;
     color: #3A3443;
+    font-size: 28px;
+    font-family: 'PTSerifRegular';
+    font-weight: 400;
+}
+.all-story__story blockquote p {
+    overflow: hidden;
+    margin: 0;
+    color: #3A3443;
+    font-size: 28px;
+    font-family: 'PTSerifRegular';
+    font-weight: 400;
 }
 .all-story__story blockquote:before {
     content: "“";
@@ -82,8 +95,9 @@
 .all-story__story blockquote:after {
     content: "”";
     position: relative;
-    top: -8px;
+    top: -40px;
     width: 0px;
+    height: 0px;
     font: 95px PTSerifRegular;
     color: #D8B37D;
     float: right;

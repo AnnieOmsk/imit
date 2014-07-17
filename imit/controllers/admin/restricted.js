@@ -4,6 +4,7 @@
 var service = require('../../services/admin');
 var validator = require('../../services/validator');
 var messages = require('../../messages/validation');
+var Graduate = require('../../models/graduate');
 
 module.exports = {
 
@@ -41,6 +42,36 @@ module.exports = {
   },
 
   saveGraduate: function(req, res) {
-    return null;
+    var form = req.body;
+    var errors = validator.graduateSave(form);
+    if (errors != null) {
+      res.json({
+        errorMessage: messages.graduate.save.errorErrors,
+        errors: errors
+      });
+    } else {
+      var graduate = new Graduate();
+      graduate.fullName = form.fullName;
+      graduate.img = form.img;
+      graduate.occupancy = form.occupancy;
+      graduate.department = form.department;
+      graduate.graduatedIn = form.graduatedIn;
+      graduate.lead = form.lead;
+      graduate.fullLead = form.fullLead;
+      graduate.text = form.text;
+      var promise = service.saveGraduate(graduate);
+      promise.then(function(){
+        res.json({
+          successMessage: messages.graduate.save.success
+        });
+      }, function(err) {
+        var errorMessage;
+        errorMessage = messages.graduate.save.errorDatabase;
+        res.json({
+          errorMessage: errorMessage,
+          errors: errors
+        });
+      });
+    }
   }
 };

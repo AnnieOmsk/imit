@@ -71,7 +71,7 @@ module.exports = {
       return errors;
     }
     if(validator.isNull(form[keys[6]]) &&  lastFilled >= 6) {
-      errors.leadFull = messages.graduate.save.leadFullNull;
+      errors.fullLead = messages.graduate.save.fullLeadNull;
       return errors;
     }
     if(validator.isNull(form[keys[7]]) &&  lastFilled >= 7) {
@@ -95,8 +95,8 @@ module.exports = {
     if(validator.isNull(form.lead)) {
       errors.lead = messages.graduate.save.leadNull;
     }
-    if(validator.isNull(form.leadFull)) {
-      errors.leadFull = messages.graduate.save.leadFullNull;
+    if(validator.isNull(form.fullLead)) {
+      errors.fullLead = messages.graduate.save.fullLeadNull;
     }
     if(validator.isNull(form.text)) {
       errors.text = messages.graduate.save.textNull;

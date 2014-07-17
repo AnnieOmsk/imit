@@ -22,7 +22,6 @@
     "any-db-mysql": "2.1.1",
     "any-db-transaction": "2.2.1",
     "q": "1.0.1",
-    "crypto": "0.0.3",
     "nodemailer": "0.7.1",
     "email-templates": "1.1.0"
   }

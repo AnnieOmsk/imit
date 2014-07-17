@@ -29,8 +29,7 @@ module.exports = {
       var promise = service.saveRequest(adminRequest);
       promise.then(function(){
         res.json({
-          successMessage: messages.admin.register.success,
-          errors: errors
+          successMessage: messages.admin.register.success
         });
       }, function(err) {
         var errorMessage;
