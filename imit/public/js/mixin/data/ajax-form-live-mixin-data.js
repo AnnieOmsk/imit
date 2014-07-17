@@ -2,6 +2,7 @@
   'use strict';
 
   window.ajaxFormLiveMixinData = function() {
+    var that;
 
     this.defaultAttrs({
       inputSelector: "input",
@@ -11,12 +12,18 @@
     });
 
     this.verifyForm = function(e, data) {
-      var $form, ajaxUrl, formData, that;
-      $form = this.$node.find('form');
+      var $form, ajaxUrl, formData;
+      $form = that.$node.find('form');
       formData = $form.serialize();
-      formData += "&" + this.attr.fieldOut + "=" + $(e.target).attr("name");
+      var inputName = $(e.target).attr("name");
+      if (inputName == null) {
+        // If it's CKEDITOR, filling input name
+        if (e.editor != null) {
+          inputName = $("#" + e.editor.name).attr("name");
+        }
+      }
+      formData += "&" + that.attr.fieldOut + "=" + inputName;
       ajaxUrl = $form.data('ajax-check-url');
-      that = this;
       $(document).trigger('clear-all-form-messages');
       return $.ajax(ajaxUrl, {
         type: 'POST',
@@ -34,6 +41,10 @@
     };
 
     return this.after('initialize', function() {
+      that = this;
+      var textareaId = this.select('textareaSelector').attr('id');
+      // CKEDITOR event catching
+      CKEDITOR.instances[textareaId].on('blur', this.verifyForm);
       return this.on('focusout', {
         inputSelector: this.verifyForm,
         selectSelector: this.verifyForm,
