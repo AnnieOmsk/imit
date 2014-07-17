@@ -70,6 +70,7 @@
 }
 .all-story__story blockquote {
     overflow: hidden;
+    position: relative;
     margin:0;
     padding: 30px 50px;
     color: #3A3443;
@@ -94,13 +95,12 @@
 }
 .all-story__story blockquote:after {
     content: "”";
-    position: relative;
-    top: -40px;
-    width: 0px;
-    height: 0px;
+    position: absolute;
+    right: 3px;
+    bottom: 6px;
+    height: 70px;
     font: 95px PTSerifRegular;
     color: #D8B37D;
-    float: right;
 }
 
 .story-container {

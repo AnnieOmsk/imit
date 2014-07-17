@@ -12,6 +12,7 @@ var static = require('express').static;
 var csrf = require('csurf');
 var RedisStore = require('connect-redis')(session);
 var settings = require('./settings');
+var viewHelpers = require('../controllers/utils/view-helpers');
 
 module.exports = {
 
@@ -40,19 +41,8 @@ module.exports = {
     app.set('views', path.join(__dirname, '..', 'views'));
     app.set('view engine', 'jade');
 
-    // Add empty often used objects to avoid undefined errors
-    app.locals.errors = {};
-    app.locals.strip = function(str, len) {
-      if (typeof(str) !== 'string') {
-        return "";
-      }
-      var limit = len - 3;
-      if (str.length > limit) {
-        return str.substr(0, limit) + "...";
-      } else {
-        return str;
-      }
-    };
+    // Adding view helpers
+    app.locals = viewHelpers;
 
     // Add csrf token to view
     app.use(function(req, res, next) {
