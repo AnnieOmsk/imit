@@ -2,7 +2,7 @@
   'use strict';
 
   window.ajaxFormLive = flight.component(window.ajaxFormMixinData, window.ajaxFormLiveMixinData, window.ajaxFormMixinUI,
-    window.withLoaderMixin, function() {
+    window.withLoaderMixin, window.imagePreviewMixinUI, function() {
     this.getFormMessages = function(serverResponse) {
       return {
         'errors': serverResponse.errors,

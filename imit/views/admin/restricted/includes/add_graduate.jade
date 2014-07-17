@@ -1,7 +1,7 @@
 .js-save-graduate
   .ajax-wrapper
     .loader.transparent.without-height
-    form(method="post", data-ajax-url="save-graduate.json", data-ajax-check-url="verify-graduate.json")
+    form(method="post", enctype="multipart/form-data", data-ajax-url="save-graduate.json", data-ajax-check-url="verify-graduate.json")
       .alert.alert-success.js-success-msg.ajax-form-msg
       .alert.alert-danger.js-error-msg.ajax-form-msg
       .form-group
@@ -11,8 +11,9 @@
         input#full-name.form-control(name='fullName', placeholder='Полное имя', type='text')
         .js-field-error.js-fullName-error-wrap.red
       .form-group
-        label(for='img') Изображение
-        input#img.form-control(name='img', placeholder='Изображение', type='text')
+        label(for='image-upload') Изображение
+        input#img.form-control(type='file', size='20', name='img', data-image-preview='#img-preview')
+        img#img-preview.photo_preview(src='#', alt='')
         .js-field-error.js-img-error-wrap.red
       .form-group
         label(for='occupancy') Место работы
