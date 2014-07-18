@@ -25,7 +25,7 @@
         type: 'POST',
         dataType: 'json',
         error: function(jqXHR, textStatus, errorThrown) {
-          that.trigger('form-submit-error', textStatus);
+          that.trigger('ui-show-messages', {errorMessage: textStatus + "(" + errorThrown + ")"});
           return $form.find('[type=submit]').removeAttr('disabled');
         },
         success: function(data, textStatus, jqXHR) {

@@ -44,7 +44,7 @@
         data: formData,
         dataType: 'json',
         error: function(jqXHR, textStatus, errorThrown) {
-          that.trigger('form-submit-error', textStatus);
+          that.trigger('ui-show-messages', {errorMessage: textStatus + "(" + errorThrown + ")"});
         },
         success: function(data, textStatus, jqXHR) {
           if(data.errorMessage) {

@@ -5,7 +5,7 @@ var settings = require('./settings');
 
 // Redirect forbidden errors in protected space
 var protectedUri = '/admin/restricted';
-var redirectUri = '/admin/login/';
+var redirectUri = '/admin/login';
 
 module.exports = {
 
