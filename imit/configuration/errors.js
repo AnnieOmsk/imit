@@ -3,6 +3,10 @@
  */
 var settings = require('./settings');
 
+// Redirect forbidden errors in protected space
+var protectedUri = '/admin/restricted';
+var redirectUri = '/admin/login/';
+
 module.exports = {
 
   /**
@@ -24,6 +28,10 @@ module.exports = {
     // will print stacktrace
     if (settings.ENV === 'dev') {
       app.use(function(err, req, res, next) {
+        // redirect 403 in protected area
+        if (res.statusCode === 403 && req.url.indexOf(protectedUri) === 0) {
+          res.redirect(redirectUri);
+        }
         res.status(err.status || 500);
         res.render('error', {
           message: err.message,

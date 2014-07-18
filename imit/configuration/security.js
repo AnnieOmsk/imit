@@ -21,10 +21,11 @@ module.exports = {
     app.all('/admin/restricted*', function(req, res, next) {
       if(userIsAllowed (req)){
           next();
-        } else {
-          res.redirect("/admin/login");
-        }
-      });
+      } else {
+        res.statusCode = 403;
+        next(new Error('Forbidden'));
+      }
+    });
   }
 };
 

@@ -30,10 +30,24 @@ module.exports = {
     app.use(cookieParser());
     app.use(session({
       store: new RedisStore(),
-      secret: 'keyboard cat',
+      secret: 'keyboard cat slap slap',
       saveUninitialized: true,
+      // This value is stored server-side only so used both for cookie and db session store
+      cookie: {
+        maxAge: settings.SESSION_TIME_IN_MS,
+        httpOnly: true
+      },
       resave: true
     }));
+
+    // Refresh session expiration on every request
+    app.use(function(req, res, next) {
+      req.session.cookie.maxAge = settings.SESSION_TIME_IN_MS;
+      // needed to make the session `dirty` so the session middleware re-sets the cookie
+      req.session.random = Math.random();
+      next();
+    });
+
     app.use(csrf());
 
     // Setting up static resources directory

@@ -20,5 +20,6 @@ module.exports = {
   SITE_ADDRESS: 'http://blahblah.com',
   IMAGE_DIR: '/home/projects/imit/imit/public/img/uploaded',
   IMAGE_DIR_URI: '/img/uploaded',
-  UPLOAD_DIR: '/tmp/upload'
+  UPLOAD_DIR: '/tmp/upload',
+  SESSION_TIME_IN_MS: 86400000
 };
