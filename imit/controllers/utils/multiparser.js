@@ -3,10 +3,12 @@
  * Assign fields to req.body, files to req.files
  */
 var Formidable = require('formidable');
+var settings = require('../../configuration/settings');
 
 module.exports = function(req, res, next) {
   if (req.method === 'POST' && req.headers['content-type'].indexOf('multipart/form-data') >= 0) {
     var form = new Formidable.IncomingForm();
+    form.uploadDir = settings.UPLOAD_DIR;
     form.parse(req, function(err, fields, files) {
       if (err)
         next(err);

@@ -4,10 +4,12 @@
 
 var q = require('q');
 var crypto = require('crypto');
+var fs = require('fs');
 var db = require('../configuration/database').pool;
 var begin = require('../configuration/database').begin;
 var mapper = require('./utils/mapper');
 var notify = require('./utils/notify');
+var settings = require("../configuration/settings");
 var Request = require('../models/request');
 var Admin = require('../models/admin');
 var Graduate = require('../models/graduate');
@@ -172,5 +174,29 @@ module.exports = {
       }
     });
     return deferred.promise;
+  },
+
+  imageStore: function(image) {
+    console.log('Storing image');
+    var tmpFile = image.path;
+    var uniqueDir = tmpFile.substr(tmpFile.lastIndexOf('/'));
+    var storedFolder = settings.IMAGE_DIR + uniqueDir;
+    var storedFile = storedFolder + "/" + image.name;
+
+    fs.mkdirSync(storedFolder);
+    var source = fs.createReadStream(tmpFile);
+    var dest = fs.createWriteStream(storedFile);
+
+    source.pipe(dest);
+    source.on('end', function() {
+      fs.unlinkSync(tmpFile);
+    });
+    source.on('error', function(err) {
+      console.log('Error occurs while moving image from tmp:' + tmpFile + '\n to image folder path:' + storedFile +
+        '\nError:' + err);
+    });
+
+    var imageUri = settings.IMAGE_DIR_URI + uniqueDir + "/" + image.name;
+    return imageUri;
   }
 };

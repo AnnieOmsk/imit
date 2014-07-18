@@ -52,7 +52,7 @@ module.exports = {
     } else {
       var graduate = new Graduate();
       graduate.fullName = form.fullName;
-      graduate.img = form.img;
+      graduate.img = service.imageStore(form.img);
       graduate.occupancy = form.occupancy;
       graduate.department = form.department;
       graduate.graduatedIn = form.graduatedIn;
