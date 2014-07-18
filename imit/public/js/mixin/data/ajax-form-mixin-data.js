@@ -16,7 +16,6 @@
       e.preventDefault();
       $form = this.$node.find('form');
       $form.find('[type=submit]').attr('disabled', true);
-      formData = $form.serialize();
       ajaxUrl = $form.data('ajax-url');
       this.trigger('show-loader');
       that = this;

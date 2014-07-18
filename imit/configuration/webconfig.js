@@ -8,12 +8,12 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var path = require('path');
-var formidable = require('formidable')
 var staticExpress = require('express').static;
 var csrf = require('csurf');
 var RedisStore = require('connect-redis')(session);
 var settings = require('./settings');
 var viewHelpers = require('../controllers/utils/view-helpers');
+var multiParser = require('../controllers/utils/multiparser');
 
 module.exports = {
 
@@ -24,14 +24,10 @@ module.exports = {
   init: function(app) {
     app.use(favicon());
     app.use(logger(settings.ENV));
+    // Parsing multipart forms
+    app.use(multiParser);
     app.use(bodyParser());
     app.use(cookieParser());
-    app.use(function(req, res, next) {
-      if (req.method.toLowerCase() == 'post' && req.headers['content-type'].indexOf('multipart/form-data') >= 0) {
-        console.log("post");
-      }
-      next();
-    });
     app.use(session({
       store: new RedisStore(),
       secret: 'keyboard cat',

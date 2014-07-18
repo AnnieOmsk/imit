@@ -88,6 +88,8 @@ module.exports = {
     }
     if(validator.isNull(form.img)) {
       errors.img = messages.graduate.save.imgNull;
+    } else if(form.img.type !== 'image/jpeg' && form.img.type !== 'image/png') {
+      errors.img = messages.graduate.save.imgWrongType;
     }
     if(validator.isNull(form.occupancy)) {
       errors.occupancy = messages.graduate.save.occupancyNull;
