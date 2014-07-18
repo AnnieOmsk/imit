@@ -5,6 +5,7 @@ var service = require('../../services/admin');
 var validator = require('../../services/validator');
 var messages = require('../../messages/validation');
 var Graduate = require('../../models/graduate');
+var sessionUtils = require('../utils/session');
 
 module.exports = {
 
@@ -21,8 +22,7 @@ module.exports = {
   },
 
   logout: function(req, res) {
-    req.session.authenticated = false;
-    req.session.user = null;
+    sessionUtils.userLogout(req);
     res.redirect('/admin/login');
   },
 

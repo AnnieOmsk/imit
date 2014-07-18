@@ -8,6 +8,10 @@ block content
   .col-sm-2.js-admin-login
     div(style="height:150px")
     form.form-horizontal(method="post", data-ajax-url="login.json")
+      if(flashMessage && flashMessage.success)
+        .alert.alert-success #{flashMessage.success}
+      if(flashMessage && flashMessage.error)
+        .alert.alert-danger #{flashMessage.error}
       .alert.alert-success.js-success-msg.ajax-form-msg
       .alert.alert-danger.js-error-msg.ajax-form-msg
       .form-group

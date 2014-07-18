@@ -3,8 +3,10 @@
  */
 var validator = require('../../services/validator');
 var service = require('../../services/admin');
+var settings = require('../../configuration/settings');
 var messages = require('../../messages/validation');
 var Request = require('../../models/request');
+var sessionUtils = require('../utils/session');
 
 module.exports = {
 
@@ -28,8 +30,11 @@ module.exports = {
       adminRequest.lastName = form.lastName;
       var promise = service.saveRequest(adminRequest);
       promise.then(function(){
+        sessionUtils.addMessage({success: messages.admin.register.success}, req);
+        var redirectUrl = settings.SITE_ADDRESS + "/admin/login";
         res.json({
-          successMessage: messages.admin.register.success
+          successMessage: messages.admin.register.success,
+          redirectUrl: redirectUrl
         });
       }, function(err) {
         var errorMessage;
@@ -49,12 +54,15 @@ module.exports = {
   apply: function(req, res) {
     var code = req.query.code;
     if (code == null) {
+      sessionUtils.addMessage({error: messages.admin.apply.codeNull}, req);
       res.redirect('login');
     }
     var promise = service.applyRequest(code);
     promise.then(function(data) {
+      sessionUtils.addMessage({success: messages.admin.apply.codeApplied}, req);
       res.redirect('login');
     }, function(err) {
+      sessionUtils.addMessage({error: messages.admin.apply.codeApplyError}, req);
       res.redirect('login');
     });
   },
@@ -62,12 +70,15 @@ module.exports = {
   decline: function(req, res) {
     var code = req.query.code;
     if (code == null) {
+      sessionUtils.addMessage({error: messages.admin.decline.codeNull}, req);
       res.redirect('login');
     }
     var promise = service.declineRequest(code);
     promise.then(function(data) {
+      sessionUtils.addMessage({success: messages.admin.decline.codeDeclined}, req);
       res.redirect('login');
     }, function(err) {
+      sessionUtils.addMessage({error: messages.admin.decline.codeDeclineError}, req);
       res.redirect('login');
     });
   }

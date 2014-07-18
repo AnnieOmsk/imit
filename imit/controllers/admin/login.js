@@ -5,6 +5,7 @@ var validator = require('../../services/validator');
 var settings = require('../../configuration/settings');
 var service = require('../../services/admin');
 var messages = require('../../messages/validation');
+var sessionUtils = require('../utils/session');
 
 module.exports = {
 
@@ -13,7 +14,8 @@ module.exports = {
   },
 
   login: function(req, res) {
-    res.render('admin/login', {});
+    var message = sessionUtils.readMessage(req);
+    res.render('admin/login', {flashMessage: message});
   },
 
   postJson: function(req, res) {
@@ -39,8 +41,7 @@ module.exports = {
         } else {
           successMessage = messages.admin.login.success;
           redirectUrl = settings.SITE_ADDRESS + "/admin/restricted/";
-          req.session.authenticated = true;
-          req.session.user = user;
+          sessionUtils.userLogin(user, req);
           res.json({
             successMessage: successMessage,
             redirectUrl: redirectUrl

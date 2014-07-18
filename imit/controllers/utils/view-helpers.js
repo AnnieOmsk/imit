@@ -2,8 +2,9 @@
  * View helpers
  */
 module.exports = {
-  // So errors will never be undefined
+  // Add default objects to prevent undefined exception throwing
   errors: {},
+  flashMessage: {},
 
   // Cut string to certain length if it's longer
   strip: function(str, len) {

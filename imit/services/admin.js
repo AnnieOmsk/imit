@@ -33,10 +33,15 @@ var findRequest = function(code) {
       console.log("Saving request error:" + err);
       deferred.reject(err);
     } else {
-      var adminRequest = new Request();
-      adminRequest.load(mapper.rowConvert(res.rows[0]));
-      adminRequest.password = "";
-      deferred.resolve(adminRequest);
+      var result = res.rows[0];
+      if (result != null) {
+        var adminRequest = new Request();
+        adminRequest.load(mapper.rowConvert(result));
+        adminRequest.password = "";
+        deferred.resolve(adminRequest);
+      } else {
+        deferred.resolve(null);
+      }
     }
   });
   return deferred.promise;
@@ -75,6 +80,9 @@ module.exports = {
         deferred.reject(err);
         tx.rollback();
       } else {
+        if (res.affectedRows !== 1) {
+          deferred.reject(new Error('WRONG_CODE'));
+        }
         data.push(res);
         db.query(SQL_CREATE_ADMIN, [code], function(err, res) {
           if (err) {
@@ -112,6 +120,9 @@ module.exports = {
         console.log("Declining request error:" + err);
         deferred.reject(err);
       } else {
+        if (res.affectedRows !== 1) {
+          deferred.reject(new Error('WRONG_CODE'));
+        }
         var promise = findRequest(code);
         promise.then(function(data) {
           notify.process(data, 'request-declined');
