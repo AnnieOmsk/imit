@@ -8,24 +8,26 @@ block content
   .col-sm-2.js-admin-login
     div(style="height:150px")
     form.form-horizontal(method="post", data-ajax-url="login.json")
-      if(flashMessage && flashMessage.success)
-        .alert.alert-success #{flashMessage.success}
-      if(flashMessage && flashMessage.error)
-        .alert.alert-danger #{flashMessage.error}
-      .alert.alert-success.js-success-msg.ajax-form-msg
-      .alert.alert-danger.js-error-msg.ajax-form-msg
-      .form-group
-        legend Вход
-      .form-group
-        label(for='email') Email
-        input#email.form-control(name='email', placeholder='Email адрес', type='text')
-        .js-field-error.js-email-error-wrap.red
-      .form-group
-        label(for='password') Пароль
-        input#password.form-control(name='password', placeholder='Пароль', type='password')
-        .js-field-error.js-password-error-wrap.red
-      .form-group
-        a(href='register') Запросить доступ
-        input(type="hidden", name="_csrf", value="#{_csrf}")
-      .form-group
-        button.btn.btn-default.col-sm-4(name='submit') Войти
+      .ajax-wrapper
+        .loader.transparent.without-height
+        if(flashMessage && flashMessage.success)
+          .alert.alert-success #{flashMessage.success}
+        if(flashMessage && flashMessage.error)
+          .alert.alert-danger #{flashMessage.error}
+        .alert.alert-success.js-success-msg.ajax-form-msg
+        .alert.alert-danger.js-error-msg.ajax-form-msg
+        .form-group
+          legend Вход
+        .form-group
+          label(for='email') Email
+          input#email.form-control(name='email', placeholder='Email адрес', type='text')
+          .js-field-error.js-email-error-wrap.red
+        .form-group
+          label(for='password') Пароль
+          input#password.form-control(name='password', placeholder='Пароль', type='password')
+          .js-field-error.js-password-error-wrap.red
+        .form-group
+          a(href='register') Запросить доступ
+          input(type="hidden", name="_csrf", value="#{_csrf}")
+        .form-group
+          button.btn.btn-default.col-sm-4(name='submit') Войти
