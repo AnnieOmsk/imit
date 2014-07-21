@@ -10,15 +10,15 @@ module.exports = {
   },
 
   index: function (req, res) {
-    res.render('home/index', { title: 'IMIT Index' });
+    res.render('home/index', {});
   },
 
   contacts: function (req, res) {
-    res.render('home/contacts', { title: 'IMIT Contacts' });
+    res.render('home/contacts', {});
   },
 
   goToUniversity: function (req, res) {
-    res.render('home/go_to_university', { title: 'IMIT Go to university' });
+    res.render('home/go-to-university', {});
   },
 
   graduates: function (req, res) {
@@ -31,6 +31,6 @@ module.exports = {
   },
 
   interesting: function (req, res) {
-    res.render('home/interesting', { title: 'IMIT Interesting' });
+    res.render('home/interesting', {});
   }
 };

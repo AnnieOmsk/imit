@@ -22,7 +22,7 @@ var SQL_CREATE_ADMIN = "INSERT INTO admin (email, password, first_name, last_nam
   "SELECT email, password, first_name, last_name, secret_code FROM request WHERE secret_code = ? AND accepted = TRUE";
 var SQL_SELECT_REQUEST = "SELECT * FROM request WHERE secret_code = ?";
 var SQL_FIND_ADMIN = "SELECT * FROM admin where email = ? AND password = ?";
-var SQL_FIND_GRADUATES = "SELECT * FROM graduate";
+var SQL_FIND_GRADUATES = "SELECT * FROM graduate ORDER BY id DESC";
 var SQL_SAVE_GRADUATE = "INSERT INTO graduate (full_name, img, occupancy, department, graduated_in, lead, full_lead, text) " +
   "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 

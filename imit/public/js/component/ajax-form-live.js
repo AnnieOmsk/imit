@@ -13,9 +13,9 @@
     };
 
     this.submitHandler = function(e, data) {
-      if (data.successMessage && data.successMessage !== '') {
-        this.trigger('clear-form', {});
-      }
+//      if (data.successMessage && data.successMessage !== '') {
+//        this.trigger('clear-form', {});
+//      }
       if (data.successMessage && data.successMessage !== '' && data.redirectUrl) {
         window.location = data.redirectUrl;
       }

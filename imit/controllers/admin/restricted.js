@@ -27,6 +27,10 @@ module.exports = {
     });
   },
 
+  addGraduate: function(req, res) {
+    res.render('admin/restricted/add-graduate', {});
+  },
+
   logout: function(req, res) {
     sessionUtils.userLogout(req);
     res.redirect('/admin/login');

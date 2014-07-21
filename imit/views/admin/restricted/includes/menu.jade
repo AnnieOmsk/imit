@@ -1,0 +1,8 @@
+mixin admin-menu(active)
+  .panel.panel-info
+    .panel-heading Администраторская часть
+
+  div.list-group
+    a.list-group-item(href="", class = "#{active == 'dashboard' ? 'active' : ''}") Список выпускников
+    a.list-group-item(href="add-graduate", class = "#{active == 'add-graduate' ? 'active' : ''}") Добавить выпускника
+    a.list-group-item(href="logout") Выйти
