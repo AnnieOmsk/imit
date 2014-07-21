@@ -26,15 +26,16 @@
         dataType: 'json',
         error: function(jqXHR, textStatus, errorThrown) {
           that.trigger('ui-show-messages', {errorMessage: textStatus + "(" + errorThrown + ")"});
-          return $form.find('[type=submit]').removeAttr('disabled');
         },
         success: function(data, textStatus, jqXHR) {
           if (!data.redirectUrl) {
             that.trigger('ui-show-messages', data);
           }
-          that.trigger('hide-loader');
           that.trigger('form-submitted', data);
-          return $form.find('[type=submit]').removeAttr('disabled');
+        },
+        complete: function(jqHXR, textStatus) {
+          that.trigger('hide-loader');
+          $form.find('[type=submit]').removeAttr('disabled');
         }
       });
     };
