@@ -3,6 +3,7 @@
  */
 var service = require('../../services/admin');
 var validator = require('../../services/validator');
+var settings = require('../../configuration/settings');
 var messages = require('../../messages/validation');
 var Graduate = require('../../models/graduate');
 var sessionUtils = require('../utils/session');
@@ -11,12 +12,17 @@ module.exports = {
 
   index: function(req, res) {
     var promise = service.findGraduates();
+    var message = sessionUtils.readMessage(req);
     promise.then(function(graduates) {
-      res.render('admin/restricted/dashboard', {graduates: graduates});
+      res.render('admin/restricted/dashboard', {
+        graduates: graduates,
+        flashMessage: message
+      });
     }, function(err) {
       res.render('admin/restricted/dashboard', {
         errors: {error: messages.restricted.graduates.errorDatabase},
-        graduates: null
+        graduates: null,
+        flashMessage: message
       });
     });
   },
@@ -61,8 +67,12 @@ module.exports = {
       graduate.text = form.text;
       var promise = service.saveGraduate(graduate);
       promise.then(function(){
+        var redirectUrl = settings.SITE_ADDRESS + "/admin/restricted/";
+        var successMessage = messages.graduate.save.success;
+        sessionUtils.addMessage({success: successMessage}, req);
         res.json({
-          successMessage: messages.graduate.save.success
+          successMessage: successMessage,
+          redirectUrl: redirectUrl
         });
       }, function(err) {
         var errorMessage;

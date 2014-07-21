@@ -1,3 +1,7 @@
+if(flashMessage && flashMessage.success)
+  .alert.alert-success #{flashMessage.success}
+if(flashMessage && flashMessage.error)
+  .alert.alert-danger #{flashMessage.error}
 table.table.table-striped#table-sort
   thead
     tr

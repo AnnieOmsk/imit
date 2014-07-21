@@ -28,10 +28,15 @@
       }
     };
 
+    this.clearImagePreview = function(e, data) {
+      var input = this.select('fileInputSelector');
+      var imagePreviewSelector = $(input).attr(this.attr.imagePreviewSelector);
+      $(imagePreviewSelector).attr('src', '');
+    };
+
     this.after('initialize', function() {
-      this.on('change', {
-        fileInputSelector: this.drawPreview
-      });
+      this.on('change', {fileInputSelector: this.drawPreview});
+      this.on('clear-form', this.clearImagePreview);
     });
   };
 

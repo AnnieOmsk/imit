@@ -36,6 +36,7 @@
         complete: function(jqHXR, textStatus) {
           that.trigger('hide-loader');
           $form.find('[type=submit]').removeAttr('disabled');
+          window.scrollTo(0,0);
         }
       });
     };

@@ -40,11 +40,11 @@
       }
 
       // If there are CKEDITOR somewhere, filling last input name in case it's undefined
-      var inputName = $(e.target).attr("name");
-      if (inputName == null) {
-        if (ckName != null) {
-          inputName = ckName;
-        }
+      var inputName;
+      if (e.target) {
+        inputName = $(e.target).attr("name");
+      } else {
+        inputName = ckName;
       }
 
       formData += "&" + that.attr.fieldOut + "=" + inputName;
