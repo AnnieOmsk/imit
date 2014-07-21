@@ -11,9 +11,18 @@ var SQL_FIND_GRADUATES = "SELECT * FROM graduate";
 
 module.exports = {
 
-  findGraduates: function() {
+  findGraduates: function(limit, randomOrder) {
     var deferred = q.defer();
-    db.query(SQL_FIND_GRADUATES, [], function(err, res) {
+    var query = SQL_FIND_GRADUATES;
+    if (randomOrder) {
+      query += " ORDER BY RAND()";
+    } else {
+      query += " ORDER BY id";
+    }
+    if (limit) {
+      query += " LIMIT " + limit;
+    }
+    db.query(query, [], function(err, res) {
       if (err) {
         console.log("Finding graduates error:" + err);
         deferred.reject(err);

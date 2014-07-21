@@ -11,28 +11,14 @@ block content
   include ../includes/header
   #content
     ul.bxslider
-      li.story-slide
-        img.story-slider__photo(src='img/graduates/story_1/story_1.jpg')
-        .story-slider__info
-          h3 «Математика идеальна для обучения критическому мышлению и анализу»
-          h4 Николай Косарев,
-          p Quintiq, Голландия, разработчик и аналитик
-          a(href='graduates.html') читать все истории
-      li.story-slide
-        img.story-slider__photo(src='img/graduates/story_2/story_2_1.jpg')
-        .story-slider__info
-          h3 «Нас учили разбираться в том, что ты делаешь, а не просто зубрить и заучивать»
-          h4 Ольга Кукина,
-          p селлинговое агентство при ВГТРК, Москва, бизнес-аналитик
-          a(href='graduates.html') читать все истории
-      li.story-slide
-        img.story-slider__photo(src='img/graduates/story_3/story_3_1.jpg')
-        .story-slider__info
-          h3
-            | «Матфак научил меня быть "антишестерёнкой" и уметь браться за любые задачи и проекты»
-          h4 Сергей Корсаков
-          p "Яндекс", Москва, менеджер проектов в отделе контент-системы
-          a(href='graduates.html') читать все истории
+      each graduate in graduatesTop
+        li.story-slide
+          img.story-slider__photo(src='#{graduate.img}')
+          .story-slider__info
+            h3 #{graduate.lead}
+            h4 #{graduate.fullName},
+            p #{graduate.occupancy}
+            a(href='graduates.html') читать все истории
     #myController
       span.jFlowControl
       span.jFlowControl
@@ -78,22 +64,27 @@ block content
               | Великобритании, Канаде или Германии.
               p
                 ul.stories-list
-                  li#story_1.stories-list__item
-                    h3 «Математика идеальна для обучения критическому мышлению и анализу»
-                    br
-                    img.stories-list__photo(src='img/graduates/story_1/story_1.jpg')
-                    h4 Николай Косарев,
-                    p компания Quintiq (Голландия)
-                  li#story_2.stories-list__item
-                    h3 «Нас учили разбираться в том, что ты делаешь, а не просто зубрить и заучивать»
-                    img.stories-list__photo(src='img/graduates/story_2/story_2_1.jpg ')
-                    h4 Ольга Кукина,
-                    p бизнес-аналитик в селинговом агентстве при ВГТРК.
-                  li#story_3.stories-list__item.stories-list__item-last
-                    h3
-                      | «Матфак научил меня быть "анти-шестеренкой" и уметь браться за любые задачи и проекты»
-                    img.stories-list__photo(src='img/graduates/story_3/story_3.jpg')
-                    h4 Сергей Корсаков,
-                    p менеджер проектов в отделе контент-системы компании Яндекс
+                  each graduate in graduatesBottom
+                    li.stories-list__item.js-show-story(id="story_#{graduate.id}", data-id='#all-story_#{graduate.id}')
+                      h3 «#{graduate.lead}»
+                      img.stories-list__photo(src="#{graduate.img}")
+                      h4 #{graduate.fullName},
+                      p #{graduate.occupancy}
                 a.all-stories(href='graduates.html') Читать все истории
+  .story-container.js-story-container
+    .story-container-shadow
+    .story-content
+      ul
+        .story-close
+        each graduate in graduatesBottom
+          li.stories-list__all-story(id="all-story_#{graduate.id}")
+            .all-story__avatar
+              img.all-story__photo(src="#{graduate.img}")
+              h4 #{graduate.fullName},
+              p #{graduate.occupancy},
+              p #{graduate.graduatedIn},
+              p #{graduate.department}.
+            .all-story__story
+              h4 «#{graduate.fullLead}»
+              | !{graduate.text}
   include ../includes/footer

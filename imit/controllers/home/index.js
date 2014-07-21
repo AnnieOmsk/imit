@@ -2,6 +2,8 @@
  * Home controllers
  */
 var service = require('../../services/main');
+var q = require('q');
+var INDEX_NUMBER_GRADUATES = 3;
 
 module.exports = {
 
@@ -10,7 +12,16 @@ module.exports = {
   },
 
   index: function (req, res) {
-    res.render('home/index', {});
+    var promises = q.all([service.findGraduates(INDEX_NUMBER_GRADUATES),
+      service.findGraduates(INDEX_NUMBER_GRADUATES, true)]);
+    promises.then(function(data) {
+      res.render('home/index', {
+        graduatesTop: data[0],
+        graduatesBottom: data[1]
+      });
+    }, function(err) {
+      res.render('home/index', {errors: {error: messages.restricted.graduates.errorDatabase}});
+    });
   },
 
   contacts: function (req, res) {
