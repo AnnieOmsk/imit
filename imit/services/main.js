@@ -19,7 +19,7 @@ module.exports = {
         deferred.reject(err);
       } else {
         var found = [];
-        var objects = mapper.rowsConvert(res.rows);
+        var objects = res.rows;
         found = objects;
 //        for (var i=0; i<objects.length; i++) {
 //          var graduate = new Graduate();
