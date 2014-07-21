@@ -33,6 +33,7 @@ block content
                   th Полная цитата
                   th Текст
                   th Создан
+                  th Редактировать
               tbody
                 if graduates
                   each graduate in graduates
@@ -47,4 +48,6 @@ block content
                       td #{graduate.fullLead}
                       td #{strip(graduate.text, 100)}
                       td #{graduate.createdAt}
+                      td
+                        a(href='edit-graduate?id=#{graduate.id}') Редактировать
 

@@ -33,7 +33,7 @@ module.exports = {
       app.use(function(err, req, res, next) {
         // redirect 403 in protected area
         if (res.statusCode === 403 && req.url.indexOf(protectedUri) === 0) {
-          sessionUtils.addMessage({error: messages.forbidden.error}, req);
+          sessionUtils.setMessage({error: messages.forbidden.error}, req);
           res.redirect(redirectUri + '?originalUrl=' + req.originalUrl);
         }
         res.status(err.status || 500);

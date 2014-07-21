@@ -9,7 +9,9 @@
       inputFileSelector: "input[type='file']",
       selectSelector: "select",
       textareaSelector: "textarea",
-      fieldOut: "_fieldout"
+      fieldOut: "_fieldout",
+      deleteSelector: "button[name='delete']",
+      deleteUrl: "data-url"
     });
 
     this.verifyForm = function(e, data) {
@@ -33,7 +35,7 @@
       var fileInputs = that.$node.find('input[type="file"]');
       if (fileInputs.length != null && fileInputs.length > 0) {
         for (var i=0; i<fileInputs.length; i++) {
-          if (fileInputs[i].files && fileInputs[i].files[0]){
+          if ((fileInputs[i].files && fileInputs[i].files[0])){
             formData += "&" + fileInputs.eq(i).attr("name") + "=" + filled;
           }
         }
@@ -65,6 +67,11 @@
       });
     };
 
+    this.deleteEntity = function(e, data) {
+      var url = $(e.target).attr(this.attr.deleteUrl);
+      $(document).trigger('show-confirm-modal', url);
+    };
+
     return this.after('initialize', function() {
       that = this;
       var textareaId = this.select('textareaSelector').attr('id');
@@ -77,7 +84,8 @@
         inputSelector: this.verifyForm,
         selectSelector: this.verifyForm,
         textareaSelector: this.verifyForm
-    });
+      });
+      this.on('click', {deleteSelector: this.deleteEntity});
     });
   };
 

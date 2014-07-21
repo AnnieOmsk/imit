@@ -11,10 +11,10 @@ block content
     .js-tabs-panel.row
       .col-xs-12.col-sm-2.no-padding-left
         include includes/menu
-        +admin-menu('add-graduate')
+        +admin-menu('')
       .col-xs-12.col-sm-10.pull-right.tab-content.no-padding-left.no-padding-right
         .js-save-graduate.panel.panel-default
-          .panel-heading Добавить выпускника
+          .panel-heading Редактирование выпускника
           .panel-body
             form(method="post", enctype="multipart/form-data", data-ajax-url="save-graduate.json", data-ajax-check-url="verify-graduate.json")
               .ajax-wrapper
@@ -22,39 +22,41 @@ block content
                 .alert.alert-success.js-success-msg.ajax-form-msg
                 .alert.alert-danger.js-error-msg.ajax-form-msg
                 .form-group
-                  legend Добавить выпускника
+                  legend Редактирование выпускника
                 .form-group
                   label(for='full-name') Имя
-                  input#full-name.form-control(name='fullName', placeholder='Полное имя', type='text')
+                  input#full-name.form-control(name='fullName', placeholder='Полное имя', type='text', value='#{graduate.fullName}')
                   .js-field-error.js-fullName-error-wrap.red
                 .form-group
                   label(for='image-upload') Изображение
                   input#img.form-control(type='file', size='20', name='img', data-image-preview='#img-preview')
-                  img#img-preview.photo_preview(src='', alt='')
+                  input(type='hidden', name='imgOld', value='#{graduate.img}')
+                  img#img-preview.photo_preview(src='#{graduate.img}', alt='')
                   .js-field-error.js-img-error-wrap.red
                 .form-group
                   label(for='occupancy') Место работы
-                  input#occupancy.form-control(name='occupancy', placeholder='Должность, компания', type='text')
+                  input#occupancy.form-control(name='occupancy', placeholder='Должность, компания', type='text', value='#{graduate.occupancy}')
                   .js-field-error.js-occupancy-error-wrap.red
                 .form-group
                   label(for='department') Факультет
-                  input#department.form-control(name='department', placeholder='Факультет', type='text')
+                  input#department.form-control(name='department', placeholder='Факультет', type='text', value='#{graduate.department}')
                   .js-field-error.js-department-error-wrap.red
                 .form-group
                   label(for='graduated-in') Выпуск
-                  input#graduated-in.form-control(name='graduatedIn', placeholder='В каком году выпустился', type='text')
+                  input#graduated-in.form-control(name='graduatedIn', placeholder='В каком году выпустился', type='text', value='#{graduate.graduatedIn}')
                   .js-field-error.js-graduatedIn-error-wrap.red
                 .form-group
                   label(for='lead') Заглавная цитата
-                  input#lead.form-control(name='lead', placeholder='Заглавная цитата', type='text')
+                  input#lead.form-control(name='lead', placeholder='Заглавная цитата', type='text', value='#{graduate.lead}')
                   .js-field-error.js-lead-error-wrap.red
                 .form-group
                   label(for='full-lead') Полная цитата
-                  input#full-lead.form-control(name='fullLead', placeholder='Полная цитата', type='text')
+                  input#full-lead.form-control(name='fullLead', placeholder='Полная цитата', type='text', value='#{graduate.fullLead}')
                   .js-field-error.js-fullLead-error-wrap.red
                 .form-group
                   label(for='text') Отзыв выпускника
                   textarea#text.form-control(name="text", rows="10")
+                    | !{escape(graduate.text)}
                   script(type="text/javascript").
                     CKEDITOR.replace( 'text',{
                         toolbar: [
@@ -66,5 +68,18 @@ block content
                     });
                   .js-field-error.js-text-error-wrap.red
                 .form-group
+                  input(type="hidden", name="id", value="#{graduate.id}")
                   input(type="hidden", name="_csrf", value="#{_csrf}")
-                  button.btn.btn-default(name='submit') Добавить выпускника
+                  button.btn.btn-default(type='submit', name='submit') Сохранить выпускника
+                  button.btn.btn-default(type='button', name='delete', data-url='delete-graduate?id=#{graduate.id}') Удалить выпускника
+        #delete-confirm.js-modal-confirm.modal.fade(tabindex='-1', role='dialog', aria-hidden='true')
+          .modal-dialog
+            .modal-content
+              .modal-header
+                button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+                h4#myModalLabel.modal-title Удаление выпускника
+              .modal-body
+                | Вы действительно хотите удалить выпускника?
+              .modal-footer
+                button.btn.btn-default(type='button', data-dismiss='modal') Отмена
+                a.btn.btn-primary.js-success-btn(href="#") Удалить

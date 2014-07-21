@@ -14,7 +14,7 @@ module.exports = {
     req.session.user = null;
   },
 
-  addMessage: function(message, req) {
+  setMessage: function(message, req) {
     req.session.message = message;
   },
 
