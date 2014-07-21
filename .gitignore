@@ -44,3 +44,5 @@ imit/test/
 imit/node_modules
 imit/.*
 imit/configuration/settings.js
+#### Don't forget to remove in production ####
+imit/public/img/uploaded
