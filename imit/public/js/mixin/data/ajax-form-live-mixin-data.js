@@ -15,6 +15,17 @@
     this.verifyForm = function(e, data) {
       var $form, ajaxUrl, formData;
       $form = that.$node.find('form');
+
+      // If there are CKEDITOR somewhere, looking for associated textarea and synchronize it
+      // Works correctly only with one instance
+      var ckName;
+      if (e.editor != null) {
+        var ckSelector = "#" + e.editor.name;
+        ckName = $(ckSelector).attr("name");
+        $(ckSelector).val(CKEDITOR.instances[ckName].getData());
+      }
+
+      // Now we can serialize form
       formData = $form.serialize();
 
       // If it's file input, fill it with something if it's presented
@@ -28,11 +39,11 @@
         }
       }
 
-      // If it's CKEDITOR, filling input name
+      // If there are CKEDITOR somewhere, filling last input name in case it's undefined
       var inputName = $(e.target).attr("name");
       if (inputName == null) {
-        if (e.editor != null) {
-          inputName = $("#" + e.editor.name).attr("name");
+        if (ckName != null) {
+          inputName = ckName;
         }
       }
 
