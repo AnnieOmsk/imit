@@ -165,12 +165,11 @@ module.exports = {
         deferred.reject(err);
       } else {
         var found = [];
-        var objects = res.rows;
-//        for (var i=0; i<objects.length; i++) {
-//          var graduate = new Graduate();
-//          found.push(graduate.load(objects[i]));
-//        }
-        found = objects;
+        var objects = mapper.rowsConvert(res.rows);
+        for (var i=0; i<objects.length; i++) {
+          var graduate = new Graduate();
+          found.push(graduate.load(objects[i]));
+        }
         deferred.resolve(found);
       }
     });
