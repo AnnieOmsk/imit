@@ -2,7 +2,6 @@
  * Web configuration
  * Initializing all middleware, static files and views
  */
-var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -22,7 +21,6 @@ module.exports = {
    * @param app Express app
    */
   init: function(app) {
-    app.use(favicon());
     app.use(logger(settings.ENV));
     // Parsing multipart forms
     app.use(multiParser);
