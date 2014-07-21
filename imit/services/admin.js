@@ -166,10 +166,11 @@ module.exports = {
       } else {
         var found = [];
         var objects = mapper.rowsConvert(res.rows);
-        for (var i=0; i<objects.length; i++) {
-          var graduate = new Graduate();
-          found.push(graduate.load(objects[i]));
-        }
+//        for (var i=0; i<objects.length; i++) {
+//          var graduate = new Graduate();
+//          found.push(graduate.load(objects[i]));
+//        }
+        found = objects;
         deferred.resolve(found);
       }
     });
