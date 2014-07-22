@@ -11,6 +11,13 @@ block content
   include ../includes/header
   #content
     ul.bxslider
+      li.story-slide
+        img.story-slider__photo(src='/img/graduates/nikolaev.jpg')
+        .story-slider__info
+          h3 &laquo;Идеальный студент - это такой, которого хочется любить!&raquo;
+          p Интервью с деканом ИМИТ
+          h4 В.Б.Николаевым
+          a.js-show-story(href='#', id="story_nikolaev", data-id='#all-story_nikolaev') подробнее
       each graduate in graduatesTop
         li.story-slide
           img.story-slider__photo(src='#{graduate.img}')
@@ -76,6 +83,14 @@ block content
     .story-content
       ul
         .story-close
+        li.stories-list__all-story(id="all-story_nikolaev")
+          .all-story__avatar
+            img.all-story__photo(src="/img/graduates/nikolaev.jpg")
+            h4 В.Б.Николаев,
+            p декан ИМИТ.
+          .all-story__story
+            h4 &laquo;Идеальный студент - это такой, которого хочется любить!&raquo;
+            include ../includes/nikolaev-interview
         each graduate in graduatesBottom
           li.stories-list__all-story(id="all-story_#{graduate.id}")
             .all-story__avatar
