@@ -2,7 +2,7 @@
  * Errors configuration
  */
 var settings = require('./settings');
-var sessionUtils = require('../controllers/utils/session');
+var sessionUtils = require('../web/utils/session');
 var messages = require('../messages/common');
 
 

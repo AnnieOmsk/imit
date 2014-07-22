@@ -1,12 +1,12 @@
 /**
  * Admin restricted zone controllers
  */
-var service = require('../../services/admin');
-var validator = require('../../services/validator');
-var settings = require('../../configuration/settings');
-var messages = require('../../messages/validation');
-var Graduate = require('../../models/graduate');
-var sessionUtils = require('../utils/session');
+var service = require('../../../services/admin');
+var validator = require('../../../services/validator');
+var settings = require('../../../configuration/settings');
+var messages = require('../../../messages/validation');
+var Graduate = require('../../../models/graduate');
+var sessionUtils = require('../../utils/session');
 
 module.exports = {
 

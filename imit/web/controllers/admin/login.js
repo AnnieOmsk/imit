@@ -1,11 +1,11 @@
 /**
  * Admin Login controllers
  */
-var validator = require('../../services/validator');
-var settings = require('../../configuration/settings');
-var service = require('../../services/admin');
-var messages = require('../../messages/validation');
-var sessionUtils = require('../utils/session');
+var validator = require('../../../services/validator');
+var settings = require('../../../configuration/settings');
+var service = require('../../../services/admin');
+var messages = require('../../../messages/validation');
+var sessionUtils = require('../../utils/session');
 
 module.exports = {
 

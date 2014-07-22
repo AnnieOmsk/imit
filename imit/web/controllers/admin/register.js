@@ -1,12 +1,12 @@
 /**
  * Admin registration controllers
  */
-var validator = require('../../services/validator');
-var service = require('../../services/admin');
-var settings = require('../../configuration/settings');
-var messages = require('../../messages/validation');
-var Request = require('../../models/request');
-var sessionUtils = require('../utils/session');
+var validator = require('../../../services/validator');
+var service = require('../../../services/admin');
+var settings = require('../../../configuration/settings');
+var messages = require('../../../messages/validation');
+var Request = require('../../../models/request');
+var sessionUtils = require('../../utils/session');
 
 module.exports = {
 

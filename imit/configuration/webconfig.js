@@ -11,8 +11,8 @@ var staticExpress = require('express').static;
 var csrf = require('csurf');
 var RedisStore = require('connect-redis')(session);
 var settings = require('./settings');
-var viewHelpers = require('../controllers/utils/view-helpers');
-var multiParser = require('../controllers/utils/multiparser');
+var viewHelpers = require('../web/utils/view-helpers');
+var multiParser = require('../web/utils/multiparser');
 
 module.exports = {
 

@@ -1,9 +1,9 @@
 /**
  * Routes configuration
  */
-var routes = require('../routes/index');
-var admin = require('../routes/admin');
-var restricted = require('../routes/restricted');
+var routes = require('../web/routes/index');
+var admin = require('../web/routes/admin');
+var restricted = require('../web/routes/restricted');
 
 module.exports = {
 

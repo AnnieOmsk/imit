@@ -1,7 +1,7 @@
 /**
  * Home controllers
  */
-var service = require('../../services/main');
+var service = require('../../../services/main');
 var q = require('q');
 var INDEX_NUMBER_GRADUATES = 3;
 
