@@ -75,30 +75,26 @@ module.exports = {
     var data = [];
     tx.on('error', function(err) {
       console.log("Apply request unhandled query error");
-      tx.rollback();
       deferred.reject(err);
     });
-    db.query(SQL_APPLY_REQUEST, [code], function(err, res) {
+    tx.query(SQL_APPLY_REQUEST, [code], function(err, res) {
       if (err) {
         console.log("Applying request error:" + err);
         deferred.reject(err);
-        tx.rollback();
-      } else {
-        if (res.affectedRows !== 1) {
+      } else if (res.affectedRows !== 1) {
+          tx.rollback();
           deferred.reject(new Error('WRONG_CODE'));
-        }
+      } else {
         data.push(res);
-        db.query(SQL_CREATE_ADMIN, [code], function(err, res) {
+        tx.query(SQL_CREATE_ADMIN, [code], function(err, res) {
           if (err) {
             console.log("Creating admin error:" + err);
-            tx.rollback();
             deferred.reject(err);
           } else {
             data.push(res);
             tx.commit(function(err){
               if (err) {
                 console.log("Error occurs during creating admin:" + err);
-                tx.rollback();
                 deferred.reject(err);
               } else {
                 var promise = findRequest(code);
