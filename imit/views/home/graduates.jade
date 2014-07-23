@@ -9,7 +9,7 @@ block content
       .alert.alert-danger #{errors.error}
     ul.stories-list
       each graduate in graduates
-        li.stories-list__item.js-show-story(id="story_#{graduate.id}", data-id='#all-story_#{graduate.id}')
+        li.stories-list__item.js-show-story.js-move-footer-down(id="story_#{graduate.id}", data-id='#all-story_#{graduate.id}')
           h3 «#{graduate.lead}»
           img.stories-list__photo(src="#{graduate.img}")
           h4 #{graduate.fullName},
@@ -18,7 +18,7 @@ block content
     .story-container-shadow
     .story-content
       ul
-        .story-close
+        .story-close.js-move-footer-up
         each graduate in graduates
           li.stories-list__all-story(id="all-story_#{graduate.id}")
             .all-story__avatar

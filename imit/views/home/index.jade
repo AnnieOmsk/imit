@@ -17,7 +17,7 @@ block content
           h3 &laquo;Идеальный студент - это такой, которого хочется любить!&raquo;
           p Интервью с деканом ИМИТ
           h4 В.Б.Николаевым
-          a.js-show-story(href='#', id="story_nikolaev", data-id='#all-story_nikolaev') подробнее
+          a.js-show-story.js-move-footer-down(href='#', id="story_nikolaev", data-id='#all-story_nikolaev') подробнее
       each graduate in graduatesTop
         li.story-slide
           img.story-slider__photo(src='#{graduate.img}')
@@ -72,7 +72,7 @@ block content
               p
                 ul.stories-list
                   each graduate in graduatesBottom
-                    li.stories-list__item.js-show-story(id="story_#{graduate.id}", data-id='#all-story_#{graduate.id}')
+                    li.stories-list__item.js-move-footer-down.js-show-story(id="story_#{graduate.id}", data-id='#all-story_#{graduate.id}')
                       h3 «#{graduate.lead}»
                       img.stories-list__photo(src="#{graduate.img}")
                       h4 #{graduate.fullName},
@@ -82,7 +82,7 @@ block content
     .story-container-shadow
     .story-content
       ul
-        .story-close
+        .story-close.js-move-footer-up
         li.stories-list__all-story(id="all-story_nikolaev")
           .all-story__avatar
             img.all-story__photo(src="/img/graduates/nikolaev.jpg")

@@ -17,12 +17,14 @@ function() {
         this.$node.find(prevOpenStoryId).css('display', 'inline-block');
         this.$node.show();
         this.scrollTop();
+        this.trigger('element-top-move', {offset: $(document).height()});
     }
 
     this.hideFullStory = function (event, data) {
         this.$node.hide();
         this.$node.find(prevOpenStoryId).hide();
         this.scrollBack();
+        this.trigger('element-top-move', {offset: 0});
     }
 
     this.scrollTop = function () {
