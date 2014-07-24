@@ -2,7 +2,7 @@
   position: relative;
 }
 .ajax-wrapper .loader {
-  background-image: url("images/ajax-loader.gif");
+  background-image: url("/img/ajax-loader.gif");
   background-repeat: no-repeat;
   background-position: center 80px;
   background-color: rgba(255, 255, 255, 0.5);

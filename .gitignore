@@ -46,3 +46,7 @@ imit/.*
 imit/configuration/settings.js
 #### Don't forget to remove in production ####
 imit/public/img/uploaded
+#### Compiled js/css directories ###
+imit/public/js
+imit/public/css
+imit/views/layouts
