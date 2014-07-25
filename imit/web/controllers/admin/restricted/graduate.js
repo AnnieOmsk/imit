@@ -1,31 +1,14 @@
 /**
- * Admin restricted zone controllers
+ * All "Graduate" entity related controllers
  */
-var service = require('../../../services/admin');
-var validator = require('../../../services/validator');
-var settings = require('../../../configuration/settings');
-var messages = require('../../../messages/validation');
-var Graduate = require('../../../models/graduate');
-var sessionUtils = require('../../utils/session');
+var service = require('../../../../services/admin');
+var validator = require('../../../../services/validator');
+var settings = require('../../../../configuration/settings');
+var messages = require('../../../../messages/validation');
+var Graduate = require('../../../../models/graduate');
+var sessionUtils = require('../../../utils/session');
 
 module.exports = {
-
-  index: function(req, res) {
-    var promise = service.findGraduates();
-    var message = sessionUtils.readMessage(req);
-    promise.then(function(graduates) {
-      res.render('admin/restricted/dashboard', {
-        graduates: graduates,
-        flashMessage: message
-      });
-    }, function(err) {
-      res.render('admin/restricted/dashboard', {
-        errors: {error: messages.restricted.graduates.errorDatabase},
-        graduates: null,
-        flashMessage: message
-      });
-    });
-  },
 
   addGraduate: function(req, res) {
     res.render('admin/restricted/add-graduate', {});
@@ -47,18 +30,13 @@ module.exports = {
     var promise = service.deleteGraduate(req.query.id);
     promise.then(function(result) {
       sessionUtils.setMessage({success: messages.restricted.graduate.delete.success1 + req.query.id +
-          messages.restricted.graduate.delete.success2}, req);
+        messages.restricted.graduate.delete.success2}, req);
       res.redirect('/admin/restricted/');
     }, function (err) {
       sessionUtils.setMessage({error: messages.restricted.graduate.delete.error1 + req.query.id +
-          messages.restricted.graduate.delete.error2}, req);
+        messages.restricted.graduate.delete.error2}, req);
       res.redirect('/admin/restricted/');
     });
-  },
-
-  logout: function(req, res) {
-    sessionUtils.userLogout(req);
-    res.redirect('/admin/login');
   },
 
   verifyGraduate: function(req, res) {

@@ -6,15 +6,20 @@ var router = express.Router();
 
 // Controllers
 var adminRestricted = require('../controllers/admin/restricted');
+var graduateRestricted = require('../controllers/admin/restricted/graduate');
 
 // Routing
+
+// Restricted
 router.get('/', adminRestricted.index);
-router.get('/add-graduate', adminRestricted.addGraduate);
-router.get('/edit-graduate', adminRestricted.editGraduate);
-router.get('/delete-graduate', adminRestricted.deleteGraduate);
 router.get('/logout', adminRestricted.logout);
-router.post('/verify-graduate.json', adminRestricted.verifyGraduate);
-router.post('/save-graduate.json', adminRestricted.saveGraduate);
+
+// For Graduates
+router.get('/add-graduate', graduateRestricted.addGraduate);
+router.get('/edit-graduate', graduateRestricted.editGraduate);
+router.get('/delete-graduate', graduateRestricted.deleteGraduate);
+router.post('/verify-graduate.json', graduateRestricted.verifyGraduate);
+router.post('/save-graduate.json', graduateRestricted.saveGraduate);
 
 // Release
 module.exports = router;
