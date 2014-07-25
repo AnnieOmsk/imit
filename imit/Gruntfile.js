@@ -38,7 +38,6 @@ module.exports = function(grunt) {
   });
 
   // load the tasks
-  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-multiply-layouts');
 
