@@ -3,7 +3,7 @@ module.exports = function(grunt) {
   // configure the tasks
   grunt.initConfig({
     clean: {
-      dev: {
+      all: {
         src: [ 'views/layouts', 'public/css', 'public/js' ]
       }
     },
