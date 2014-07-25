@@ -1,7 +1,7 @@
 /**
  * All "Graduate" entity related controllers
  */
-var service = require('../../../../services/admin');
+var service = require('../../../../services/graduate');
 var validator = require('../../../../services/validators/graduate');
 var settings = require('../../../../configuration/settings');
 var messages = require('../../../../messages/validation');
