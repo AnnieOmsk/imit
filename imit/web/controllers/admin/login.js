@@ -1,7 +1,7 @@
 /**
  * Admin Login controllers
  */
-var validator = require('../../../services/validator');
+var validator = require('../../../services/validators/admin');
 var settings = require('../../../configuration/settings');
 var service = require('../../../services/admin');
 var messages = require('../../../messages/validation');

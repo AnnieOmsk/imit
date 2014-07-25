@@ -1,7 +1,7 @@
 /**
  * Admin registration controllers
  */
-var validator = require('../../../services/validator');
+var validator = require('../../../services/validators/request');
 var service = require('../../../services/admin');
 var settings = require('../../../configuration/settings');
 var messages = require('../../../messages/validation');
@@ -16,7 +16,7 @@ module.exports = {
 
   postJson: function(req, res) {
     var form = req.body;
-    var errors = validator.adminRegister(form);
+    var errors = validator.requestValidator(form);
     if (errors != null) {
       res.json({
         errorMessage: messages.admin.register.errorErrors,
