@@ -6,6 +6,8 @@ var settings = require('../../../configuration/settings');
 var service = require('../../../services/admin');
 var messages = require('../../../messages/validation');
 var sessionUtils = require('../../utils/session');
+//var passport = require('../../../configuration/security').getPassport();
+var passport = require('passport');
 
 module.exports = {
 
@@ -18,7 +20,7 @@ module.exports = {
     res.render('admin/login', {flashMessage: message});
   },
 
-  postJson: function(req, res) {
+  postJson: function(req, res, next) {
     var form = req.body;
     var successMessage;
     var errorMessage;
@@ -31,28 +33,59 @@ module.exports = {
         errors: errors
       });
     } else {
-      var promise = service.findAdmin(form.email, form.password);
-      promise.then(function(user) {
-        if (user == null) {
+      passport.authenticate('local', function(err, user, info) {
+        if (err) {
+          errorMessage = messages.admin.login.errorDatabase;
+          res.json({
+            errorMessage: errorMessage
+          });
+//          return next(err);
+        }
+        if (!user) {
           errorMessage = messages.admin.login.errorIncorrect;
           res.json({
             errorMessage: errorMessage
           });
-        } else {
-          successMessage = messages.admin.login.success;
-          redirectUrl = settings.SITE_ADDRESS + "/admin/restricted/";
-          sessionUtils.userLogin(user, req);
-          res.json({
-            successMessage: successMessage,
-            redirectUrl: redirectUrl
-          });
         }
-      }, function (err) {
-        errorMessage = messages.admin.login.errorDatabase;
-        res.json({
-          errorMessage: errorMessage
+        req.logIn(user, function(err) {
+          if (err) {
+            errorMessage = messages.admin.login.errorDatabase;
+            res.json({
+              errorMessage: errorMessage
+            });
+          } else {
+            successMessage = messages.admin.login.success;
+            redirectUrl = settings.SITE_ADDRESS + "/admin/restricted/";
+//            sessionUtils.userLogin(user, req);
+            res.json({
+              successMessage: successMessage,
+              redirectUrl: redirectUrl
+            });
+          }
         });
-      });
+      })(req, res, next);
+      var promise = service.findAdmin(form.email, form.password);
+//      promise.then(function(user) {
+//        if (user == null) {
+//          errorMessage = messages.admin.login.errorIncorrect;
+//          res.json({
+//            errorMessage: errorMessage
+//          });
+//        } else {
+//          successMessage = messages.admin.login.success;
+//          redirectUrl = settings.SITE_ADDRESS + "/admin/restricted/";
+//          sessionUtils.userLogin(user, req);
+//          res.json({
+//            successMessage: successMessage,
+//            redirectUrl: redirectUrl
+//          });
+//        }
+//      }, function (err) {
+//        errorMessage = messages.admin.login.errorDatabase;
+//        res.json({
+//          errorMessage: errorMessage
+//        });
+//      });
     }
   }
 };

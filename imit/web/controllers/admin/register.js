@@ -7,6 +7,7 @@ var settings = require('../../../configuration/settings');
 var messages = require('../../../messages/validation');
 var Request = require('../../../models/request');
 var sessionUtils = require('../../utils/session');
+var crypt = require('../../../services/utils/crypt');
 
 module.exports = {
 
@@ -25,27 +26,34 @@ module.exports = {
     } else {
       var adminRequest = new Request();
       adminRequest.email = form.email;
-      adminRequest.password = form.password;
       adminRequest.firstName = form.firstName;
       adminRequest.lastName = form.lastName;
-      var promise = service.saveRequest(adminRequest);
-      promise.then(function(){
-        sessionUtils.setMessage({success: messages.admin.register.success}, req);
-        var redirectUrl = settings.SITE_ADDRESS + "/admin/login";
-        res.json({
-          successMessage: messages.admin.register.success,
-          redirectUrl: redirectUrl
+      var encodePromise = crypt.encode(form.password);
+      encodePromise.then(function(password) {
+        adminRequest.password = password;
+        var promise = service.saveRequest(adminRequest);
+        promise.then(function(){
+          sessionUtils.setMessage({success: messages.admin.register.success}, req);
+          var redirectUrl = settings.SITE_ADDRESS + "/admin/login";
+          res.json({
+            successMessage: messages.admin.register.success,
+            redirectUrl: redirectUrl
+          });
+        }, function(err) {
+          var errorMessage;
+          if (err.code == 'ER_DUP_ENTRY') {
+            errorMessage = messages.admin.register.errorDuplicate;
+          } else {
+            errorMessage = messages.admin.register.errorDatabase;
+          }
+          res.json({
+            errorMessage: errorMessage
+          });
         });
-      }, function(err) {
-        var errorMessage;
-        if (err.code == 'ER_DUP_ENTRY') {
-          errorMessage = messages.admin.register.errorDuplicate;
-        } else {
-          errorMessage = messages.admin.register.errorDatabase;
-        }
+      }, function(err){
+        errorMessage = messages.admin.register.errorDatabase;
         res.json({
-          errorMessage: errorMessage,
-          errors: errors
+          errorMessage: errorMessage
         });
       });
     }

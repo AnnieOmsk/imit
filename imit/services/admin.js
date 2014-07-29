@@ -19,7 +19,7 @@ var SQL_DECLINE_REQUEST = "UPDATE request SET accepted = FALSE WHERE secret_code
 var SQL_CREATE_ADMIN = "INSERT INTO admin (email, password, first_name, last_name, secret_code) " +
   "SELECT email, password, first_name, last_name, secret_code FROM request WHERE secret_code = ? AND accepted = TRUE";
 var SQL_SELECT_REQUEST = "SELECT * FROM request WHERE secret_code = ?";
-var SQL_FIND_ADMIN = "SELECT * FROM admin where email = ? AND password = ?";
+var SQL_FIND_ADMIN = "SELECT * FROM admin where email = ?";
 
 var findRequest = function(code) {
   var deferred = q.defer();
@@ -126,9 +126,9 @@ module.exports = {
     return deferred.promise;
   },
 
-  findAdmin : function(email, password) {
+  findAdmin : function(email) {
     var deferred = q.defer();
-    db.query(SQL_FIND_ADMIN, [email, password], function(err, res) {
+    db.query(SQL_FIND_ADMIN, [email], function(err, res) {
       if (err) {
         console.log("Login check request error:" + err);
         deferred.reject(err);
