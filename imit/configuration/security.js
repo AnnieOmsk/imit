@@ -5,30 +5,35 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var service = require('../services/admin');
 var crypt = require('../services/utils/crypt');
+var LOGIN_PATH = '/admin/login';
+var PROTECTED_PATH = '/admin/restricted';
 
-
-
-//function userIsAllowed(req) {
-//  if (req.session.authenticated != null && req.session.authenticated == true) {
-//    return true;
-//  } else {
-//    return false;
-//  }
-//};
-
-
+/**
+ * Checks if current user is already authenticated
+ * @param req   Request
+ * @param res   Response
+ * @param next  Next method
+ */
 var ensureAuthenticated = function(req, res, next) {
   if (req.isAuthenticated()) {
     next();
   } else {
-    res.redirect('/admin/login');
+    res.redirect(LOGIN_PATH);
   }
 };
 
+/**
+ * Serialize user to store it in cookie
+ * Required for Passport
+ */
 passport.serializeUser(function(user, done) {
   done(null, user.email);
 });
 
+/**
+ * Deserialize user, using cookie information
+ * Required for Passport
+ */
 passport.deserializeUser(function(email, done) {
   var promise = service.findAdmin(email);
   promise.then(function(user){
@@ -38,6 +43,9 @@ passport.deserializeUser(function(email, done) {
   });
 });
 
+/**
+ * Main passport configuration
+ */
 passport.use(new LocalStrategy({
     usernameField: 'email',
     passwordField: 'password'
@@ -45,19 +53,26 @@ passport.use(new LocalStrategy({
   function(username, password, done) {
   var promise = service.findAdmin(username);
   promise.then(function(user) {
+    // No such user
     if(!user) {
-      return done(null, false, { message: 'Unknown user ' + username });
+      done(null, false, {});
     }
+    // There is some, but wwe need to check his password
     crypt.comparePasswords(password, user.password, function(err, isMatch) {
-      if (err) return done(err);
+      if (err) {
+        done(err);
+      }
+      // Oh great, validation passed!
       if(isMatch) {
         return done(null, user);
       } else {
-        return done(null, false, { message: 'Invalid password' });
+        return done(null, false, {});
       }
     });
   }, function(err) {
-    if (err) return done(err);
+    if (err) {
+      done(err);
+    }
   });
 }));
 
@@ -71,22 +86,9 @@ module.exports = {
 
     app.use(passport.initialize());
     app.use(passport.session());
-    app.all('/admin/restricted', ensureAuthenticated, function(req, res, next){
+    app.all(PROTECTED_PATH, ensureAuthenticated, function(req, res, next){
       next();
     });
-
-//    app.all('/admin/restricted*', function(req, res, next) {
-//      if(userIsAllowed (req)){
-//          next();
-//      } else {
-//        res.statusCode = 403;
-//        next(new Error('Forbidden'));
-//      }
-//    });
-  },
-
-  getPassport: function() {
-    return passport;
   }
 };
 

@@ -5,7 +5,6 @@ var service = require('../../../../services/graduate');
 var settings = require('../../../../configuration/settings');
 var messages = require('../../../../messages/validation');
 var sessionUtils = require('../../../utils/session');
-var passport = require('passport');
 
 module.exports = {
 
