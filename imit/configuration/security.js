@@ -4,7 +4,9 @@
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var service = require('../services/admin');
+var sessionUtils = require('../web/utils/session');
 var crypt = require('../services/utils/crypt');
+var message = require('../services/utils/message');
 var LOGIN_PATH = '/admin/login';
 var PROTECTED_PATH = '/admin/restricted';
 
@@ -18,6 +20,7 @@ var ensureAuthenticated = function(req, res, next) {
   if (req.isAuthenticated()) {
     next();
   } else {
+    sessionUtils.setMessage({error: message.msg('common.forbidden.error', req.session.locale)}, req);
     res.redirect(LOGIN_PATH);
   }
 };

@@ -13,6 +13,9 @@ var RedisStore = require('connect-redis')(session);
 var settings = require('./settings');
 var viewHelpers = require('../web/utils/view-helpers');
 var multiParser = require('../web/utils/multiparser');
+var message = require('../services/utils/message');
+var localeResolver = require('../web/utils/locale-resolver');
+message.init(__dirname + '/../messages', ['ru', 'en'], 'ru');
 
 module.exports = {
 
@@ -47,6 +50,7 @@ module.exports = {
     });
 
     app.use(csrf());
+    app.use(localeResolver);
 
     // Setting up static resources directory
     app.use(staticExpress(path.join(__dirname, '..', 'public')));
