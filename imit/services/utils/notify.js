@@ -55,6 +55,21 @@ module.exports = {
         subject = emailSubjects.request.declined;
         to = params.email;
         break;
+    /** Send instructions, how to restore password to user */
+      case 'password-restore':
+        templateName = 'password-restore';
+        params = obj;
+        params.restoreLink = settings.SITE_ADDRESS + "/admin/new-password?code=" + params.code;
+        subject = emailSubjects.password.restore;
+        to = params.email;
+        break;
+    /** Notification sent to user when his password was changed */
+      case 'password-changed':
+        templateName = 'password-changed';
+        params = obj;
+        subject = emailSubjects.password.changed;
+        to = params.email;
+        break;
       default:
         return null;
     }

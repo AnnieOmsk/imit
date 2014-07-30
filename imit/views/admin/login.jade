@@ -5,7 +5,7 @@ block append head
 
 block content
   .col-sm-4
-  .col-sm-2.js-admin-login
+  .col-sm-2.js-ajax-form
     div(style="height:150px")
     form.form-horizontal(method="post", data-ajax-url="login.json")
       .ajax-wrapper
@@ -28,6 +28,7 @@ block content
           .js-field-error.js-password-error-wrap.red
         .form-group
           a(href='register') Запросить доступ
+          a.pull-right(href='restore') Восстановить пароль
           input(type="hidden", name="_csrf", value="#{_csrf}")
         .form-group
           button.btn.btn-default.col-sm-4(name='submit') Войти

@@ -1,6 +1,5 @@
 'use strict';
 
 $(function() {
-  window.ajaxForm.attachTo('.js-admin-register');
-  window.ajaxForm.attachTo('.js-admin-login');
+  window.ajaxForm.attachTo('.js-ajax-form');
 });

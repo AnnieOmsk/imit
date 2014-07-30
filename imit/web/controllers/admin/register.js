@@ -7,7 +7,6 @@ var settings = require('../../../configuration/settings');
 var messages = require('../../../messages/validation');
 var Request = require('../../../models/request');
 var sessionUtils = require('../../utils/session');
-var crypt = require('../../../services/utils/crypt');
 
 module.exports = {
 
@@ -28,30 +27,22 @@ module.exports = {
       adminRequest.email = form.email;
       adminRequest.firstName = form.firstName;
       adminRequest.lastName = form.lastName;
-      var encodePromise = crypt.encode(form.password);
-      encodePromise.then(function(password) {
-        adminRequest.password = password;
-        var promise = service.saveRequest(adminRequest);
-        promise.then(function(){
-          sessionUtils.setMessage({success: messages.admin.register.success}, req);
-          var redirectUrl = settings.SITE_ADDRESS + "/admin/login";
-          res.json({
-            successMessage: messages.admin.register.success,
-            redirectUrl: redirectUrl
-          });
-        }, function(err) {
-          var errorMessage;
-          if (err.code == 'ER_DUP_ENTRY') {
-            errorMessage = messages.admin.register.errorDuplicate;
-          } else {
-            errorMessage = messages.admin.register.errorDatabase;
-          }
-          res.json({
-            errorMessage: errorMessage
-          });
+      adminRequest.password = form.password;
+      var promise = service.saveRequest(adminRequest);
+      promise.then(function(){
+        sessionUtils.setMessage({success: messages.admin.register.success}, req);
+        var redirectUrl = settings.SITE_ADDRESS + "/admin/login";
+        res.json({
+          successMessage: messages.admin.register.success,
+          redirectUrl: redirectUrl
         });
-      }, function(err){
-        errorMessage = messages.admin.register.errorDatabase;
+      }, function(err) {
+        var errorMessage;
+        if (err.code == 'ER_DUP_ENTRY') {
+          errorMessage = messages.admin.register.errorDuplicate;
+        } else {
+          errorMessage = messages.admin.register.errorDatabase;
+        }
         res.json({
           errorMessage: errorMessage
         });

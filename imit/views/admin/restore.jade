@@ -1,0 +1,24 @@
+extends ../layouts/admin-layout
+
+block append head
+  title="Восстановление пароля"
+
+block content
+  .col-sm-4
+  .col-sm-2.js-ajax-form
+    div(style="height:100px")
+    form.form-horizontal(method="post", data-ajax-url="restore.json")
+      .ajax-wrapper
+        .loader.transparent.without-height
+        .alert.alert-success.js-success-msg.ajax-form-msg
+        .alert.alert-danger.js-error-msg.ajax-form-msg
+        .form-group
+          legend Восстановление пароля
+        .form-group
+          label(for='email') Email адрес
+          input#email.form-control(name='email', placeholder='Email адрес', type='text')
+          .js-field-error.js-email-error-wrap.red
+        .form-group
+          input(type="hidden", name="_csrf", value="#{_csrf}")
+        .form-group
+          button.btn.btn-default(name='submit') Восстановить пароль

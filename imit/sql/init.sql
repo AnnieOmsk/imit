@@ -30,11 +30,11 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `password` varchar(255) NOT NULL,
   `first_name` varchar(255) NOT NULL,
   `last_name` varchar(255) NOT NULL,
-  `secret_code` varchar(255) NOT NULL,
+  `restore_code` varchar(255) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`),
-  UNIQUE KEY `secret_code` (`secret_code`)
+  UNIQUE KEY `restore_code` (`restore_code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -70,8 +70,8 @@ CREATE TABLE IF NOT EXISTS `graduate` (
   `full_name` varchar(255) NOT NULL,
   `img` varchar(255) NOT NULL,
   `occupancy` varchar(255) NOT NULL,
-  `graduated_in` varchar(255) NOT NULL,
-  `department` varchar(255) NOT NULL,
+  `graduated_in` varchar(255),
+  `department` varchar(255),
   `lead` varchar(255) NOT NULL,
   `full_lead` varchar(255) NOT NULL,
   `text` text NOT NULL,
