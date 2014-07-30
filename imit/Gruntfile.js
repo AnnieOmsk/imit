@@ -43,6 +43,6 @@ module.exports = function(grunt) {
 
   // define the tasks
 
-  grunt.registerTask('dev', 'Production task.', ['clean', 'multiply_layouts:dev']);
-  grunt.registerTask('default', 'Development task.', [ 'clean', 'multiply_layouts:prod']);
+  grunt.registerTask('dev', 'Development task.', ['clean', 'multiply_layouts:dev']);
+  grunt.registerTask('default', 'Production task.', [ 'clean', 'multiply_layouts:prod']);
 };

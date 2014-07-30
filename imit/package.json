@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "grunt && node ./configuration/start",
+    "start": "node ~/.nvm/v0.10.29/bin/grunt && node ./configuration/start",
     "debug": "node --debug ~/.nvm/v0.10.29/bin/grunt dev && node --debug ./configuration/start",
     "testUnit": "node --debug `which nodeunit` $(find ./tests -name '*.js')",
     "testInt": "node --debug-brk `which mocha` --reporter nyan $(find ./tests -name '*-int.js')"
