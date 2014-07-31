@@ -1,6 +1,8 @@
 /**
  * View helpers
  */
+var message = require('../../services/utils/message');
+
 module.exports = {
   // Add default objects to prevent undefined exception throwing
   errors: {},
@@ -25,5 +27,10 @@ module.exports = {
       .replace(/"/g, '&quot;')
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;');
+  },
+
+  // Print localised message
+  msg: function(key, locale, data) {
+    return message.msg(key, locale, data);
   }
 };

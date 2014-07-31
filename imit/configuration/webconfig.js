@@ -63,6 +63,10 @@ module.exports = {
 
     // Adding view helpers
     app.locals = viewHelpers;
+    app.use(function(req, res, next) {
+      res.locals.locale = req.session.locale;
+      next();
+    });
 
     // Add csrf token to view
     app.use(function(req, res, next) {
