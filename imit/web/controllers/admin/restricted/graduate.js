@@ -5,7 +5,7 @@ var service = require('../../../../services/graduate');
 var validator = require('../../../../services/validators/graduate');
 var settings = require('../../../../configuration/settings');
 var message = require('../../../../services/utils/message');
-var Graduate = require('../../../../models/graduate');
+var Graduate = require('../../../../models').Graduate;
 var sessionUtils = require('../../../utils/session');
 
 module.exports = {

@@ -5,7 +5,7 @@
 var q = require('q');
 var db = require('../configuration/database').pool;
 var mapper = require('./utils/mapper');
-var Graduate = require('../models/graduate');
+var Graduate = require('../models').Graduate;
 
 var SQL_FIND_GRADUATES = "SELECT * FROM graduate";
 

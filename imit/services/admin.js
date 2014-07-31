@@ -9,8 +9,8 @@ var begin = require('../configuration/database').begin;
 var mapper = require('./utils/mapper');
 var notify = require('./utils/notify');
 var settings = require("../configuration/settings");
-var Request = require('../models/request');
-var Admin = require('../models/admin');
+var Request = require('../models').Request;
+var Admin = require('../models').Admin;
 var crypt = require('./utils/crypt');
 
 var SQL_SAVE_ADMIN_REQUEST = "INSERT INTO request (email, password, first_name, last_name, secret_code) " +

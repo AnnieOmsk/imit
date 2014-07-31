@@ -5,7 +5,7 @@ var validator = require('../../../services/validators/request');
 var service = require('../../../services/admin');
 var settings = require('../../../configuration/settings');
 var message = require('../../../services/utils/message');
-var Request = require('../../../models/request');
+var Request = require('../../../models').Request;
 var sessionUtils = require('../../utils/session');
 
 module.exports = {

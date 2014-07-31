@@ -8,7 +8,7 @@ var db = require('../configuration/database').pool;
 var mapper = require('./utils/mapper');
 var notify = require('./utils/notify');
 var settings = require("../configuration/settings");
-var Graduate = require('../models/graduate');
+var Graduate = require('../models').Graduate;
 
 var SQL_FIND_GRADUATES = "SELECT * FROM graduate ORDER BY id DESC";
 var SQL_SAVE_GRADUATE = "INSERT INTO graduate (full_name, img, occupancy, department, graduated_in, lead, full_lead, text) " +
