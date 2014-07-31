@@ -4,7 +4,7 @@
 var service = require('../../../../services/graduate');
 var validator = require('../../../../services/validators/graduate');
 var settings = require('../../../../configuration/settings');
-var messages = require('../../../../messages/validation');
+var message = require('../../../../services/utils/message');
 var Graduate = require('../../../../models/graduate');
 var sessionUtils = require('../../../utils/session');
 
@@ -20,7 +20,7 @@ module.exports = {
       res.render('admin/restricted/edit-graduate', {graduate: graduate});
     }, function (err) {
       res.render('admin/restricted/edit-graduate', {
-        errors:{error:messages.restricted.graduates.errorDatabase},
+        errors:{error: message.msg('validation.restricted.graduates.errorDatabase', req.session.locale)},
         graduate: new Graduate()
       });
     });
@@ -28,23 +28,27 @@ module.exports = {
 
   deleteGraduate: function(req, res) {
     var promise = service.deleteGraduate(req.query.id);
+    var locale = req.session.locale;
     promise.then(function(result) {
-      sessionUtils.setMessage({success: messages.restricted.graduate.delete.success1 + req.query.id +
-        messages.restricted.graduate.delete.success2}, req);
+      sessionUtils.setMessage({
+        success: message.msg('validation.restricted.graduate.delete.success', locale, req.query.id)
+      }, req);
       res.redirect('/admin/restricted/');
     }, function (err) {
-      sessionUtils.setMessage({error: messages.restricted.graduate.delete.error1 + req.query.id +
-        messages.restricted.graduate.delete.error2}, req);
+      sessionUtils.setMessage({
+        error: message.msg('validation.restricted.graduate.delete.error', locale, req.query.id)
+      }, req);
       res.redirect('/admin/restricted/');
     });
   },
 
   verifyGraduate: function(req, res) {
     var form = req.body;
-    var errors = validator.graduateLive(form);
+    var locale = req.session.locale;
+    var errors = validator.graduateLive(form, locale);
     if (errors != null) {
       res.json({
-        errorMessage: messages.restricted.graduate.save.errorErrors,
+        errorMessage: message.msg('validation.restricted.graduate.save.errorErrors', locale),
         errors: errors
       });
     } else {
@@ -56,10 +60,11 @@ module.exports = {
 
   saveGraduate: function(req, res) {
     var form = req.body;
-    var errors = validator.graduateSave(form);
+    var locale = req.session.locale;
+    var errors = validator.graduateSave(form, locale);
     if (errors != null) {
       res.json({
-        errorMessage: messages.restricted.graduate.save.errorErrors,
+        errorMessage: message.msg('validation.restricted.graduate.save.errorErrors', locale),
         errors: errors
       });
     } else {
@@ -80,7 +85,7 @@ module.exports = {
       var promise = service.saveGraduate(graduate);
       promise.then(function(){
         var redirectUrl = settings.SITE_ADDRESS + "/admin/restricted/";
-        var successMessage = messages.restricted.graduate.save.success;
+        var successMessage = message.msg('validation.restricted.graduate.save.success', locale);
         sessionUtils.setMessage({success: successMessage}, req);
         res.json({
           successMessage: successMessage,
@@ -88,7 +93,7 @@ module.exports = {
         });
       }, function(err) {
         var errorMessage;
-        errorMessage = messages.restricted.graduate.save.errorDatabase;
+        errorMessage = message.msg('validation.restricted.graduate.save.errorDatabase', locale);
         res.json({
           errorMessage: errorMessage,
           errors: errors

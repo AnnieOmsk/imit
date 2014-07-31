@@ -4,7 +4,7 @@
 var validator = require('../../../services/validators/admin');
 var settings = require('../../../configuration/settings');
 var service = require('../../../services/admin');
-var messages = require('../../../messages/validation');
+var message = require('../../../services/utils/message');
 var sessionUtils = require('../../utils/session');
 var passport = require('passport');
 
@@ -21,12 +21,13 @@ module.exports = {
 
   postJson: function(req, res, next) {
     var form = req.body;
+    var locale = req.session.locale;
     var successMessage;
     var errorMessage;
     var redirectUrl;
-    var errors = validator.adminLogin(form);
+    var errors = validator.adminLogin(form, locale);
     if (errors != null) {
-      errorMessage = messages.admin.login.errorErrors;
+      errorMessage = message.msg('validation.admin.login.errorErrors', locale);
       res.json({
         errorMessage: errorMessage,
         errors: errors
@@ -35,25 +36,25 @@ module.exports = {
       //TODO: it would be great to refactor this
       passport.authenticate('local', function(err, user, info) {
         if (err) {
-          errorMessage = messages.admin.login.errorDatabase;
+          errorMessage = message.msg('validation.admin.login.errorDatabase', locale);
           res.json({
             errorMessage: errorMessage
           });
         }
         if (!user) {
-          errorMessage = messages.admin.login.errorIncorrect;
+          errorMessage = message.msg('validation.admin.login.errorIncorrect', locale);
           res.json({
             errorMessage: errorMessage
           });
         }
         req.logIn(user, function(err) {
           if (err) {
-            errorMessage = messages.admin.login.errorDatabase;
+            errorMessage = message.msg('validation.admin.login.errorDatabase', locale);
             res.json({
               errorMessage: errorMessage
             });
           } else {
-            successMessage = messages.admin.login.success;
+            successMessage = message.msg('validation.admin.login.success', locale);
             redirectUrl = settings.SITE_ADDRESS + "/admin/restricted/";
             res.json({
               successMessage: successMessage,

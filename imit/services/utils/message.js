@@ -1,5 +1,6 @@
 var fs = require('fs');
 var chalk = require('chalk');
+var util = require('util');
 // Object to store all messages
 var messages = {};
 // Object to store available languages
@@ -91,17 +92,21 @@ module.exports = {
   },
 
   /**
-   * Retrive message by key
+   * Retrieve message by key
    * @param key         Key
    * @param language    Language
+   * @param data        Optional data to use int string
    * @returns Localised message
    */
-  msg: function(key, language) {
+  msg: function(key, language, data) {
     var message;
     if (langs.indexOf(language) !== -1) {
       message = byString(messages, language + "." + key) || key;
     } else {
       message = byString(messages, defaultLang + "." + key) || key;
+    }
+    if (message !== key && data !== undefined && data !== null) {
+      message = util.format(message, data);
     }
 
     return message;

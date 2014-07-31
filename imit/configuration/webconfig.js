@@ -15,7 +15,6 @@ var viewHelpers = require('../web/utils/view-helpers');
 var multiParser = require('../web/utils/multiparser');
 var message = require('../services/utils/message');
 var localeResolver = require('../web/utils/locale-resolver');
-message.init(__dirname + '/../messages', ['ru', 'en'], 'ru');
 
 module.exports = {
 
@@ -50,7 +49,10 @@ module.exports = {
     });
 
     app.use(csrf());
+
+    // Localisation init
     app.use(localeResolver);
+    message.init(__dirname + '/../messages', ['ru', 'en'], 'ru');
 
     // Setting up static resources directory
     app.use(staticExpress(path.join(__dirname, '..', 'public')));

@@ -1,77 +1,74 @@
 module.exports = {
   "admin": {
     "register": {
-      "emailNull":         "Заполните, пожалуйста, email адрес",
-      "emailIncorrect":    "Некорректный email-адрес",
-      "passwordLength":    "Пароль должен быть не менее 6 и не более 50 символов",
-      "passwordsNotEqual": "Пароли должны совпадать",
-      "firstNameNull":     "Заполните, пожалуйста, имя",
-      "lastNameNull":      "Заполните, пожалуйста, фамилию",
-      "success":           "Ваша заявка принята, ждите ответа",
-      "errorErrors":       "Пожалуйста, исправьте ошибки",
-      "errorDuplicate":    "Заявка с таким email-адресом уже была подана ранее",
-      "errorDatabase":     "Ошибка сервиса, пожалуйста, повторите позже"
+      "emailNull":         "Please, fill up email-address",
+      "emailIncorrect":    "Incorrect email-address",
+      "passwordLength":    "Password should not be less than 6 and more than 50 symbols",
+      "passwordsNotEqual": "Both passwords should be the same",
+      "firstNameNull":     "Please, fill up first name",
+      "lastNameNull":      "Please, fill up last name",
+      "success":           "Your request will be reviewed by our administrator",
+      "errorErrors":       "Please, fix all errors",
+      "errorDuplicate":    "Request with this email-address have been already added",
+      "errorDatabase":     "Service error, please try again later"
     },
     "login": {
-      "emailNull":         "Заполните, пожалуйста, email адрес",
-      "emailIncorrect":    "Некорректный email-адрес",
-      "passwordNull":      "Заполните, пожалуйста, пароль",
-      "success":           "Данные верны, выполняется вход",
-      "errorErrors":       "Пожалуйста, исправьте ошибки",
-      "errorIncorrect":    "Нет администратора с таким e-mail адресом и паролем",
-      "errorDatabase":     "Ошибка сервиса, пожалуйста, повторите позже"
+      "emailNull":         "Please fill up email-address",
+      "emailIncorrect":    "Incorrect email-address",
+      "passwordNull":      "Please fill up password",
+      "success":           "Credentials matched, performing login",
+      "errorErrors":       "Please, fix all errors",
+      "errorIncorrect":    "There are no administrator with such email and password",
+      "errorDatabase":     "Service error, please try again later"
     },
     "apply" : {
-      "codeNull":          "Ссылка не валидна. Ничего не сделано",
-      "codeApplied":       "Запрос администратора на регистрацию одобрен",
-      "codeApplyError":    "Запрос администратора не был одобрен из-за ошибки сервиса, пожалуйста, повторите попозже"
+      "codeNull":          "Invalid link. Nothing have been done",
+      "codeApplied":       "Administrator request was approved",
+      "codeApplyError":    "Administrator request was not approved because of service error, please try again later"
     },
     "decline" : {
-      "codeNull":          "Ссылка не валидна. Ничего не сделано",
-      "codeDeclined":      "Запрос администратора на регистрацию отклонён",
-      "codeDeclineError":  "Запрос администратора не был отклонён из-за ошибки сервиса, пожалуйста, повторите попозже"
+      "codeNull":          "Invalid link. Nothing have been done",
+      "codeDeclined":      "Administrator request was rejected",
+      "codeDeclineError":  "Administrator request was not rejected because of service error, please try again later"
     },
     "restore": {
-      "emailNull":         "Заполните, пожалуйста, email адрес",
-      "emailIncorrect":    "Некорректный email-адрес",
-      "success":           "На ваш email-адрес выслано письмо с инструкциями по восстановлению пароля",
-      "errorErrors":       "Пожалуйста, исправьте ошибки",
-      "errorIncorrect":    "Нет администратора с таким e-mail адресом",
-      "errorDatabase":     "Ошибка сервиса, пожалуйста, повторите позже"
+      "emailNull":         "Please, fill up email-address",
+      "emailIncorrect":    "Incorrect email-address",
+      "success":           "Password restore instructions were sent to your email-address",
+      "errorErrors":       "Please, fix all errors",
+      "errorIncorrect":    "There are no administrator with such email",
+      "errorDatabase":     "Service error, please try again later"
     },
     "newPassword": {
-      "codeNull":          "Ссылка на восстановления пароля не валидна.",
-      "passwordLength":    "Пароль должен быть не менее 6 и не более 50 символов",
-      "passwordsNotEqual": "Пароли должны совпадать",
-      "errorErrors":       "Пожалуйста, исправьте ошибки",
-      "errorDatabase":     "Ошибка сервиса, пожалуйста, повторите позже",
-      "errorIncorrect":    "Код для восстановления пароля невалиден",
-      "passwordSet":       "Пароль сменён успешно. Вы можете войти в систему, используя новые данные",
-      "codeApplyError":    "Запрос администратора не был одобрен из-за ошибки сервиса, пожалуйста, повторите попозже"
+      "codeNull":          "Password restore link is invalid or expired",
+      "passwordLength":    "Password should not be less than 6 and more than 50 symbols",
+      "passwordsNotEqual": "Both passwords should be the same",
+      "errorErrors":       "Please, fix all errors",
+      "errorDatabase":     "Service error, please try again later",
+      "errorIncorrect":    "Password restore link is invalid or expired",
+      "passwordSet":       "New password saved. You can login using new credentials."
     }
   },
   "restricted": {
     "graduates": {
-      "errorDatabase":     "Ошибка сервиса, пожалуйста, зайдите на страницу позже"
+      "errorDatabase":     "Service error, please try again later"
     },
     "graduate": {
       "save": {
-        "fullNameNull":      "Имя не может быть пустым",
-        "imgNull":           "Добавьте изображение",
-        "imgWrongType":      "Можно использовать только jpeg и png изображения",
-        "occupancyNull":     "Укажите должность",
-        "leadNull":          "Заглавная цитата не может быть пустой",
-        "fullLeadNull":      "Полная цитата не может быть пустой",
-        "textNull":          "Отзыв не может быть пустым",
-        "success":           "Данные сохранены",
-        "errorErrors":       "Пожалуйста, исправьте ошибки",
-        "errorDatabase":     "Ошибка сервиса, пожалуйста, повторите позже"
+        "fullNameNull":      "Full name cannot be empty",
+        "imgNull":           "Please add an image",
+        "imgWrongType":      "You can use only jpeg and png images",
+        "occupancyNull":     "Please, fill up occupancy",
+        "leadNull":          "Lead cannot be empty",
+        "fullLeadNull":      "Full lead cannot be empty",
+        "textNull":          "Text cannot be empty",
+        "success":           "Graduate form saved successfully",
+        "errorErrors":       "Please, fix all errors",
+        "errorDatabase":     "Service error, please try again later"
       },
       "delete": {
-        "success1":          "Запись выпускника №",
-        "success2":          " успешно удалена.",
-        "error1":            "Запись выпускника №",
-        "error2":            " не была удалена, ошибка сервера."
+        "success":          "Graduate record №%d successfully removed.",
+        "error":            "Service error. Graduate record №%d cannot be removed."
       }
     }
   }

@@ -2,28 +2,28 @@
  * Admin request validator
  */
 var validator = require('validator');
-var messages =  require('../../messages/validation');
+var message = require('../utils/message');
 
 module.exports = {
-
-  requestValidator: function(form) {
+  
+  requestValidator: function(form, locale) {
     var errors = {};
     if(validator.isNull(form.email)) {
-      errors.email = messages.admin.register.emailNull;
+      errors.email = message.msg('validation.admin.register.emailNull', locale);
     } else if (!validator.isEmail(form.email)) {
-      errors.email = messages.admin.register.emailIncorrect;
+      errors.email = message.msg('validation.admin.register.emailIncorrect', locale);
     }
     if(!validator.isLength(form.password, 6, 50)) {
-      errors.password = messages.admin.register.passwordLength;
+      errors.password = message.msg('validation.admin.register.passwordLength', locale);
     }
     if(form.password != form.passwordRepeated) {
-      errors.passwordRepeated = messages.admin.register.passwordsNotEqual;
+      errors.passwordRepeated = message.msg('validation.admin.register.passwordsNotEqual', locale);
     }
     if(validator.isNull(form.firstName)) {
-      errors.firstName = messages.admin.register.firstNameNull;
+      errors.firstName = message.msg('validation.admin.register.firstNameNull', locale);
     }
     if(validator.isNull(form.lastName)) {
-      errors.lastName = messages.admin.register.lastNameNull;
+      errors.lastName = message.msg('validation.admin.register.lastNameNull', locale);
     }
 
     if (Object.keys(errors).length > 0) {

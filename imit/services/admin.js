@@ -48,7 +48,7 @@ var findRequest = function(code) {
 
 module.exports = {
 
-  saveRequest: function(request) {
+  saveRequest: function(request, locale) {
     var deferred = q.defer();
     var encodePromise = crypt.encode(request.password);
     encodePromise.then(function(password) {
@@ -60,7 +60,7 @@ module.exports = {
           console.log("Saving request error:" + err);
           deferred.reject(err);
         } else {
-          notify.process(request, 'review-request');
+          notify.process(request, 'review-request', locale);
           deferred.resolve(res);
         }
       });
@@ -71,7 +71,7 @@ module.exports = {
     return deferred.promise;
   },
 
-  applyRequest: function(code) {
+  applyRequest: function(code, locale) {
     var deferred = q.defer();
     var tx = begin(db);
     var data = [];
@@ -101,7 +101,7 @@ module.exports = {
               } else {
                 var promise = findRequest(code);
                 promise.then(function(data) {
-                  notify.process(data, 'request-applied');
+                  notify.process(data, 'request-applied', locale);
                 }, function(err) {
                   console.log("Cannot retrieve request data from db");
                 });
@@ -115,7 +115,7 @@ module.exports = {
     return deferred.promise;
   },
 
-  declineRequest: function(code) {
+  declineRequest: function(code, locale) {
     var deferred = q.defer();
     db.query(SQL_DECLINE_REQUEST, [code], function(err, res) {
       if (err) {
@@ -127,7 +127,7 @@ module.exports = {
         }
         var promise = findRequest(code);
         promise.then(function(data) {
-          notify.process(data, 'request-declined');
+          notify.process(data, 'request-declined', locale);
         }, function(err) {
           console.log("Cannot retrieve request data from db");
         });
@@ -155,7 +155,7 @@ module.exports = {
     return deferred.promise;
   },
 
-  restorePassword : function(email) {
+  restorePassword : function(email, locale) {
     var deferred = q.defer();
     var code = crypto.randomBytes(20).toString('hex');
     db.query(SQL_ADD_RESTORE_CODE, [code, email], function(err, res) {
@@ -170,7 +170,7 @@ module.exports = {
             code: code,
             email: email
           };
-          notify.process(data, 'password-restore');
+          notify.process(data, 'password-restore', locale);
           deferred.resolve(email);
         }
       }
@@ -178,7 +178,7 @@ module.exports = {
     return deferred.promise;
   },
 
-  newPassword: function(code, password) {
+  newPassword: function(code, password, locale) {
     var deferred = q.defer();
     db.query(SQL_FIND_ADMIN_BY_CODE, [code], function(err, res) {
       if (err) {
@@ -195,7 +195,7 @@ module.exports = {
                 console.log("Setting new password error:" + err);
                 deferred.reject(err);
               } else {
-                notify.process(data, 'password-changed');
+                notify.process(data, 'password-changed', locale);
                 deferred.resolve(res);
               }
             });

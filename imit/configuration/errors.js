@@ -2,13 +2,6 @@
  * Errors configuration
  */
 var settings = require('./settings');
-var sessionUtils = require('../web/utils/session');
-var messages = require('../messages/common');
-
-
-// Redirect forbidden errors in protected space
-var protectedUri = '/admin/restricted';
-var redirectUri = '/admin/login';
 
 module.exports = {
 
@@ -31,11 +24,6 @@ module.exports = {
     // will print stacktrace
     if (settings.ENV === 'dev') {
       app.use(function(err, req, res, next) {
-        // redirect 403 in protected area
-        if (res.statusCode === 403 && req.url.indexOf(protectedUri) === 0) {
-          sessionUtils.setMessage({error: messages.forbidden.error}, req);
-          res.redirect(redirectUri + '?originalUrl=' + req.originalUrl);
-        }
         res.status(err.status || 500);
         res.render('error', {
           message: err.message,

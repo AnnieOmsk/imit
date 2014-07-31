@@ -4,7 +4,7 @@
 var validator = require('../../../services/validators/request');
 var service = require('../../../services/admin');
 var settings = require('../../../configuration/settings');
-var messages = require('../../../messages/validation');
+var message = require('../../../services/utils/message');
 var Request = require('../../../models/request');
 var sessionUtils = require('../../utils/session');
 
@@ -16,10 +16,11 @@ module.exports = {
 
   postJson: function(req, res) {
     var form = req.body;
-    var errors = validator.requestValidator(form);
+    var locale = req.session.locale;
+    var errors = validator.requestValidator(form, locale);
     if (errors != null) {
       res.json({
-        errorMessage: messages.admin.register.errorErrors,
+        errorMessage: message.msg('validation.admin.register.errorErrors', locale),
         errors: errors
       });
     } else {
@@ -28,20 +29,21 @@ module.exports = {
       adminRequest.firstName = form.firstName;
       adminRequest.lastName = form.lastName;
       adminRequest.password = form.password;
-      var promise = service.saveRequest(adminRequest);
+      var promise = service.saveRequest(adminRequest, locale);
       promise.then(function(){
-        sessionUtils.setMessage({success: messages.admin.register.success}, req);
+        var successMessage = message.msg('validation.admin.register.success', locale);
+        sessionUtils.setMessage({success: successMessage}, req);
         var redirectUrl = settings.SITE_ADDRESS + "/admin/login";
         res.json({
-          successMessage: messages.admin.register.success,
+          successMessage: successMessage,
           redirectUrl: redirectUrl
         });
       }, function(err) {
         var errorMessage;
         if (err.code == 'ER_DUP_ENTRY') {
-          errorMessage = messages.admin.register.errorDuplicate;
+          errorMessage = message.msg('validation.admin.register.errorDuplicate', locale);
         } else {
-          errorMessage = messages.admin.register.errorDatabase;
+          errorMessage = message.msg('validation.admin.register.errorDatabase', locale);
         }
         res.json({
           errorMessage: errorMessage
@@ -52,32 +54,34 @@ module.exports = {
 
   apply: function(req, res) {
     var code = req.query.code;
+    var locale = req.session.locale;
     if (code == null) {
-      sessionUtils.setMessage({error: messages.admin.apply.codeNull}, req);
+      sessionUtils.setMessage({error: message.msg('validation.admin.apply.codeNull', locale)}, req);
       res.redirect('login');
     }
-    var promise = service.applyRequest(code);
+    var promise = service.applyRequest(code, locale);
     promise.then(function(data) {
-      sessionUtils.setMessage({success: messages.admin.apply.codeApplied}, req);
+      sessionUtils.setMessage({success: message.msg('validation.admin.apply.codeApplied', locale)}, req);
       res.redirect('login');
     }, function(err) {
-      sessionUtils.setMessage({error: messages.admin.apply.codeApplyError}, req);
+      sessionUtils.setMessage({error: message.msg('validation.admin.apply.codeApplyError', locale)}, req);
       res.redirect('login');
     });
   },
 
   decline: function(req, res) {
     var code = req.query.code;
+    var locale = req.session.locale;
     if (code == null) {
-      sessionUtils.setMessage({error: messages.admin.decline.codeNull}, req);
+      sessionUtils.setMessage({error: message.msg('validation.admin.decline.codeNull', locale)}, req);
       res.redirect('login');
     }
-    var promise = service.declineRequest(code);
+    var promise = service.declineRequest(code, locale);
     promise.then(function(data) {
-      sessionUtils.setMessage({success: messages.admin.decline.codeDeclined}, req);
+      sessionUtils.setMessage({success: message.msg('validation.admin.decline.codeDeclined', locale)}, req);
       res.redirect('login');
     }, function(err) {
-      sessionUtils.setMessage({error: messages.admin.decline.codeDeclineError}, req);
+      sessionUtils.setMessage({error: message.msg('validation.admin.decline.codeDeclineError', locale)}, req);
       res.redirect('login');
     });
   }

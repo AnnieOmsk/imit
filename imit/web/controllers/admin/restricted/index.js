@@ -3,7 +3,7 @@
  */
 var service = require('../../../../services/graduate');
 var settings = require('../../../../configuration/settings');
-var messages = require('../../../../messages/validation');
+var message = require('../../../../services/utils/message');
 var sessionUtils = require('../../../utils/session');
 
 module.exports = {
@@ -18,7 +18,7 @@ module.exports = {
       });
     }, function(err) {
       res.render('admin/restricted/dashboard', {
-        errors: {error: messages.restricted.graduates.errorDatabase},
+        errors: {error: message.msg('validation.restricted.graduates.errorDatabase', req.session.locale)},
         graduates: null,
         flashMessage: message
       });
