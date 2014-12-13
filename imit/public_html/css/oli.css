@@ -1,0 +1,12 @@
+.oli-photo {
+margin: 40px 20px 20px 20px;
+width: 334px;
+height: auto;
+display: inline-block;
+}
+h3.oli-text {
+float: right;
+width: 600px;
+margin-top: 110px;
+display: inline-block;
+}
